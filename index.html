@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="css/evelyn.css">
     <title>Evelyn Oldfield Unit Kitchen Sink</title>
   </head>
   <body id="home">
@@ -15,10 +15,10 @@
 
     <header>
       <nav class="top-nav">
-        <img class="logo" id="nav-logo" alt="Evelyn Oldifeld Unit logo">
+        <a href="index.html"><img class="logo" id="nav-logo" alt="Evelyn Oldfield Unit logo"></a>
         <div class="nav-list">
           <ul class="list-unstyled">
-            <a href="">
+            <a href="about.html">
               <li>Who we are</li>
             </a>
             <a href="">
@@ -48,17 +48,19 @@
 
       <section id="projects">
         <h3 class="subsection-title"></h3>
-        <article class="card" id="e3">
-          <img class="card__img" alt="E3 english class">
-          <p class="meta category">Practical language skills</p>
-          <h4 class="card__title">The E3 Project</h4>
-          <p class="card__text">This free course aims to reduce isolation through English language skills, and is run pan-London.</p>
-          <a class="contact" href="">contact@evelynoldfield.co.uk</a>
-        </article>
-        <article class="card" id="rai"></article>
-        <article class="card" id="iag-probono"></article>
-        <article class="card" id="enhance"></article>
-        <article class="card" id="esol"></article>
+        <section class="grid" id="project-list">
+          <article class="card" id="e3">
+            <img class="card__img" alt="E3 english class">
+            <p class="meta category">Practical language skills</p>
+            <h4 class="card__title">The E3 Project</h4>
+            <p class="card__text">This free course aims to reduce isolation through English language skills, and is run pan-London.</p>
+            <a class="contact" href="">contact@evelynoldfield.co.uk</a>
+          </article>
+          <article class="card" id="rai"></article>
+          <article class="card" id="iag-probono"></article>
+          <article class="card" id="enhance"></article>
+          <article class="card" id="esol"></article>
+        </section>      
       </section>
 
       <section id="news-events">
@@ -164,10 +166,10 @@
       <!-- See eurogamer.net authors or staff pages on how to amend this -->
       <article>
         <img alt="Staff member profile photo">
-        <h5></h5>
-        <p></p><!-- p or h6 tags for any meta (not span since we want block level) -->
-        <p></p>
-        <a></a>
+        <h5>Staff member name</h5>
+        <p>Role (META)</p><!-- p or h6 tags for any meta (not span since we want block level) -->
+        <p>Brief bio</p>
+        <a>contact@evelynoldfield.co.uk</a>
       </article>
     </section>
     
@@ -201,22 +203,32 @@
     </aside>
 
 
+    <section class="post-content">
+      <!-- Note that the post title and meta go dynamically into the header, this section is pure the post content -->
+      <img class="img-wide" src="">
+      <p>Some blog post paragraph</p>
+      <blockquote><q>Quotation of something, probably a comment.</q></blockquote>
+      <p>More paragraph loveliness under the quote</p>
+      <
+    </section>
+
+
     <nav class="blog-nav">
       <!-- don't need specific classes for the links, just customised with ".blog-nav > a"-->
       <a class="newer-posts">
         <i></i>
-        <span></span>
-        <h5></h5>
+        <span>Newer post</span>
+        <h5>Title of newer post</h5>
       </a>
       <a class="all-posts">
         <i></i>
-        <span></span>
+        <span>Back to top/ See all posts</span>
         <h5></h5>
       </a>
       <a class="older-posts">
         <i></i>
-        <span></span>
-        <h5></h5>
+        <span>Previous post</span>
+        <h5>Title of previous post</h5>
       </a>
     </nav>
     

@@ -1,0 +1,25 @@
+body {
+  font-size: 16px;
+  margin: 1rem;
+  max-width: 1168px;
+  --gutter: 1rem;
+}
+.wrapper {
+  /* the col-count property is just for the testing ground, official classes will have fixed value */
+  --col-count: 2;
+  display: grid;
+  grid-gap: var(--gutter);
+  /* Weird calculation below words out the width of columns required given the number of columns */
+  grid-template-columns: repeat(auto-fit, minmax(calc((1200px - ( var(--gutter) * (var(--col-count) + 1))) / var(--col-count)), 1fr));
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+
+}
