@@ -1,3 +1,13 @@
+/*
+Theme styling
+- Establish defaults for layouts
+- Have custom overrides by class for anything not provided by bootstrap
+- Styling overrides on bootstrap components
+- Custom brand styling
+
+*/
+
+
 /* setup defaults for the content*/
 body {
   font-family: 'Nunito', sans-serif;
@@ -29,10 +39,22 @@ footer {
 
 /* content inside top level blocks should be centered and be constrained */
 /* Everything should be of type display block by default, no inlining; this ensures centering works */
+/* TEMPORARY 
+    Define what exactly should be 75rem, since most content will be 44rem instead
+    1200px should only apply to other layout tags without content inside
+*/
 header > *, footer > *, body > section > *, body > article > *, body > div > *, body > aside {
   margin: 0 auto;
   max-width: 75rem;
   display: block;
+}
+
+/* TEMPORARY
+    44rem will be the default for "content", only layouts will default to 75rem
+    See above css rule for more info  
+*/
+h1, h2, h3, h4, h5, h6, p, .text-width, ul, blockquote {
+  max-width: 44rem !important;
 }
 
 /* remove additional padding on the asides */
@@ -56,12 +78,17 @@ section > *:not(:first-child), article > *:not(:first-child), aside > *:not(:fir
   margin-bottom: 0;
 }
 
-section > section {
+/* nested sections should have extra spacing within them */
+section > section:not(:first-child) {
   margin-top: 2rem;
 }
 
 body > *:nth-child(even) {
   background-color: #fafafa;
+}
+
+img {
+  width: 100%;
 }
 
 .wrapper {
