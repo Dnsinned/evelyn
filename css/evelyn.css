@@ -43,7 +43,7 @@ footer {
     Define what exactly should be 75rem, since most content will be 44rem instead
     1200px should only apply to other layout tags without content inside
 */
-header > *, footer > *, body > section > *, body > article > *, body > div > *, body > aside {
+header > *, footer > *, body > section > *, body > article > *, body > div > *, body > aside > * {
   margin: 0 auto;
   max-width: 75rem;
   display: block;
@@ -62,13 +62,13 @@ body > aside {
   padding: 3rem 0;
 }
 
-/* default behaviour for aside sections */
+/* default behaviour for aside sections 
 aside > * {
   width: 18rem;
   display: inline-block;
   vertical-align:top;
   padding: 1rem 1rem 1rem 0;
-}
+}*/
 
 /* content block separation (spacing between titles, text, images etc) */
 /* arbitrary (non-semantic) blocks like divs are not affected by this, div purely for grouping */
@@ -79,7 +79,7 @@ section > *:not(:first-child), article > *:not(:first-child), aside > *:not(:fir
 }
 
 /* nested sections should have extra spacing within them */
-section > section:not(:first-child) {
+section > section:not(:first-child), div > section:not(:first-child), aside > section:not(:first-child) {
   margin-top: 2rem;
 }
 
