@@ -61,10 +61,34 @@
           <p class="card__text">This free course aims to reduce isolation through English language skills, and is run pan-London.</p>
           <a class="contact" href="">contact@evelynoldfield.co.uk</a>
         </article>
-        <article class="card" id="rai"></article>
-        <article class="card" id="iag-probono"></article>
-        <article class="card" id="enhance"></article>
-        <article class="card" id="esol"></article>
+        <article class="card" id="rai">
+          <img class="card__img" alt="RAI graduation" src="">
+          <p class="meta category">Enabling higher education</p>
+          <h4 class="card__title">The Research for Action and Influence Project</h4>
+          <p class="card__text">Supports BAMER individuals to gain the skills and confidence to be able to research issues affecting their communities</p>
+          <a class="contact" href="">contact@evelynoldfield.co.uk</a>
+        </article>
+        <article class="card" id="iag-probono">
+          <img class="card__img" alt="pro bono session" src="">
+          <p class="meta category">Advice and guidance</p>
+          <h4 class="card__title">IAG &amp Pro bono</h4>
+          <p class="card__text">Free legal advice surgery and advice & guidance services</p>
+          <a class="contact" href="">contact@evelynoldfield.co.uk</a>
+        </article>
+        <article class="card" id="enhance">
+          <img class="card__img" alt="example of desk and computing facilities" src="">
+          <p class="meta category">Capacity building</p>
+          <h4 class="card__title">The Enhance Project</h4>
+          <p class="card__text">Support for Refugee and Migrant Community Organisations (RMCOs) to develop their voice and make a positive impact on their community</p>
+          <a class="contact" href="">contact@evelynoldfield.co.uk</a>
+        </article>
+        <article class="card" id="esol">
+          <img class="card__img" alt="esol class session" src="">
+          <p class="meta category">Practical language skills</p>
+          <h4 class="card__title">ESOL Evening Classes</h4>
+          <p class="card__text">Free evening class for all levels (no entry requirements). Anyone is welcome!</p>
+          <a class="contact" href="">contact@evelynoldfield.co.uk</a>
+        </article>
       </section>
 
       <section id="news-events">
@@ -145,9 +169,14 @@
       <p>The Evelyn Oldfield Unit is an independent, membership-based, charitable organization. Explore our history in a timeline of events below.</p>
       <section id="timeline">
         <article class="timeline__entry">
-          <p></p>
-          <h4></h4>
-          <p></p>
+          <p class="timeline-year">1992</p>
+          <p class="timeline-content">Evelyn Oldfield was one of the first field officers for the City Parochial Foundation and the Trust for London, who died in 1992. Evelyn had devoted her energies to developing a strong and effective voluntary sector in which refugee organisations played a key part. The Evelyn Oldfield Unit is a testament to her vision and commitment.</p>
+        </article>
+        <article class="timeline__entry">
+          <p class="timeline-year">1994</p>
+          <h4 class="timeline-event">Our Founding</h4>
+          <p class="timeline-content">The Unit was established in 1994, by a consortium of funding bodies and agencies which work with refugee community organisations,
+          including City Parochial Foundation, Thames Telethon, London Borough Grants, the Refugee Working Party and the Refugee Council.</p>
         </article>
       </section>
     </section>
@@ -156,20 +185,37 @@
     <section id="reports">
       <h2 class="section__title">Resources &amp Reports</h2>
       <section id="current-docs">
-        <a href="" id="current-report">
-          <article></article>
+        <a href="" id="current-report" class="card">
+          <article>
+            <h5 class="text-primary">Annual Report 2017</h5>
+            <div class="file-info">
+              <span class="file-meta">PDF, 1.3MB</span>
+              <i>DL-icon</i>
+            </div>
+          </article>
         </a>
-        <a href="" id="service-booklet">
-          <article></article>
+        <a href="" id="service-booklet" class="card">
+          <article>
+            <h5 class="text-primary">Service Booklet</h5>
+            <div class="file-info">
+              <span class="file-meta">PDF, 697KB</span>
+              <i>DL-icon</i>
+            </div>
+          </article>
         </a>
       </section>
-      <ul>
-        <li>
-          <a></a>
-          <span></span>
-          <i></i>
-        </li>
-      </ul>
+      <div class="list-group" id="reports-list">
+        <a href="" class="list-group-item list-group-item-action">
+          <span class="report-name text-primary">Annual Report 2016</span>
+          <span class="file-meta"> PDF, 1.2MB</span>
+          <i>DL-icon</i>
+        </a>
+        <a href="" class="list-group-item list-group-item-action">
+          <span class="report-name text-primary">Annual Report 2015</span>
+          <span class="file-meta"> PDF, 1.2MB</span>
+          <i>DL-icon</i>
+        </a>
+      </div>
     </section>
 
 
@@ -178,10 +224,12 @@
       <!-- See eurogamer.net authors or staff pages on how to amend this -->
       <article>
         <img alt="Staff member profile photo">
-        <h5></h5>
-        <p></p><!-- p or h6 tags for any meta (not span since we want block level) -->
-        <p></p>
-        <a></a>
+        <h5>Staff member name</h5>
+        <p>Staff member role</p><!-- p or h6 tags for any meta (not span since we want block level) -->
+        <p>Shortened bio for the staff member. What their role is in the EOU and what they’ve done before. Briefly!</p>
+        <a class="contact email" href="">
+          evelyn@evelynoldfield.co.uk
+        </a>
       </article>
     </section>
     
@@ -253,7 +301,12 @@
         <h2 class="section__title">Where to find us</h2>
         <article id="address">
           <h4>We're located at</h4>
-          <p id="address-details">Evelyn Oldfield Unit <br> Resource for London <br> 356 Holloway Road <br> London <br> N7 6PA</p>
+          <p id="address-details">Evelyn Oldfield Unit
+            <br> Resource for London
+            <br> 356 Holloway Road
+            <br> London
+            <br> N7 6PA
+          </p>
           <p>We’re open weekdays, 9am to 5pm</p>
           <p>Once you are inside, ask the person at the reception to call us and we will come downstairs to welcome you.</p>
         </article>
@@ -271,7 +324,7 @@
         </article>
         <section class="gmaps">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2480.6851026196905!2d-0.11605599999999998!3d51.555673!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b751548fb89%3A0x185cc2f4e6aae095!2sResource+For+London!5e0!3m2!1sen!2suk!4v1425556067763"
-            width="1000" height="600" frameborder="0" style="border:0"></iframe>
+            width="100%" height="600" frameborder="0" style="border:0"></iframe>
         </section>
       </section>
     </section>
@@ -295,8 +348,41 @@
           </li>
         </ul>
       </section>
-      <section id="links-projects"></section>
-      <section id="links-contact"></section>
+      <section id="links-projects">
+        <h5>Projects</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a>The Enhance Project</a>
+          </li>
+          <li>
+            <a>IAG &amp Pro Bono</a>
+          </li>
+          <li>
+            <a>The E3 Project</a>
+          </li>
+          <li>
+            <a>Research for Action &amp Influence</a>
+          </li>
+          <li>
+            <a>ESOL Evening Class</a>
+          </li>
+        </ul>
+      </section>
+      <section id="links-contact">
+        <h5>Get in touch</h5>
+        <p>Evelyn Oldfield Unit
+          <br> Resource for London
+          <br> 356 Holloway Road
+          <br> London
+          <br> N7 6PA
+        </p>
+        <a class="contact phone" href="">
+          020 7697 4100
+        </a>
+        <a class="contact email" href="">
+          evelyn@evelynoldfield.co.uk
+        </a>
+      </section>
       <section id="copyright"></section>
     </footer>
     
