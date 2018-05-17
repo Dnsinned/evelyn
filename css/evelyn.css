@@ -17,6 +17,7 @@ body {
   flex-direction: column;
   --gutter: 1.25rem;
   --col-count: 1;
+  --container-size: 1200px;
 }
 
 /* define usage of title font */
@@ -76,7 +77,8 @@ aside > * {
 /* arbitrary (non-semantic) blocks like divs are not affected by this, div purely for grouping */
 /* subsections defined by ONLY the <section> tag is also not affected, it follows next rule */
 /* BUG! aside should only be affected where its children are stacked vertically! */
-section > *:not(:first-child):not(section), article > *:not(:first-child):not(section), aside > *:not(:first-child):not(section) {
+/* NEEDS FIXING - target specific content blocks - means making more classes specifically for content */
+.pgraf {
   margin-top: 1rem;
   margin-bottom: 0;
 }
@@ -104,7 +106,6 @@ img {
   display: grid;
   flex-wrap: wrap;
   grid-gap: var(--gutter);
-  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -122,6 +123,10 @@ img {
   --col-count: 5;
 }
 
+.grid-multi-narrow {
+  --container-size: 704px;
+}
+
 .grid-multi-item {
   width: 100%;
   flex: 0 0 100%;
@@ -136,7 +141,7 @@ img {
 @media (min-width: 576px) {
   .grid-multi {
     margin-right: -1rem;
-    grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count) + 1)), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--container-size) / calc(var(--col-count) + 1)), 1fr));
   }
   @supports (display: grid) {
     .grid-multi {
@@ -169,6 +174,36 @@ img {
     margin: 0;
   }
 } 
+
+.card {
+  border-radius: 0.875rem;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  border: none;
+}
+
+.card-img-top {
+  border-top-left-radius: 0.875rem;
+  border-top-right-radius: 0.875rem;
+}
+
+.card-img-bottom {
+  border-bottom-left-radius: 0.875rem;
+  border-bottom-right-radius: 0.875rem;
+}
+
+.card-img-overlay {
+  border-radius: 0.875rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat__figure {
+  font-size: 5rem;
+  color: #107180;
+}
+
 
 /* Old calculation which defines the exact width of each column at the breakpoint but doesn't scale */
 .wrapper {
