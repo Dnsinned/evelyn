@@ -104,7 +104,6 @@ img {
   display: grid;
   flex-wrap: wrap;
   grid-gap: var(--gutter);
-  grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count) + 1)), 1fr));
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -124,7 +123,7 @@ img {
 }
 
 .grid-multi-item {
-  max-width: 100%;
+  width: 100%;
   flex: 0 0 100%;
   margin-top: 0;
 }
@@ -137,6 +136,7 @@ img {
 @media (min-width: 576px) {
   .grid-multi {
     margin-right: -1rem;
+    grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count) + 1)), 1fr));
   }
   @supports (display: grid) {
     .grid-multi {
