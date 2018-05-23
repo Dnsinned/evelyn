@@ -1,0 +1,238 @@
+/*
+Theme styling
+- Establish defaults for layouts
+- Have custom overrides by class for anything not provided by bootstrap
+- Styling overrides on bootstrap components
+- Custom brand styling
+
+*/
+
+/* setup defaults for the content*/
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  --gutter: 2rem;
+  --col-count: 1;
+  --container-size: 1200px;
+}
+
+/* define usage of title font */
+
+h1, h2, h3, h4, h5, h6, .btn, button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+/* top level layout block styles */
+
+/* give each top level block some padding */
+
+header {
+  padding-top: 0;
+}
+
+footer {
+  padding-bottom: 1rem;
+}
+
+main>section {
+  padding: 2.5rem 0;
+}
+
+/* default (hybrid) grid */
+
+.grid {
+  --margin: 1rem;
+  display: grid;
+  /* making itself column: viewport allows nesting of grids, if no grid parent, does nothing */
+  grid-column: viewport;
+  grid-template-columns: [viewport-start] minmax(1em, 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(auto, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(1em, 1fr) [viewport-end];
+}
+
+/* grid specifically for post-like content - deprecate, use nesting instead*/
+
+.grid-content {
+  grid-template-columns: [viewport-start] minmax(var(--margin), 1fr) [container-start] minmax(auto, 45rem) [container-end] minmax(var(--margin), 1fr) [viewport-end];
+}
+
+/* grid column classes */
+
+.item-contained {
+  grid-column: container;
+}
+
+.item-content {
+  grid-column: content;
+}
+
+.item-full {
+  grid-column: viewport;
+  display: inherit;
+  grid-template-columns: inherit;
+}
+
+.item-full>* {
+  grid-column: container;
+}
+
+.item-full>.item-content {
+  grid-column: content;
+}
+
+@media (min-width: 768px) {
+  main>section {
+    padding: 4rem 0;
+  }
+}
+
+/* 
+on large displays need to limit content to 1200px (including margins)
+fix content to 45rem, cap container to 15rem a side 
+note that the viewport INCLUDES the scrollbar, but content is still squished by it 
+*/
+
+@media (min-width: 1200px) {
+  .grid, .grid-content {
+    /* grid-content is deprecated */
+    grid-template-columns: [viewport-start] minmax(1em, 1fr) [container-start] minmax(0, 14rem) [content-start] 45rem [content-end] minmax(0, 14rem) [container-end] minmax(1em, 1fr) [viewport-end];
+  }
+}
+
+/* class for container that can accommodate any number of child blocks */
+
+.grid-multi {
+  display: flex;
+  display: grid;
+  flex-wrap: wrap;
+  grid-gap: var(--gutter);
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.section__title+.grid-multi {
+  margin-top: 1rem;
+}
+
+/* 
+styles needed for grid-multi with n columns per row 
+CURRENT ISSUE WITH BREAKPOINTS AND column count calculation
+*/
+
+.grid-multi-2 {
+  --col-count: 2;
+  /* works best with 3 */
+}
+
+.grid-multi-3 {
+  --col-count: 3;
+}
+
+.grid-multi-4 {
+  --col-count: 4;
+  /* works best with 3, then at breakpoint-1200 move to 4 */
+}
+
+.grid-multi-5 {
+  --col-count: 5;
+}
+
+.grid-multi-narrow {
+  --container-size: 720px;
+}
+
+.grid-multi-item {
+  width: 100%;
+  flex: 0 0 100%;
+  margin-top: 0;
+}
+
+/* If the number of elements is a fixed number (equal to the column count), spread them apart evenly */
+
+.grid-multi-fixed {
+  justify-content: space-around;
+}
+
+@media (min-width: 576px) {
+  .grid-multi {
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--container-size, 1200px) / calc(var(--col-count,1) + 1)), 1fr));
+  }
+  /*@supports (display: grid) {
+    .grid-multi {
+       margin-right: auto; 
+    }
+  }*/
+  .grid-multi-item {
+    flex: 0 0 calc(50% - 1rem);
+    margin: 0 1rem 1rem 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-multi-3>.grid-multi-item {
+    flex: 0 0 calc(33.33% - 1rem);
+  }
+  .grid-multi-4>.grid-multi-item {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+@media (min-width: 992px) {
+  .grid-multi-4>.grid-multi-item {
+    flex: 0 0 calc(25% - 1rem);
+  }
+  .grid-multi-5>.grid-multi-item {
+    flex: 0 0 calc(20% - 1rem);
+  }
+}
+
+@media (min-width: 1200px) {}
+
+@supports (display: grid) {
+  .grid-multi-item {
+    margin: 0;
+  }
+  /* .grid-multi-2, .grid-multi-3, .grid-multi-4, .grid-multi-5 {
+    
+  } */
+}
+
+/* Component styles */
+
+.card {
+  border-radius: 0.875rem;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  border: none;
+}
+
+.card-img-top {
+  border-top-left-radius: 0.875rem;
+  border-top-right-radius: 0.875rem;
+}
+
+.card-img-bottom {
+  border-bottom-left-radius: 0.875rem;
+  border-bottom-right-radius: 0.875rem;
+}
+
+.card-img-overlay {
+  border-radius: 0.875rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat__figure {
+  font-size: 5rem;
+  color: #107180;
+}
+
+/* Old calculation which defines the exact width of each column at the breakpoint but doesn't scale */
+
+.wrapper {
+  grid-template-columns: repeat(auto-fit, minmax(calc((1200px - ( var(--gutter) * (var(--col-count) + 1))) / var(--col-count)), 1fr));
+}
