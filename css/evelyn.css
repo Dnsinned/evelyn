@@ -52,6 +52,14 @@ main>section {
   padding: 2.5rem 0;
 }
 
+img {
+  max-width: 100%;
+}
+
+img + p {
+  margin-top: 1rem;
+}
+
 @media (min-width: 1200px) {
   main>section {
     padding: 4rem 0;
@@ -186,8 +194,10 @@ USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is super
 .l-item-contain, .l-item-content {
   width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
-  padding: 0 var(--page-margin, 1rem);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-left: var(--page-margin, 1rem);
+  padding-right: var(--page-margin, 1rem);
 }
 
 @media (min-width: 1200px) {
@@ -347,4 +357,13 @@ Some predefined layouts are given
 
 .section-header {
   padding: 4rem 0;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat__figure {
+  font-size: 5rem;
+  color: #107180;
 }
