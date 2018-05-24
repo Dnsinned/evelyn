@@ -156,7 +156,7 @@ Container classes
   but still have constrained content
 */
 
-.l-grid-container {
+.l-container {
   /* default */
   display: block;
   width: 100%;
@@ -173,14 +173,14 @@ Container classes
 
 /* contained items fit into a maximum of 1200px == 75rem */
 
-.l-item-contain {
+.l-container--wide {
   max-width: 75rem;
   grid-column: container;
 }
 
 /* content items fit into a maximum of 720px == 45rem, content usually refers to text-width */
 
-.l-item-content {
+.l-container--content {
   max-width: 45rem;
   grid-column: content;
 }
@@ -191,7 +191,7 @@ Make sure they are centered and have page margins for readability
 USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is superset of custom properties
 */
 
-.l-item-contain, .l-item-content {
+.l-container--wide, .l-container--content {
   width: 100%;
   margin: 0 auto;
   padding-left: 1rem;
@@ -201,7 +201,7 @@ USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is super
 }
 
 @media (min-width: 1200px) {
-  .l-grid-container {
+  .l-container {
     grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 14rem) [content-start] 45rem [content-end] minmax(0, 14rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
   }
 }
@@ -209,7 +209,7 @@ USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is super
 /* Flexbox takes control of centering */
 
 @supports (display: flex) {
-  .l-grid-container, .l-item-contain, .l-item-content {
+  .l-container, .l-container--wide, .l-container--content {
     margin: 0;
   }
 }
@@ -217,7 +217,7 @@ USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is super
 /* grid-template takes care of widths, page margins, centering */
 
 @supports (display: grid) {
-  .l-grid-container, .l-item-contain, .l-item-content {
+  .l-container, .l-container--wide, .l-container--content {
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
@@ -236,18 +236,18 @@ Some predefined layouts are given
 - One-dimensional row with wrap after N columns, where N > 1
 */
 
-.l-grid-multi, .l-grid-multi_auto {
+.l-grid-multi, .l-grid-multi-wrap {
   display: flex;
   display: grid;
   flex-wrap: wrap;
-  grid-gap: var(--gutter);
+  grid-gap: var(--gutter, 1rem);
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
 
 /* inline-block is ignored if flexbox or css grid is supported */
 
-.l-grid-item {
+.l-grid--item {
   width: 100%;
   flex: 0 0 100%;
   margin-top: 0;
@@ -273,14 +273,14 @@ Some predefined layouts are given
 /* Landscape mobile */
 
 @media (min-width: 576px) {
-  .l-grid-item {
+  .l-grid--item {
     margin: 0 1rem 1rem 0;
     margin: 0 var(--gutter, 1rem) var(--gutter, 1rem) 0;
   }
   .l-grid-multi-2, .l-grid-multi-3, .l-grid-multi-4, .l-grid-multi-5 {
     grid-template-columns: repeat(2, 1fr);
   }
-  .l-grid-multi-2>.l-grid-item, .l-grid-multi-3>.l-grid-item, .l-grid-multi-4>.l-grid-item, .l-grid-multi-5>.l-grid-item {
+  .l-grid-multi-2>.l-grid--item, .l-grid-multi-3>.l-grid--item, .l-grid-multi-4>.l-grid--item, .l-grid-multi-5>.l-grid--item {
     max-width: 47%;
     flex: 0 0 calc(50% - 1rem);
     flex: 0 0 calc(50% - var(--gutter, 1rem));
@@ -297,7 +297,7 @@ Some predefined layouts are given
   .l-grid-multi-3, .l-grid-multi-5 {
     grid-template-columns: repeat(3, 1fr);
   }
-  .l-grid-multi-3>.l-grid-item, .l-grid-multi-5>.l-grid-item {
+  .l-grid-multi-3>.l-grid--item, .l-grid-multi-5>.l-grid--item {
     max-width: 31%;
     flex: 0 0 calc(33.33% - 1rem);
     flex: 0 0 calc(33.33% - var(--gutter, 1rem));
@@ -313,12 +313,12 @@ Some predefined layouts are given
   .l-grid-multi-5 {
     grid-template-columns: repeat(5, 1fr);
   }
-  .l-grid-multi-4>.l-grid-item {
+  .l-grid-multi-4>.l-grid--item {
     max-width: 23%;
     flex: 0 0 calc(25% - 1rem);
     flex: 0 0 calc(25% - var(--gutter, 1rem));
   }
-  .l-grid-multi-5>.l-grid-item {
+  .l-grid-multi-5>.l-grid--item {
     max-width: 18%;
     flex: 0 0 calc(20% - 1rem);
     flex: 0 0 calc(20% - var(--gutter, 1rem));
@@ -326,23 +326,23 @@ Some predefined layouts are given
 }
 
 @supports (display: flex) {
-  .l-grid-multi>.l-grid-item {
+  .l-grid-multi>.l-grid--item {
     max-width: 100%;
   }
 }
 
 @supports (display: grid) {
-  .l-grid-multi, .l-grid-multi_auto {
+  .l-grid-multi, .l-grid-multi-wrap {
     margin-right: 0;
   }
-  .l-grid-multi>.l-grid-item {
+  .l-grid-multi>.l-grid--item {
     width: 100%;
     margin: 0;
   }
-  .l-grid-multi_auto {
+  .l-grid-multi-wrap {
     grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count, 1) + 1)), 1fr));
   }
-  .l-grid-multi_auto>.l-grid-item {
+  .l-grid-multi-wrap>.l-grid--item {
     max-width: 100%;
   }
 }
@@ -355,15 +355,20 @@ Some predefined layouts are given
 
 /* Component styling */
 
-.section-header {
+/* The hero section - banner */
+.c-section-header {
   padding: 4rem 0;
 }
 
-.stat {
+.c-stat {
   text-align: center;
 }
 
-.stat__figure {
+.c-stat--figure {
   font-size: 5rem;
   color: #107180;
+}
+
+.c-stat--info {
+  font-size: 1.125rem;
 }
