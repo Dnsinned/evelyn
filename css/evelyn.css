@@ -59,7 +59,7 @@ img {
   max-width: 100%;
 }
 
-img + p {
+img+p {
   margin-top: 1rem;
 }
 
@@ -361,25 +361,73 @@ header.banner {
   color: white;
 }
 
-.c-section-header {
+.section-header {
   padding: 4rem 0;
 }
 
-.c-stat {
+.stat {
   text-align: center;
 }
 
-.c-stat--figure {
+.stat--figure {
   font-size: 5rem;
   color: #107180;
 }
 
-.c-stat--info {
+.stat--info {
   font-size: 1.125rem;
 }
 
 nav .btn.donate {
   margin-top: 1rem;
+}
+
+/* Custom card-like component specifically for profiles (photo with text snippet) */
+
+.profile {
+  --image-size: 4rem;
+  display: flex;
+  display: grid;
+  grid-template-columns: calc(var(--image-size) + 1.25rem) 1fr;
+  grid-template-areas: "photo details"
+}
+
+.profile>* {
+  /* Immediate descendents: photo and details */
+  display: inline-block;
+  vertical-align:top;
+}
+
+.profile--photo {
+  grid-area: photo;
+  margin-right: 1.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 64px;
+  height: 64px;
+}
+
+.profile--details {
+  width: 75%;
+  flex: 3 1 auto;
+  grid-area: details;
+  padding: 0 1.25rem;
+}
+
+/*.profile .name {}
+
+.profile .role {}
+
+.profile .bio {}*/
+
+@media (min-width: 768px) {
+  .profile {
+    --image-size: 6rem;
+  }
+  .profile--photo {
+    width: 96px;
+    height: 96px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -390,33 +438,39 @@ nav .btn.donate {
   }
 }
 
-
+@supports (display: grid) {
+  .profile--details {
+    width: 100%;
+  }
+}
 /* Bootstrap component style overrides */
 
 /* Bootstrap cards customisations */
 
 .card {
   border-radius: 12px;
-  border-radius: var(--corner-size);
+  border-radius: var(--corner-size, 12px);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
   border: none;
   transition-duration: 100ms;
-  transition-duration: var(--transition-time);
+  transition-duration: var(--transition-time, 100ms);
 }
 
 .card-img-top {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  border-top-left-radius: var(--corner-size);
-  border-top-right-radius: var(--corner-size);
+  border-top-left-radius: var(--corner-size 12px);
+  border-top-right-radius: var(--corner-size 12px);
 }
 
 .card-img-bottom {
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
-  border-top-left-radius: var(--corner-size);
-  border-top-right-radius: var(--corner-size);
+  border-top-left-radius: var(--corner-size 12px);
+  border-top-right-radius: var(--corner-size 12px);
 }
+
+/* conservative minimum height to minimise image loading jankiness */
 
 .card--img {
   min-height: 200px;
@@ -427,8 +481,10 @@ a.card {
   text-decoration: none;
 }
 
+/* consider using a mixin */
+
 .card:hover, .card:active, .card:focus {
-  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.24), 0px 2px 28px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.24), 0px 2px 40px 0px rgba(0, 0, 0, 0.12);
   transform: translateY(-0.1rem)
 }
 
@@ -440,7 +496,7 @@ e.g. a.card implies a card that is in itself a link
 
 a.card i, a.list-group-item i {
   color: #007bff;
-  color: var(--link-color);
+  color: var(--link-color, #007bff);
   text-decoration: none;
 }
 
