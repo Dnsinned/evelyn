@@ -19,35 +19,51 @@
 
 <body id="home">
 
-
-  <header class="l-container">
-    <nav class="l-container--wide top-nav">
-      <a href="index.html">
-        <img class="logo" id="nav-logo" alt="Evelyn Oldfield Unit logo">
-      </a>
-      <div class="nav-list">
-        <ul class="list-unstyled">
-          <a href="about.html">
-            <li>Who we are</li>
-          </a>
-          <a href="project.html">
-            <li>What we do</li>
-          </a>
-          <a href="">
-            <li>News &amp Events</li>
-          </a>
-          <a href="">
-            <li>Support us</li>
-          </a>
-          <a href="">
-            <li>Contact</li>
-          </a>
-        </ul>
-      </div>
-      <a class="btn btn-primary donate" href="">Donate</a>
-    </nav>
-    <h3 class="l-container--content">Welcome to the Evelyn Oldfield Unit</h3>
-    <h1 class="l-container--content">Enabling BAMER communities for nearly 25 years</h1>
+  <header class="l-container banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/FMTB3293.JPG'); color: white; max-height: 80vh;">
+    <div class="l-container">
+      <nav class="l-container--wide navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">
+          <img class="logo" id="nav-logo" alt="Evelyn Oldfield Unit logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="nav-list collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Who we are</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                What we do
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Project 1</a>
+                <a class="dropdown-item" href="#">Project 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Project 3</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">News &amp Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Support us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+          <a class="btn btn-primary donate" href="">Donate</a>
+        </div>
+      </nav>
+    </div>
+    <section class="l-container--content c-section-header">
+      <h3>Welcome to the Evelyn Oldfield Unit</h3>
+      <h1>Enabling BAMER communities for nearly 25 years</h1>
+    </section>
   </header>
 
   <main role="main" class="l-container">
@@ -62,16 +78,15 @@
       <section class="l-container" id="projects">
         <h3 class="l-container--wide subsection-title">What we do</h3>
         <div class="l-container--wide l-grid-multi-wrap l-grid-multi-3 row">
-          <article class="card l-grid--item col-sm-6 col-lg-4" id="e3">
-            <img class="card__img card-img-top" alt="E3 english class" src="img/FX2S1576.JPG">
-            <div class="card-body">
-              <p class="meta category">Practical language skills</p>
-              <h4 class="card__title">The E3 Project</h4>
-              <p class="card__text">This free course aims to reduce isolation through English language skills, and is run pan-London.</p>
-            </div>
-            <a class="contact card-footer" href="">contact@evelynoldfield.co.uk</a>
-          </article>
-          <article class="card l-grid--item col-sm-6 col-lg-4" id="rai">
+          <a href="" class="card l-grid--item col-sm-6 col-lg-4" id="e3">
+              <img class="card__img card-img-top" alt="E3 english class" src="img/FX2S1576.JPG">
+              <div class="card-body">
+                <p class="meta category">Practical language skills</p>
+                <h4 class="card__title">The E3 Project</h4>
+                <p class="card__text">This free course aims to reduce isolation through English language skills, and is run pan-London.</p>
+              </div>
+            </a>
+          <a href="" class="card l-grid--item col-sm-6 col-lg-4" id="rai">
             <img class="card__img card-img-top" alt="RAI graduation" src="img/FX2S2118.JPG">
             <div class="card-body">
               <p class="meta category">Enabling higher education</p>
@@ -80,18 +95,16 @@
                 communities
               </p>
             </div>
-            <a class="contact card-footer" href="">contact@evelynoldfield.co.uk</a>
-          </article>
-          <article class="card l-grid--item col-sm-6 col-lg-4" id="iag-probono">
+          </a>
+          <a href="" class="card l-grid--item col-sm-6 col-lg-4" id="iag-probono">
             <img class="card__img card-img-top" alt="pro bono session" src="img/FX2S2599.JPG">
             <div class="card-body">
               <p class="meta category">Advice and guidance</p>
               <h4 class="card__title">IAG &amp Pro bono</h4>
               <p class="card__text">Free legal advice surgery and advice & guidance services</p>
             </div>
-            <a class="contact card-footer" href="">contact@evelynoldfield.co.uk</a>
-          </article>
-          <article class="card l-grid--item col-sm-6 col-lg-4" id="enhance">
+          </a>
+          <a href="" class="card l-grid--item col-sm-6 col-lg-4" id="enhance">
             <img class="card__img card-img-top" alt="example of desk and computing facilities" src="img/FX2S1495.JPG">
             <div class="card-body">
               <p class="meta category">Capacity building</p>
@@ -99,17 +112,15 @@
               <p class="card__text">Support for Refugee and Migrant Community Organisations (RMCOs) to develop their voice and make a positive
                 impact on their community</p>
             </div>
-            <a class="contact card-footer" href="">contact@evelynoldfield.co.uk</a>
-          </article>
-          <article class="card l-grid--item col-sm-6 col-lg-4" id="esol">
+          </a>
+          <a href="" class="card l-grid--item col-sm-6 col-lg-4" id="esol">
             <img class="card__img card-img-top" alt="esol class session" src="img/FX2S2560.JPG">
             <div class="card-body">
               <p class="meta category">Practical language skills</p>
               <h4 class="card__title">ESOL Evening Classes</h4>
               <p class="card__text">Free evening class for all levels (no entry requirements). Anyone is welcome!</p>
             </div>
-            <a class="contact card-footer" href="">contact@evelynoldfield.co.uk</a>
-          </article>
+          </a>
         </div>
       </section>
 
@@ -140,19 +151,19 @@
         <!-- If the "stat" class is very strict, don't need subclasses for its children [__figure and __info] -->
         <article class="c-stat card--flat l-grid--item col-sm-6 col-lg-3">
           <h3 class="c-stat--figure">1080</h3>
-          <p class="stat__info">Mist enveloped the ship three hours out from port. Almost before we knew it, we had left the ground.</p>
+          <p class="c-stat--info">Mist enveloped the ship three hours out from port. Almost before we knew it, we had left the ground.</p>
         </article>
         <article class="c-stat card--flat l-grid--item col-sm-6 col-lg-3">
           <h3 class="c-stat--figure">78%</h3>
-          <p class="stat__info">Mist enveloped the ship three hours out from port. Almost before we knew it, we had left the ground.</p>
+          <p class="c-stat--info">Mist enveloped the ship three hours out from port. Almost before we knew it, we had left the ground.</p>
         </article>
         <article class="c-stat card--flat l-grid--item col-sm-6 col-lg-3">
           <h3 class="c-stat--figure">212</h3>
-          <p class="stat__info">Mist enveloped the ship three hours out from port. Almost before we knew it, we had left the ground.</p>
+          <p class="c-stat--info">Mist enveloped the ship three hours out from port. Almost before we knew it, we had left the ground.</p>
         </article>
         <article class="c-stat card--flat l-grid--item col-sm-6 col-lg-3">
           <h3 class="c-stat--figure">24</h3>
-          <p class="stat__info">Mist enveloped the ship three hours out from port. Almost before we knew it, we had left the ground.</p>
+          <p class="c-stat--info">Mist enveloped the ship three hours out from port. Almost before we knew it, we had left the ground.</p>
         </article>
       </section>
 
