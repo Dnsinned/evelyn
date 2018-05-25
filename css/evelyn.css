@@ -29,7 +29,7 @@ JAVASCRIPT — classes that are specifically for javascript hooks. Not much css 
 
 :root {
   --page-margin: 1rem;
-  --gutter: 1.5rem;
+  --gutter: 2rem;
   --corner-size: 0.875rem;
   --transition-time: 120ms;
   --link-color: #007bff;
@@ -164,10 +164,6 @@ Container classes
   display: block;
   width: 100%;
   margin: 0 auto;
-  /* Flexbox */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   /* CSS Grid */
   display: grid;
   grid-column: viewport;
@@ -209,22 +205,14 @@ USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is super
   }
 }
 
-/* Flexbox takes control of centering */
-
-@supports (display: flex) {
-  .l-container, .l-container--wide, .l-container--content {
-    margin: 0;
-  }
-}
-
 /* grid-template takes care of widths, page margins, centering */
 
 @supports (display: grid) {
   .l-container, .l-container--wide, .l-container--content {
+    margin: 0;
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
-    align-items: normal;
   }
 }
 
@@ -239,11 +227,8 @@ Some predefined layouts are given
 - One-dimensional row with wrap after N columns, where N > 1
 */
 
-.l-grid-multi, .l-grid-multi-wrap {
-  display: flex;
+.l-grid-multi, .l-grid-multi-wrap, .l-grid-fixed {
   display: grid;
-  flex-wrap: wrap;
-  grid-gap: var(--gutter, 1rem);
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
@@ -252,9 +237,8 @@ Some predefined layouts are given
 
 .l-grid--item {
   width: 100%;
-  flex: 0 0 100%;
-  margin-top: 0;
-  padding: 0;
+  flex: 1 1 auto;
+  margin-bottom: 2rem;
 }
 
 .l-grid-multi-2 {
@@ -273,20 +257,18 @@ Some predefined layouts are given
   --col-count: 5;
 }
 
+.l-grid-fixed {
+  grid-template-columns: repeat(var(--col-count,1), 1fr);
+}
+
 /* Landscape mobile */
 
 @media (min-width: 576px) {
-  .l-grid--item {
-    margin: 0 1rem 1rem 0;
-    margin: 0 var(--gutter, 1rem) var(--gutter, 1rem) 0;
-  }
   .l-grid-multi-2, .l-grid-multi-3, .l-grid-multi-4, .l-grid-multi-5 {
     grid-template-columns: repeat(2, 1fr);
   }
-  .l-grid-multi-2>.l-grid--item, .l-grid-multi-3>.l-grid--item, .l-grid-multi-4>.l-grid--item, .l-grid-multi-5>.l-grid--item {
-    max-width: 47%;
-    flex: 0 0 calc(50% - 1rem);
-    flex: 0 0 calc(50% - var(--gutter, 1rem));
+  .l-grid-multi-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count, 1) + 1)), 1fr));
   }
 }
 
@@ -295,15 +277,9 @@ Some predefined layouts are given
 @media (min-width: 992px) {
   :root {
     --page-margin: 1.25rem;
-    --gutter: 2rem;
   }
   .l-grid-multi-3, .l-grid-multi-5 {
     grid-template-columns: repeat(3, 1fr);
-  }
-  .l-grid-multi-3>.l-grid--item, .l-grid-multi-5>.l-grid--item {
-    max-width: 31%;
-    flex: 0 0 calc(33.33% - 1rem);
-    flex: 0 0 calc(33.33% - var(--gutter, 1rem));
   }
 }
 
@@ -316,37 +292,27 @@ Some predefined layouts are given
   .l-grid-multi-5 {
     grid-template-columns: repeat(5, 1fr);
   }
-  .l-grid-multi-4>.l-grid--item {
-    max-width: 23%;
-    flex: 0 0 calc(25% - 1rem);
-    flex: 0 0 calc(25% - var(--gutter, 1rem));
-  }
-  .l-grid-multi-5>.l-grid--item {
-    max-width: 18%;
-    flex: 0 0 calc(20% - 1rem);
-    flex: 0 0 calc(20% - var(--gutter, 1rem));
-  }
-}
-
-@supports (display: flex) {
-  .l-grid-multi>.l-grid--item {
-    max-width: 100%;
-  }
 }
 
 @supports (display: grid) {
   .l-grid-multi, .l-grid-multi-wrap {
+    margin-left: 0;
     margin-right: 0;
   }
   .l-grid-multi>.l-grid--item, .l-grid-multi-wrap>.l-grid--item {
-    width: 100%;
-    margin: 0;
-  }
-  .l-grid-multi-wrap {
-    grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count, 1) + 1)), 1fr));
+    max-width: 100%;
   }
   .l-grid-multi-wrap>.l-grid--item {
     max-width: 100%;
+  }
+  /* optional grid-gutter for proper spacing using css grid */
+  .l-grid-gutter {
+    grid-gap: var(--gutter, 1rem);
+  }
+  .l-grid-gutter>.l-grid--item {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -382,25 +348,30 @@ nav .btn.donate {
   margin-top: 1rem;
 }
 
+
 /* Custom card-like component specifically for profiles (photo with text snippet) */
 
 .profile {
   --image-size: 4rem;
-  display: flex;
   display: grid;
-  grid-template-columns: calc(var(--image-size) + 1.25rem) 1fr;
-  grid-template-areas: "photo details"
+  grid-gap: 1.25rem;
+  grid-template-columns: calc(var(--image-size)) minmax(0, 1fr);
+  grid-template-areas: "photo details";
 }
 
 .profile>* {
   /* Immediate descendents: photo and details */
   display: inline-block;
-  vertical-align:top;
+  vertical-align: top;
+  overflow: hidden;
 }
 
 .profile--photo {
   grid-area: photo;
-  margin-right: 1.25rem;
+  margin: 0 1.25rem 1.25rem 0;
+}
+
+.profile--photo img {
   border-radius: 50%;
   object-fit: cover;
   width: 64px;
@@ -409,22 +380,18 @@ nav .btn.donate {
 
 .profile--details {
   width: 75%;
-  flex: 3 1 auto;
   grid-area: details;
-  padding: 0 1.25rem;
 }
 
 /*.profile .name {}
-
 .profile .role {}
-
 .profile .bio {}*/
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .profile {
     --image-size: 6rem;
   }
-  .profile--photo {
+  .profile--photo img {
     width: 96px;
     height: 96px;
   }
@@ -439,10 +406,15 @@ nav .btn.donate {
 }
 
 @supports (display: grid) {
+  .profile--photo {
+    max-width: 100%;
+    margin: 0;
+  }
   .profile--details {
     width: 100%;
   }
 }
+
 /* Bootstrap component style overrides */
 
 /* Bootstrap cards customisations */
