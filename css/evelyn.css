@@ -69,95 +69,7 @@ img+p {
   }
 }
 
-/*
-Usage of container and layout classes
-  body
-    header          - full width
-      nav           - apply container
-    main            - apply layout here if doing anything whacky
-      section       - apply container here normally
-        div         - apply layout (wrapper)
-        section     - apply container here (subsection)
-          div       - apply layout
-            article - component layout classes here
-    footer
-      section
-    
-Alternatively
-- Each top-level section (header, main > section, footer) is a grid-container
-- Can nest the grid without issue, but must remember to declare which grid area a block goes in
-- <body> & <main> can adopt a special grid layout, as their children already contained & have margins
-
-
-  body              - grid-layouts (advise using main instead, since header and footer same place)
-    header          - grid-container
-      nav             - grid-column: contain
-    main            - grid-layouts
-      section       - grid-container
-        banner        - grid-container[-full] (nesting) --> grid-column: full
-          div           - grid-column: contain/content
-        headings      - grid-column: contain/content
-        paragraph     - grid-column: content
-        div           - grid-column: contain
-        section       - grid-column: contain, grid-layouts
-          div           - content wrapper
-          article       - content wrapper
-        section       - grid-container[-full] (nesting) --> grid-column: full
-          headings      - grid-column: content
-          paragraph     - grid-column: content
-          div           - grid-column: contain
-    footer           - grid-container
-      section          - grid-column: contain
-
-
-- Semantics for container classes
-  - Anything with "contain" as its column == direct descendent is NOT content, its more containers/wrappers
-  - Anything with "content" as its column == direct descendents ARE content
-  - Content is defined as text (headings, p, span, btn, links) and media (images, video)
-  - However, for posts, "contain" primarily for images/media and "content" for any text
-- Any container classes except the main "grid-container" can have layouts applied to it
-*/
-
-/* 
-Container classes
-- Keep content within a constraint
-- 1200px == 75rem
-- 720px == 45rem
-- Flexbox and grid supports full width backgrounds (seems that fallback also works)
--- Flexbox containers are only for centering things without auto margins, width constraints still needed
--- Grid containers use grid which just works
-*/
-
-/* Grid container must be nestable, such that it takes up 100% of parent grid (edge to edge) */
-
-/* 
-  Grid container nesting cannot be done with item contain or content
-  E.g.
-    grid-container
-      grid-container                  [valid nesting]
-        item-contain, grid-container  [invalid nesting]   
-  
-  For nested layouts, use a layout class, grid-container is for defining linear sections only 
-  This is why contain and content are labelled item not grid, they do not have display flexbox or grid
-  You can however use layouts with grid-container
-  E.g.
-    section
-      subsection        [custom layout + grid container] ==> full width layout
-        article
-        article
-      subsection        [item-contain]
-        heading
-        div
-          article
-      subsection        [grid-container]
-        subsubsection   [grid-container]
-          heading       [item-content]     
-          paragraph     [item-content]
-          image         [item-contain]
-  
-  The aim is that each section can have a full width background if you use grid-container
-  but still have constrained content
-*/
+/* custom container class */
 
 .l-container {
   /* default */
@@ -184,8 +96,14 @@ Container classes
   grid-column: content;
 }
 
+.l-container--wide.l-container__flush, .l-container--content.l-container__flush {
+  max-width: 100%;
+  grid-column: viewport;
+}
+
 /* 
-Since these are still containers, fill the span of the page if < max-width 
+S
+ince these are still containers, fill the span of the page if < max-width 
 Make sure they are centered and have page margins for readability
 USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is superset of custom properties
 */
@@ -195,15 +113,32 @@ USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is super
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-left: var(--page-margin, 1rem);
-  padding-right: var(--page-margin, 1rem);
+}
+
+@media (min-width: 720px) {
+  .l-container--content.l-container__flush {
+    max-width: 45rem;
+    grid-column: content;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-margin: 1.25rem;
+  }
 }
 
 @media (min-width: 1200px) {
   .l-container {
     grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 14rem) [content-start] 45rem [content-end] minmax(0, 14rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
   }
+  .l-container--wide.l-container__flush {
+    max-width: 75rem;
+    grid-column: container;
+  }
 }
+
+/* for flush containers, remove the page margins */
 
 /* grid-template takes care of widths, page margins, centering */
 
@@ -257,9 +192,26 @@ Some predefined layouts are given
   --col-count: 5;
 }
 
-.l-grid-fixed {
-  grid-template-columns: repeat(var(--col-count,1), 1fr);
+.l-grid-10 {
+  --col-count: 10;
 }
+
+.l-grid-12 {
+  --col-count: 12;
+}
+
+[class^="l-grid-col"] {
+  grid-column: 2 / span var(--col-count, 12);
+}
+
+[class^="l-grid-col"]:first-of-type {
+  grid-column: 2 / span var(--col-count, 12);
+}
+
+[class^="l-grid-col"]:last-of-type {
+  grid-column: span var(--col-count, 12) / -2;
+}
+
 
 /* Landscape mobile */
 
@@ -272,38 +224,82 @@ Some predefined layouts are given
   }
 }
 
+@media (min-width: 768px) {}
+
 /* Tablet Landscape */
 
 @media (min-width: 992px) {
-  :root {
-    --page-margin: 1.25rem;
-  }
   .l-grid-multi-3, .l-grid-multi-5 {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .l-grid-preset__a {
+    --col-ratios: 25% 25% 50%;
+    grid-template-areas: "a b large" "c d large";
   }
 }
 
 /* Desktop or large landscape tablet */
 
-@media (min-width: 1168px) {
+@media (min-width: 1200px) {
   .l-grid-multi-4 {
     grid-template-columns: repeat(4, 1fr);
   }
   .l-grid-multi-5 {
     grid-template-columns: repeat(5, 1fr);
   }
+  .l-grid-col-1 {
+    --col-width: 2;
+  }
+  .l-grid-col-2 {
+    --col-width: 2;
+  }
+  .l-grid-col-3 {
+    --col-width: 3;
+  }
+  .l-grid-col-4 {
+    --col-width: 4;
+  }
+  .l-grid-col-5 {
+    --col-width: 5;
+  }
+  .l-grid-col-6 {
+    --col-width: 6;
+  }
+  .l-grid-col-7 {
+    --col-width: 7;
+  }
+  .l-grid-col-8 {
+    --col-width: 8;
+  }
+  .l-grid-col-10 {
+    --col-width: 10;
+  }
+  .l-grid-col-12 {
+    --col-width: 12;
+  }
+  [class^="l-grid-col"] {
+    grid-column: span var(--col-width, 1);
+  }
+  [class^="l-grid-col"]:first-of-type {
+    grid-column: 2 / span var(--col-width, 1);
+  }
+  [class^="l-grid-col"]:last-of-type {
+    grid-column: span var(--col-width, 1) / -2;
+  }
+}
+
+.l-grid-fixed {
+  grid-template-columns: repeat(var(--col-count, 1), 1fr);
 }
 
 @supports (display: grid) {
-  .l-grid-multi, .l-grid-multi-wrap {
+  .l-grid-multi, .l-grid-multi-wrap, .l-grid-fixed {
     margin-left: 0;
     margin-right: 0;
   }
-  .l-grid-multi>.l-grid--item, .l-grid-multi-wrap>.l-grid--item {
+  .l-grid-multi>.l-grid--item, .l-grid-multi-wrap>.l-grid--item, .l-grid-fixed>.l-grid--item {
     max-width: 100%;
-  }
-  .l-grid-multi-wrap>.l-grid--item {
-    max-width: 100%;
+    margin-bottom: 0;
   }
   /* optional grid-gutter for proper spacing using css grid */
   .l-grid-gutter {
@@ -347,7 +343,6 @@ header.banner {
 nav .btn.donate {
   margin-top: 1rem;
 }
-
 
 /* Custom card-like component specifically for profiles (photo with text snippet) */
 
