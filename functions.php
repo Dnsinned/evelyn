@@ -7,6 +7,8 @@
  * @package Evelyn
  */
 
+define('ACF_EARLY_ACCESS', '5');
+
 if ( ! function_exists( 'evelyn_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
