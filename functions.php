@@ -122,11 +122,15 @@ add_action( 'widgets_init', 'evelyn_widgets_init' );
  * Enqueue scripts and styles.
  */
 function evelyn_scripts() {
+	wp_enqueue_style( 'evelyn-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:600,700|Nunito:400,700', false );
+	
 	wp_enqueue_style( 'evelyn-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'evelyn-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'evelyn-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	
+	// wp_enqueue_script('jquery') ;
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
