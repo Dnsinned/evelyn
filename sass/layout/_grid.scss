@@ -1,0 +1,75 @@
+
+/* custom container class */
+
+.l-container {
+  /* default */
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  /* CSS Grid */
+  display: grid;
+  grid-column: viewport;
+  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(auto, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
+}
+
+/* contained items fit into a maximum of 1200px == 75rem */
+
+.l-container--wide {
+  max-width: 75rem;
+  grid-column: container;
+}
+
+/* content items fit into a maximum of 720px == 45rem, content usually refers to text-width */
+
+.l-container--content {
+  max-width: 45rem;
+  grid-column: content;
+}
+
+/* for flush containers, remove the page margins */
+
+.l-container--wide.l-container__flush, .l-container--content.l-container__flush {
+  max-width: 100%;
+  grid-column: viewport;
+}
+
+.l-container--wide, .l-container--content {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 720px) {
+  .l-container--content.l-container__flush {
+    max-width: 45rem;
+    grid-column: content;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-margin: 1.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .l-container {
+    grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 14rem) [content-start] 45rem [content-end] minmax(0, 14rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
+  }
+  .l-container--wide.l-container__flush {
+    max-width: 75rem;
+    grid-column: container;
+  }
+}
+
+/* grid-template takes care of widths, page margins, centering */
+
+@supports (display: grid) {
+  .l-container, .l-container--wide, .l-container--content {
+    margin: 0;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
