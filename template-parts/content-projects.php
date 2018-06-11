@@ -32,7 +32,6 @@
 	<?php evelyn_post_thumbnail(); ?>
 
 	<div class="entry-content l-container">
-	<p>This is the template for projects</p>
 		<?php
 		the_content( sprintf(
 			wp_kses(

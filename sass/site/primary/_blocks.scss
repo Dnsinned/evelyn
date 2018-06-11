@@ -4,6 +4,10 @@
 	font-weight: 600;
 }
 
+p.wp-block-subhead {
+	font-size: 125%;
+}
+
 .wp-block-image {
 	img {
 		margin: 0 auto;
@@ -11,6 +15,10 @@
 	&.alignfull img {
 		width: 100vw;
 	}
+}
+
+.wp-block-gallery {
+	margin-bottom: 1.25rem;
 }
 
 
