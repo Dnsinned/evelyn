@@ -14,3 +14,19 @@
 	clear: both;
 	@include center-block;
 }
+
+@media only screen and (min-width: 768px) {
+
+  .alignfull {
+    @include contain-full;
+  }
+
+  .alignwide {
+    @include contain-wide;
+  }
+
+  .alignwide img,
+  .alignfull img {
+    display: block;
+  }
+}

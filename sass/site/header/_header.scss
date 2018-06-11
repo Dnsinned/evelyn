@@ -1,0 +1,12 @@
+.site-header {
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: -.5rem 0;
+  .logo {
+    max-height: 64px;
+    width: auto;
+  }
+}

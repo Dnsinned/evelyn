@@ -1,0 +1,26 @@
+.wp-block-cover-image .wp-block-cover-image-text {
+	padding: 15% 1rem;
+	font-family: $font__heading;
+	font-weight: 600;
+}
+
+.wp-block-image {
+	img {
+		margin: 0 auto;
+	} 
+	&.alignfull img {
+		width: 100vw;
+	}
+}
+
+
+.list-horizontal {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr) ) ;
+	&>li {
+		padding: 1rem 2rem;
+	}
+}

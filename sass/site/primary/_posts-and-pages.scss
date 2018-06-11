@@ -10,13 +10,30 @@
 	display: none;
 }
 
+/*
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
-}
+}*/
 
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+/* Styles to center entry content and define the width of elements */
+.entry-content > *:not(.alignfull):not(.alignwide), .entry-header > * {
+	@include contain-content;
+}
+
+.entry-content > .alignfull {
+	@include contain-full;
+}
+
+.entry-content > .alignwide {
+    @include contain-wide;
+  }
+
+.entry-meta {
+	margin-bottom: 1rem;
 }

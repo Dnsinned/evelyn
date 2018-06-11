@@ -44,6 +44,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 :root {
   --page-margin: 1rem;
   --gutter: 2rem; }
+  @media (min-width: 768px) {
+    :root {
+      --page-margin: 1.25rem; } }
 
 /*--------------------------------------------------------------
 # Normalize
@@ -360,16 +363,49 @@ input,
 select,
 optgroup,
 textarea {
-  color: #404040;
+  color: #282729;
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
+  @media screen and (min-width: 768px) {
+    body,
+    button,
+    input,
+    select,
+    optgroup,
+    textarea {
+      font-size: 18px;
+      font-size: 1.125rem; } }
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: "Montserrat", sans-serif;
-  font-weight: 500; }
+  font-weight: 600; }
+
+h1 {
+  font-size: 48px;
+  font-size: 3rem; }
+
+h2 {
+  font-size: 40px;
+  font-size: 2.5rem; }
+
+h3 {
+  font-size: 36px;
+  font-size: 2.25rem; }
+
+h4 {
+  font-size: 32px;
+  font-size: 2rem; }
+
+h5 {
+  font-size: 24px;
+  font-size: 1.5rem; }
+
+h6 {
+  font-size: 20px;
+  font-size: 1.25rem; }
 
 p {
   margin-bottom: 1.5em; }
@@ -411,65 +447,6 @@ small {
   font-size: 80%; }
 
 /*--------------------------------------------------------------
-# Layouts
---------------------------------------------------------------*/
-/* custom container class */
-.l-container {
-  /* default */
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  /* CSS Grid */
-  display: grid;
-  grid-column: viewport;
-  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(auto, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
-
-/* contained items fit into a maximum of 1200px == 75rem */
-.l-container--wide {
-  max-width: 75rem;
-  grid-column: container; }
-
-/* content items fit into a maximum of 720px == 45rem, content usually refers to text-width */
-.l-container--content {
-  max-width: 45rem;
-  grid-column: content; }
-
-/* for flush containers, remove the page margins */
-.l-container--wide.l-container__flush, .l-container--content.l-container__flush {
-  max-width: 100%;
-  grid-column: viewport; }
-
-.l-container--wide, .l-container--content {
-  width: 100%;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
-@media (min-width: 720px) {
-  .l-container--content.l-container__flush {
-    max-width: 45rem;
-    grid-column: content; } }
-
-@media (min-width: 768px) {
-  :root {
-    --page-margin: 1.25rem; } }
-
-@media (min-width: 1200px) {
-  .l-container {
-    grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 14rem) [content-start] 45rem [content-end] minmax(0, 14rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
-  .l-container--wide.l-container__flush {
-    max-width: 75rem;
-    grid-column: container; } }
-
-/* grid-template takes care of widths, page margins, centering */
-@supports (display: grid) {
-  .l-container, .l-container--wide, .l-container--content {
-    margin: 0;
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0; } }
-
-/*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
 html {
@@ -494,7 +471,7 @@ hr {
   margin-bottom: 1.5em; }
 
 ul, ol {
-  margin: 0 0 1.5em 3em; }
+  margin: 0 0 1.5em 0; }
 
 ul {
   list-style: disc; }
@@ -504,8 +481,7 @@ ol {
 
 li > ul,
 li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em; }
+  margin-bottom: 0; }
 
 dt {
   font-weight: bold; }
@@ -621,52 +597,10 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%; }
-  .main-navigation ul {
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding-left: 0; }
-    .main-navigation ul ul {
-      -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      float: left;
-      position: absolute;
-      top: 100%;
-      left: -999em;
-      z-index: 99999; }
-      .main-navigation ul ul ul {
-        left: -999em;
-        top: 0; }
-      .main-navigation ul ul li:hover > ul,
-      .main-navigation ul ul li.focus > ul {
-        left: 100%; }
-      .main-navigation ul ul a {
-        width: 200px; }
-    .main-navigation ul li:hover > ul,
-    .main-navigation ul li.focus > ul {
-      left: auto; }
-  .main-navigation li {
-    float: left;
-    position: relative; }
-  .main-navigation a {
-    display: block;
-    text-decoration: none; }
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block; }
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none; }
-  .main-navigation ul {
-    display: block; } }
+nav {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-size: 1rem; }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
@@ -750,6 +684,23 @@ a {
   margin-left: auto;
   margin-right: auto; }
 
+@media only screen and (min-width: 768px) {
+  .alignfull {
+    max-width: 100%;
+    grid-column: viewport;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+  .alignwide {
+    max-width: 75rem;
+    grid-column: container;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+  .alignwide img,
+  .alignfull img {
+    display: block; } }
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -759,8 +710,6 @@ a {
 .entry-content:after,
 .comment-content:before,
 .comment-content:after,
-.site-header:before,
-.site-header:after,
 .site-content:before,
 .site-content:after,
 .site-footer:before,
@@ -772,23 +721,89 @@ a {
 .clear:after,
 .entry-content:after,
 .comment-content:after,
-.site-header:after,
 .site-content:after,
 .site-footer:after {
   clear: both; }
 
 /*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-.widget {
-  margin: 0 0 1.5em;
-  /* Make sure select elements fit in widgets. */ }
-  .widget select {
-    max-width: 100%; }
-
-/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Global Layouts
+--------------------------------------------------------------*/
+/* custom container class */
+.l-container {
+  /* default */
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  /* CSS Grid */
+  display: grid;
+  grid-column: viewport;
+  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(auto, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
+
+/* contained items fit into a maximum of 1200px == 75rem */
+.l-container--wide {
+  max-width: 75rem;
+  grid-column: container;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
+/* content items fit into a maximum of 720px == 45rem, content usually refers to text-width */
+.l-container--content {
+  max-width: 45rem;
+  grid-column: content;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
+/* for flush containers, remove the page margins */
+.l-container--wide.l-container__flush, .l-container--content.l-container__flush {
+  max-width: 100%;
+  grid-column: viewport; }
+
+.l-container--wide, .l-container--content {
+  width: 100%;
+  margin: 0 auto; }
+
+@media screen and (min-width: 720px) {
+  .l-container--content.l-container__flush {
+    max-width: 45rem;
+    grid-column: content; } }
+
+@media screen and (min-width: 1200px) {
+  .l-container {
+    grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 14rem) [content-start] 45rem [content-end] minmax(0, 14rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
+  .l-container--wide.l-container__flush {
+    max-width: 75rem;
+    grid-column: container; } }
+
+/* grid-template takes care of widths, page margins, centering */
+@supports (display: grid) {
+  .l-container, .l-container--wide, .l-container--content {
+    margin: 0;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0; } }
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.site-header {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.navbar-brand {
+  padding: 0;
+  margin: -.5rem 0; }
+  .navbar-brand .logo {
+    max-height: 64px;
+    width: auto; }
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -801,14 +816,39 @@ a {
 .updated:not(.published) {
   display: none; }
 
+/*
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0; }
-
+}*/
 .page-links {
   clear: both;
   margin: 0 0 1.5em; }
+
+/* Styles to center entry content and define the width of elements */
+.entry-content > *:not(.alignfull):not(.alignwide), .entry-header > * {
+  max-width: 45rem;
+  grid-column: content;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.entry-content > .alignfull {
+  max-width: 100%;
+  grid-column: viewport;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.entry-content > .alignwide {
+  max-width: 75rem;
+  grid-column: container;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.entry-meta {
+  margin-bottom: 1rem; }
 
 /*--------------------------------------------------------------
 ## Comments
@@ -818,6 +858,62 @@ a {
 
 .bypostauthor {
   display: block; }
+
+/*--------------------------------------------------------------
+## Gutenberg Blocks
+--------------------------------------------------------------*/
+.wp-block-cover-image .wp-block-cover-image-text {
+  padding: 15% 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600; }
+
+.wp-block-image img {
+  margin: 0 auto; }
+
+.wp-block-image.alignfull img {
+  width: 100vw; }
+
+.list-horizontal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  .list-horizontal > li {
+    padding: 1rem 2rem; }
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+  background-color: #ededed; }
+
+.social-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .social-menu ul a {
+    display: block;
+    padding: .5rem 1rem; }
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+  margin: 0 0 1.5em;
+  /* Make sure select elements fit in widgets. */ }
+  .widget select {
+    max-width: 100%; }
 
 /*--------------------------------------------------------------
 # Infinite scroll

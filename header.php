@@ -24,36 +24,41 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'evelyn' ); ?></a>
-
+	
 	<header id="masthead" class="site-header l-container">
-		<div class="site-branding l-container--wide">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$evelyn_description = get_bloginfo( 'description', 'display' );
-			if ( $evelyn_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $evelyn_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation l-container--wide">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'evelyn' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
+		<div class="site-top-bar l-container bg-light">
+			<nav class="navbar navbar-expand-lg navbar-light l-container--wide" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<a class="site-title navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<?php 
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+				$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				if ( has_custom_logo() ) {
+					echo '<img class="logo" src="'. esc_url( $logo[0] ) .'">';
+				} else {
+					echo bloginfo( 'name' );
+				}
+ 				?>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+					<?php
+					wp_nav_menu( array(
+						'theme_location'    => 'menu-1',
+						'menu_id'        		=> 'primary-menu',
+						'depth'             => 2,
+						'container'         => 'div',
+						'container_class'   => 'collapse navbar-collapse',
+						'container_id'      => 'navbar-collapse-1',
+						'menu_class'        => 'navbar-nav ml-auto',
+						'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+						'walker'            => new WP_Bootstrap_Navwalker(),
+					) );
+					?>
+			</nav><!-- #site-navigation -->
+		</div>
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content l-container">

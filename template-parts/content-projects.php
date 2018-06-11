@@ -9,8 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('l-container--wide'); ?>>
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class('l-container'); ?>>
+	<header class="entry-header  l-container">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -31,7 +31,7 @@
 
 	<?php evelyn_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content l-container">
 	<p>This is the template for projects</p>
 		<?php
 		the_content( sprintf(
@@ -54,7 +54,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer l-container--wide">
 		<?php evelyn_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

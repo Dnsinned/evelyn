@@ -46,7 +46,8 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'evelyn' ),
+			'menu-1' => esc_html__( 'Header', 'evelyn' ),
+			'social' => esc_html__( 'Social Media Menu', 'evelyn' ),
 		) );
 
 		/*
@@ -76,11 +77,40 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 80,
+			'width'       => 160,
 			'flex-width'  => true,
-			'flex-height' => true,
+			'flex-height' => false,
 		) );
+		
+		/* Add support for Gutenberg wide alignments */
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'editor-color-palette',
+			array(
+				'name' => 'Evelyn Red',
+				'color' => '#e54d38',
+			),
+			array(
+				'name' => 'Soft Red',
+				'color' => '#f2a496',
+			),
+			array(
+				'name' => 'Light Red',
+				'color' => '#fad1ca',
+			),
+			array(
+				'name' => 'Dark Grey',
+				'color' => '#282729',
+			),
+			array(
+				'name' => 'Evelyn Grey',
+				'color' => '#7b7a7f',
+			),
+			array(
+				'name' => 'Light Grey',
+				'color' => '#ededed',
+			)
+		);
 	}
 endif;
 add_action( 'after_setup_theme', 'evelyn_setup' );
@@ -96,7 +126,7 @@ function evelyn_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'evelyn_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'evelyn_content_width', 720 );
 }
 add_action( 'after_setup_theme', 'evelyn_content_width', 0 );
 
@@ -126,17 +156,48 @@ function evelyn_scripts() {
 	
 	wp_enqueue_style( 'evelyn-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'evelyn-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	//wp_enqueue_script( 'evelyn-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'evelyn-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	//wp_enqueue_script( 'evelyn-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 	
 	// wp_enqueue_script('jquery') ;
+
+	if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
+		// file does not exist... return an error.
+		return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+	} else {
+		// file exists... require it.
+		require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+	}
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'evelyn_scripts' );
+
+/**
+ * Add preconnect for Google Fonts.
+ *
+ * @since Evelyn 1.0
+ *
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ */
+function evelyn_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'evelyn-google-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href' => 'https://fonts.gstatic.com',
+			'crossorigin',
+		);
+	}
+
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'evelyn_resource_hints', 10, 2 );
+
 
 /**
  * Implement the Custom Header feature.

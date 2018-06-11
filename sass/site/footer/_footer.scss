@@ -1,0 +1,17 @@
+.site-footer {
+  background-color: $color__background-light;
+}
+
+.social-menu {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    a {
+      display: block;
+      padding: .5rem 1rem;
+    }
+  }
+}

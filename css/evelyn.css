@@ -102,8 +102,7 @@ img+p {
 }
 
 /* 
-S
-ince these are still containers, fill the span of the page if < max-width 
+Since these are still containers, fill the span of the page if < max-width 
 Make sure they are centered and have page margins for readability
 USE CUSTOM PROPERTY FALLBACK IF NOT CSS GRID RELATED - assumed css grid is superset of custom properties
 */

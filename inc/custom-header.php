@@ -4,7 +4,7 @@
  *
  * You can add an optional custom header image to header.php like so ...
  *
-	<?php the_header_image_tag(); ?>
+ *	<?php the_header_image_tag(); ?>
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
@@ -46,7 +46,7 @@ if ( ! function_exists( 'evelyn_header_style' ) ) :
 		}
 
 		// If we get this far, we have custom styles. Let's do this.
-		?>
+	?>
 		<style type="text/css">
 		<?php
 		// Has the text been hidden?

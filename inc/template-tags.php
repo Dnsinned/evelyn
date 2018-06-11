@@ -126,7 +126,7 @@ if ( ! function_exists( 'evelyn_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
+			<div class="post-thumbnail l-container--wide">
 				<?php the_post_thumbnail(); ?>
 			</div><!-- .post-thumbnail -->
 

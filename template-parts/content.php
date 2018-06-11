@@ -9,8 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('l-container--wide'); ?>">
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class('l-container'); ?>>
+	<header class="entry-header l-container">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -31,7 +31,7 @@
 
 	<?php evelyn_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content l-container">
 		<?php
 		the_content( sprintf(
 			wp_kses(
@@ -47,13 +47,13 @@
 		) );
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'evelyn' ),
+			'before' => '<div class="page-links l-container--wide">' . esc_html__( 'Pages:', 'evelyn' ),
 			'after'  => '</div>',
 		) );
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer l-container--wide">
 		<?php evelyn_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

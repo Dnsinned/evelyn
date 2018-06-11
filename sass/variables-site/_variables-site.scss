@@ -6,4 +6,7 @@
 :root {
   --page-margin: 1rem;
   --gutter: 2rem;
+  @media (min-width: $query__md) {
+    --page-margin: 1.25rem;
+  }
 }

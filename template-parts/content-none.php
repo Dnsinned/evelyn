@@ -9,12 +9,12 @@
 
 ?>
 
-<section class="no-results not-found l-container--wide">
-	<header class="page-header">
+<section class="no-results not-found l-container">
+	<header class="page-header l-container">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'evelyn' ); ?></h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div class="page-content l-container--wide">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 
