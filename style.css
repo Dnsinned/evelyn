@@ -624,6 +624,31 @@ nav {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-size: 1rem; }
+  nav a, nav a:hover, nav a:link, nav a:active, nav a:visited, nav a:focus {
+    color: #282729; }
+  nav a:hover, nav a:active, nav a:focus {
+    color: #e54d38;
+    text-decoration: underline;
+    -webkit-text-decoration-color: current-color;
+    text-decoration-color: current-color; }
+
+.navbar .navbar-nav {
+  padding: 1rem 0 .5rem; }
+  .navbar .navbar-nav .nav-link {
+    padding: 1rem .75rem; }
+  .navbar .navbar-nav .dropdown-menu {
+    padding: 1rem 0; }
+  .navbar .navbar-nav .dropdown-item {
+    padding: 1rem 2.5rem; }
+    .navbar .navbar-nav .dropdown-item:hover, .navbar .navbar-nav .dropdown-item:focus {
+      background-color: #fad1ca; }
+    .navbar .navbar-nav .dropdown-item:active {
+      background-color: #e54d38; }
+  @media screen and (min-width: 992px) {
+    .navbar .navbar-nav {
+      padding: 0 1rem 0 0; }
+      .navbar .navbar-nav .nav-link {
+        padding: .5rem .75rem; } }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main

@@ -57,3 +57,24 @@
 	grid-column: content;
 	@include contain-center;
 }
+
+// Set style for all pseudo selectors
+@mixin setLinkStyleSelectors {
+  &:hover, &:link, &:active, &:visited, &:focus {
+		@content;
+	}
+}
+
+// Set style for pseudo selectors that are being interacted with
+@mixin setLinkStyleInteractive {
+  &:hover, &:active, &:focus {
+		@content;
+	}
+}
+
+// Set style for base anchor and all pseudo selectors 
+@mixin setLinkStyle {
+  &, &:hover, &:link, &:active, &:visited, &:focus {
+		@content;
+	}
+}

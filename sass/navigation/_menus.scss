@@ -1,9 +1,43 @@
 nav {
 	font-family: $font__heading;
 	@include font-size(1);
+	a {
+		@include setLinkStyle {
+			color: $color__text-main;
+		}
+		@include setLinkStyleInteractive {
+			color: $color__eou-red;
+			text-decoration: underline;
+    	text-decoration-color: current-color;
+		}
+	} 
 }
 
-
+// Bootstrap Nav Styles
+.navbar .navbar-nav {
+	padding: 1rem 0 .5rem;
+	.nav-link {
+		padding: 1rem .75rem;
+	}
+	.dropdown-menu {
+		padding: 1rem 0;
+	}
+	.dropdown-item {
+		padding: 1rem 2.5rem;
+		&:hover, &:focus {
+				background-color: $color__light-red;
+		}
+		&:active {
+			background-color: $color__eou-red;
+		}
+	}
+	@media screen and (min-width: $query__lg) {
+		padding: 0 1rem 0 0;
+		.nav-link {
+			padding: .5rem .75rem;
+		}
+	} 
+}
 
 .comment-navigation,
 .posts-navigation,
