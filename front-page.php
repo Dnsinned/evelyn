@@ -16,13 +16,13 @@ get_header();
 		<main id="main" class="site-main l-container">
 			<?php get_template_part( 'template-parts/query/projects'); ?>
 		
-		<?php /*
+		<?php 
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/page/content', 'page' );
+			get_template_part( 'template-parts/page/content', 'front-page' );
 
-		endwhile; // End of the loop. */
+		endwhile; // End of the loop. 
 		?> 
 
 		</main><!-- #main -->

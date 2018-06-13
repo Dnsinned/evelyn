@@ -27,3 +27,20 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+// name of theme color palette as registered
+$theme-colors: (
+	evelyn-red: $color__eou-red,
+	soft-red: $color__soft-red,
+	light-red: $color__light-red,
+	dark-grey: $color__dark-grey,
+	evelyn-grey: $color__eou-grey,
+	light-grey: $color__light-grey
+);
+
+// 
+$bg-colors: (
+	soft-red: $color__soft-red,
+	light-red: $color__light-red,
+	light-grey: $color__light-grey
+);

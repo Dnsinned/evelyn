@@ -84,6 +84,9 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 			'flex-height' => false,
 		) );
 		
+		// Adding support for core block visual styles.
+		add_theme_support( 'wp-block-styles' );
+
 		/* Add support for Gutenberg wide alignments */
 		add_theme_support( 'align-wide' );
 

@@ -925,6 +925,15 @@ nav {
   .panel.l-grid--item.panel__dark .entry-title a, .panel.l-grid--item.panel__dark .entry-excerpt {
     color: #fff; }
 
+.panel.bg-soft-red {
+  background-color: #f2a496; }
+
+.panel.bg-light-red {
+  background-color: #fad1ca; }
+
+.panel.bg-light-grey {
+  background-color: #ededed; }
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -1045,6 +1054,52 @@ p.wp-block-subhead {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
   .list-horizontal > li {
     padding: 1rem 2rem; }
+
+.has-evelyn-red-background-color {
+  background-color: #e54d38; }
+
+.has-evelyn-red-color {
+  color: #e54d38; }
+
+.has-soft-red-background-color {
+  background-color: #f2a496; }
+
+.has-soft-red-color {
+  color: #f2a496; }
+
+.has-light-red-background-color {
+  background-color: #fad1ca; }
+
+.has-light-red-color {
+  color: #fad1ca; }
+
+.has-dark-grey-background-color {
+  background-color: #282729; }
+
+.has-dark-grey-color {
+  color: #282729; }
+
+.has-evelyn-grey-background-color {
+  background-color: #7b7a7f; }
+
+.has-evelyn-grey-color {
+  color: #7b7a7f; }
+
+.has-light-grey-background-color {
+  background-color: #ededed; }
+
+.has-light-grey-color {
+  color: #ededed; }
+
+.stat {
+  text-align: center; }
+
+.stat--figure {
+  font-size: 5rem;
+  color: #107180; }
+
+.stat--info {
+  font-size: 1.125rem; }
 
 /*--------------------------------------------------------------
 ## Footer
