@@ -11,7 +11,7 @@
   /* CSS Grid */
   display: grid;
   grid-column: viewport;
-  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(auto, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
+  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(15rem, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
 }
 
 /* contained items fit into a maximum of 1200px == 75rem */
@@ -65,3 +65,5 @@
     padding-right: 0;
   }
 }
+
+/* supplementary multi-column grid thta uses css grid */

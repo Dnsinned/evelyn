@@ -5,4 +5,15 @@
 	select {
 		max-width: 100%;
 	}
+
+	.jetpack-social-widget-item {
+		padding-right: 1rem;
+	}
+
+	.confit-address {
+		padding-bottom: 1rem;
+		a {
+			color: $color__text-main;
+		}
+	}
 }

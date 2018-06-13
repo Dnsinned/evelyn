@@ -14,27 +14,46 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer l-container">
-		<nav class="social-menu  l-container--wide">
+		<section class="site-info site-info__resources row l-container--wide">
 			<?php
-				wp_nav_menu( array(
-					'theme_location'    => 'social',
-				) );
-				?>
-		</nav>
-		
-		<div class="site-info l-container--wide">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'evelyn' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'evelyn' ), 'WordPress' );
-				?>
+				$footer_menu_locations = array('footer-1', 'footer-2');
+				foreach ($footer_menu_locations as &$location_name) {
+					$locations = get_nav_menu_locations();
+					$menu_id = $locations[ $location_name ];
+					$menu = wp_get_nav_menu_object( $menu_id );
+					echo '<nav class="menu-' . $menu->slug . '-container site-info--menu col-md-6 col-lg-3">';
+					echo '<h5>' . $menu->name . '</h5>';
+					wp_nav_menu( array(
+						'theme_location'    => $location_name,
+						'container'       => '',
+					) );
+					echo '</nav>';
+				}	
+			?> <!-- Footer links -->
+			<?php get_sidebar('footer'); ?><!-- Footer widgets -->
+		</section> <!-- .site-info__resources -->
+
+		<nav class="back-to-top l-container--wide text-center py-3">
+			<a class="d-block" href="#">
+				<i class="material-icons">arrow_upward</i>
+				<p>Back to top</p> 
 			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'evelyn' ), 'evelyn', '<a href="https://github.com/Dnsinned">Dennis Liu</a>' );
-				?>
-		</div><!-- .site-info -->
+		</nav> <!-- .back-to-top -->
+
+		<section class="site-info site-info__legal row l-container--wide">
+      <p class="small col-md-6 site-info--company">
+        The Evelyn Oldfield Unit is a registered charity in England and Wales
+        <a href="http://beta.charitycommission.gov.uk/charity-details/?regid=1044681&subid=0">1044681</a> and a company limited by guarantee in England and Wales
+        <a href="https://beta.companieshouse.gov.uk/company/02921143">02921143</a>
+      </p>
+      <div class="small col-md-6 site-info--privacy">
+        <div>
+          <a href="">Terms</a> &amp
+          <a href="">Privacy</a>
+				</div>
+				<p>&copy Evelyn Oldfield Unit </div>
+      </div>
+    </section> <!-- .site-info__legal -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

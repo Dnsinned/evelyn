@@ -1,17 +1,36 @@
-.site-footer {
+footer.site-footer {
   background-color: $color__background-light;
+  @include font-size($sizeValue: 1);
+  padding-top: 2rem;
 }
 
-.social-menu {
+section.site-info {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  & > *[class*="site-info--"] {
+    //padding: 1rem 0;
+  }
+}
+
+.site-info__legal p {
+  margin: 0;
+}
+.site-info--privacy {
+  margin-top: 1rem;
+  @media screen and (min-width: $query__md) {
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
+.site-info nav {
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
     a {
       display: block;
-      padding: .5rem 1rem;
+      padding: .375rem 0;
     }
   }
 }

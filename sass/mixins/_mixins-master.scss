@@ -48,6 +48,9 @@
 @mixin contain-wide {
 	max-width: 75rem;
 	grid-column: container;
+	@supports (display: grid) {
+		max-width: 100%;
+	}
 	@include contain-center;
 }
 
@@ -55,6 +58,9 @@
 @mixin contain-content {
 	max-width: 45rem;
 	grid-column: content;
+	@supports (display: grid) {
+		max-width: 100%;
+	}
 	@include contain-center;
 }
 

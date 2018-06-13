@@ -8,9 +8,12 @@ nav {
 		@include setLinkStyleInteractive {
 			color: $color__eou-red;
 			text-decoration: underline;
-    	text-decoration-color: current-color;
+    	text-decoration-color: currentColor;
 		}
 	} 
+	p {
+		margin-bottom: 0;
+	}
 }
 
 // Bootstrap Nav Styles
@@ -18,17 +21,23 @@ nav {
 	padding: 1rem 0 .5rem;
 	.nav-link {
 		padding: 1rem .75rem;
+		@include setLinkStyleInteractive {
+			color: currentColor;
+			text-decoration: underline;
+    	text-decoration-color: currentColor;
+		}
 	}
 	.dropdown-menu {
 		padding: 1rem 0;
 	}
 	.dropdown-item {
-		padding: 1rem 2.5rem;
+		padding: 1rem 2rem;
 		&:hover, &:focus {
 				background-color: $color__light-red;
 		}
 		&:active {
-			background-color: $color__eou-red;
+			color: $color__text-main;
+			background-color: $color__soft-red;
 		}
 	}
 	@media screen and (min-width: $query__lg) {

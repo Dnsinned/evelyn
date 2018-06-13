@@ -47,7 +47,8 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Header', 'evelyn' ),
-			'social' => esc_html__( 'Social Media Menu', 'evelyn' ),
+			'footer-1' => esc_html__( 'Footer 1', 'evelyn' ),
+			'footer-2' => esc_html__( 'Footer 2', 'evelyn' ),
 		) );
 
 		/*
@@ -85,6 +86,8 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 		
 		/* Add support for Gutenberg wide alignments */
 		add_theme_support( 'align-wide' );
+
+		/* Add support for Gutenberg color palette */
 		add_theme_support( 'editor-color-palette',
 			array(
 				'name' => 'Evelyn Red',
@@ -145,6 +148,15 @@ function evelyn_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widgets', 'evelyn' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add up to 2 widgets here.', 'evelyn' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s col-md-6">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="widget-title">',
+		'after_title'   => '</h5>',
+	) );
 }
 add_action( 'widgets_init', 'evelyn_widgets_init' );
 
@@ -153,6 +165,8 @@ add_action( 'widgets_init', 'evelyn_widgets_init' );
  */
 function evelyn_scripts() {
 	wp_enqueue_style( 'evelyn-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:600,700|Nunito:400,700', false );
+
+	wp_enqueue_style( 'evelyn-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 	
 	wp_enqueue_style( 'evelyn-style', get_stylesheet_uri() );
 

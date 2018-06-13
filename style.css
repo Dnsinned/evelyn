@@ -365,8 +365,8 @@ optgroup,
 textarea {
   color: #282729;
   font-family: "Nunito", sans-serif;
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.5; }
   @media screen and (min-width: 768px) {
     body,
@@ -467,7 +467,7 @@ mark, ins {
   text-decoration: none; }
 
 small {
-  font-size: 80%; }
+  font-size: .8rem; }
 
 /*--------------------------------------------------------------
 # Elements
@@ -609,9 +609,9 @@ textarea {
 a {
   color: royalblue; }
   a:visited {
-    color: purple; }
+    color: royalblue; }
   a:hover, a:focus, a:active {
-    color: midnightblue; }
+    color: #e54d38; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -629,21 +629,29 @@ nav {
   nav a:hover, nav a:active, nav a:focus {
     color: #e54d38;
     text-decoration: underline;
-    -webkit-text-decoration-color: current-color;
-    text-decoration-color: current-color; }
+    -webkit-text-decoration-color: currentColor;
+    text-decoration-color: currentColor; }
+  nav p {
+    margin-bottom: 0; }
 
 .navbar .navbar-nav {
   padding: 1rem 0 .5rem; }
   .navbar .navbar-nav .nav-link {
     padding: 1rem .75rem; }
+    .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link:active, .navbar .navbar-nav .nav-link:focus {
+      color: currentColor;
+      text-decoration: underline;
+      -webkit-text-decoration-color: currentColor;
+      text-decoration-color: currentColor; }
   .navbar .navbar-nav .dropdown-menu {
     padding: 1rem 0; }
   .navbar .navbar-nav .dropdown-item {
-    padding: 1rem 2.5rem; }
+    padding: 1rem 2rem; }
     .navbar .navbar-nav .dropdown-item:hover, .navbar .navbar-nav .dropdown-item:focus {
       background-color: #fad1ca; }
     .navbar .navbar-nav .dropdown-item:active {
-      background-color: #e54d38; }
+      color: #282729;
+      background-color: #f2a496; }
   @media screen and (min-width: 992px) {
     .navbar .navbar-nav {
       padding: 0 1rem 0 0; }
@@ -745,6 +753,9 @@ nav {
     width: 100%;
     margin-left: auto;
     margin-right: auto; }
+    @supports (display: grid) {
+      .alignwide {
+        max-width: 100%; } }
   .alignwide img,
   .alignfull img {
     display: block; } }
@@ -790,7 +801,7 @@ nav {
   /* CSS Grid */
   display: grid;
   grid-column: viewport;
-  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(auto, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
+  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(15rem, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
 
 /* contained items fit into a maximum of 1200px == 75rem */
 .l-container--wide {
@@ -799,6 +810,9 @@ nav {
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
+  @supports (display: grid) {
+    .l-container--wide {
+      max-width: 100%; } }
 
 /* content items fit into a maximum of 720px == 45rem, content usually refers to text-width */
 .l-container--content {
@@ -807,6 +821,9 @@ nav {
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
+  @supports (display: grid) {
+    .l-container--content {
+      max-width: 100%; } }
 
 /* for flush containers, remove the page margins */
 .l-container--wide.l-container__flush, .l-container--content.l-container__flush {
@@ -837,6 +854,7 @@ nav {
     padding-left: 0;
     padding-right: 0; } }
 
+/* supplementary multi-column grid thta uses css grid */
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -880,6 +898,9 @@ nav {
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
+  @supports (display: grid) {
+    .entry-content > *:not(.alignfull):not(.alignwide), .entry-header > * {
+      max-width: 100%; } }
 
 .entry-content > .alignfull {
   max-width: 100%;
@@ -894,6 +915,9 @@ nav {
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
+  @supports (display: grid) {
+    .entry-content > .alignwide {
+      max-width: 100%; } }
 
 .entry-meta {
   margin-bottom: 1rem; }
@@ -919,7 +943,8 @@ p.wp-block-subhead {
   font-size: 125%; }
 
 .wp-block-image img {
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 100%; }
 
 .wp-block-image.alignfull img {
   width: 100vw; }
@@ -927,7 +952,23 @@ p.wp-block-subhead {
 .wp-block-gallery {
   margin-bottom: 1.25rem; }
 
+.wp-block-preformatted.text-wrap, pre.text-wrap {
+  white-space: pre-wrap; }
+
+/* hack to allow single-column column blocks like containers */
+.wp-block-columns.has-1-columns {
+  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .wp-block-columns.has-1-columns .wp-block-columns.has-1-columns {
+    display: block; }
+
+.wp-block-columns *[class*="layout-column-"] {
+  grid-column: auto; }
+
 .list-horizontal {
+  display: inline-block;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -943,22 +984,33 @@ p.wp-block-subhead {
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
-.site-footer {
-  background-color: #ededed; }
+footer.site-footer {
+  background-color: #ededed;
+  font-size: 16px;
+  font-size: 1rem;
+  padding-top: 2rem; }
 
-.social-menu ul {
+section.site-info {
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+
+.site-info__legal p {
+  margin: 0; }
+
+.site-info--privacy {
+  margin-top: 1rem; }
+  @media screen and (min-width: 768px) {
+    .site-info--privacy {
+      margin-top: 0;
+      text-align: right; } }
+
+.site-info nav ul {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
-  .social-menu ul a {
+  padding: 0; }
+  .site-info nav ul a {
     display: block;
-    padding: .5rem 1rem; }
+    padding: .375rem 0; }
 
 /*--------------------------------------------------------------
 # Widgets
@@ -968,6 +1020,12 @@ p.wp-block-subhead {
   /* Make sure select elements fit in widgets. */ }
   .widget select {
     max-width: 100%; }
+  .widget .jetpack-social-widget-item {
+    padding-right: 1rem; }
+  .widget .confit-address {
+    padding-bottom: 1rem; }
+    .widget .confit-address a {
+      color: #282729; }
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -1002,6 +1060,16 @@ object {
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
   display: inline-block; }
+
+/* Social media icons */
+.icon.icon-twitter {
+  color: #55acee; }
+
+.icon.icon-facebook {
+  color: #3b5998; }
+
+.icon:hover, .icon:active, .icon:focus {
+  color: #e54d38; }
 
 /*--------------------------------------------------------------
 ## Captions

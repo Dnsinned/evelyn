@@ -11,6 +11,7 @@ p.wp-block-subhead {
 .wp-block-image {
 	img {
 		margin: 0 auto;
+		width: 100%;
 	} 
 	&.alignfull img {
 		width: 100vw;
@@ -21,8 +22,27 @@ p.wp-block-subhead {
 	margin-bottom: 1.25rem;
 }
 
+.wp-block-preformatted, pre {
+	&.text-wrap {
+		white-space: pre-wrap;
+	}
+}
+
+/* hack to allow single-column column blocks like containers */
+.wp-block-columns.has-1-columns {
+	display: block;
+	display: flex;
+	.wp-block-columns.has-1-columns {
+		display: block;
+	}
+}
+
+.wp-block-columns *[class*="layout-column-"] {
+	grid-column: auto;
+}
 
 .list-horizontal {
+	display: inline-block;
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
