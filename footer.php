@@ -14,14 +14,14 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer l-container">
-		<section class="site-info site-info__resources row l-container--wide">
+		<section class="site-info site-info__resources row l-container--wide l-grid l-grid__4 l-grid-gutter">
 			<?php
 				$footer_menu_locations = array('footer-1', 'footer-2');
 				foreach ($footer_menu_locations as &$location_name) {
 					$locations = get_nav_menu_locations();
 					$menu_id = $locations[ $location_name ];
 					$menu = wp_get_nav_menu_object( $menu_id );
-					echo '<nav class="menu-' . $menu->slug . '-container site-info--menu col-md-6 col-lg-3">';
+					echo '<nav class="menu-' . $menu->slug . '-container site-info--menu col-sm-6 col-lg-3 l-grid--item">';
 					echo '<h5>' . $menu->name . '</h5>';
 					wp_nav_menu( array(
 						'theme_location'    => $location_name,

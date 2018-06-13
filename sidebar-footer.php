@@ -12,8 +12,5 @@ if ( ! is_active_sidebar( 'footer-1' ) ) {
 }
 ?>
 
-<aside id="footer-widget-area" class="site-info--contact widget-area footer-widgets col-md-12 col-lg-6">
-	<div class="row">
-		<?php dynamic_sidebar( 'footer-1' ); ?>
-	</div>
-</aside><!-- #secondary -->
+<?php dynamic_sidebar( 'footer-1' ); ?>
+

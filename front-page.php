@@ -14,15 +14,16 @@ get_header();
 
 	<div id="primary" class="content-area l-container">
 		<main id="main" class="site-main l-container">
-
-		<?php
+			<?php get_template_part( 'template-parts/query/projects'); ?>
+		
+		<?php /*
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			get_template_part( 'template-parts/page/content', 'page' );
 
-		endwhile; // End of the loop.
-		?>
+		endwhile; // End of the loop. */
+		?> 
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

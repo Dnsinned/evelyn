@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php evelyn_post_thumbnail(); ?>
+	<?php // evelyn_post_thumbnail(); ?>
 
 	<div class="entry-content l-container">
 		<?php

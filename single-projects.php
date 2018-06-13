@@ -17,7 +17,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'projects' );
+			get_template_part( 'template-parts/page/content', 'projects' );
 
 			/*
 			echo '<div class="l-container--wide">';

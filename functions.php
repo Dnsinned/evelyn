@@ -152,8 +152,8 @@ function evelyn_widgets_init() {
 		'name'          => esc_html__( 'Footer Widgets', 'evelyn' ),
 		'id'            => 'footer-1',
 		'description'   => esc_html__( 'Add up to 2 widgets here.', 'evelyn' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s col-md-6">',
-		'after_widget'  => '</section>',
+		'before_widget' => '<div id="%1$s" class="widget %2$s col-sm-6 col-lg-3 l-grid--item">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h5 class="widget-title">',
 		'after_title'   => '</h5>',
 	) );

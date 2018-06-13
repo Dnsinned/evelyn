@@ -368,7 +368,7 @@ textarea {
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.5; }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: query__md) {
     body,
     button,
     input,
@@ -378,7 +378,12 @@ textarea {
       font-size: 18px;
       font-size: 1.125rem; } }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   clear: both;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -417,14 +422,14 @@ h6 {
     font-size: 40px;
     font-size: 2.5rem; }
   h3 {
-    font-size: 36px;
-    font-size: 2.25rem; }
-  h4 {
     font-size: 32px;
     font-size: 2rem; }
-  h5 {
+  h4 {
     font-size: 24px;
     font-size: 1.5rem; }
+  h5 {
+    font-size: 22px;
+    font-size: 1.375rem; }
   h6 {
     font-size: 20px;
     font-size: 1.25rem; } }
@@ -855,6 +860,71 @@ nav {
     padding-right: 0; } }
 
 /* supplementary multi-column grid thta uses css grid */
+.l-grid, .l-grid-wrap {
+  display: grid;
+  margin-bottom: 2rem;
+  margin-top: 2rem; }
+
+.l-grid--item {
+  width: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  margin-bottom: 2rem; }
+
+.l-grid__2 {
+  --col-count: 2; }
+
+.l-grid__3 {
+  --col-count: 3; }
+
+.l-grid__4 {
+  --col-count: 4; }
+
+.l-grid__5 {
+  --col-count: 5; }
+
+.l-grid__6 {
+  --col-count: 6; }
+
+@media screen and (min-width: 576px) {
+  .l-grid {
+    grid-template-columns: repeat(2, 1fr); }
+  .l-grid-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count, 1) + 1)), 1fr)); } }
+
+@media screen and (min-width: 992px) {
+  .l-grid.l-grid__3, .l-grid.l-grid__5, .l-grid.l-grid__6 {
+    grid-template-columns: repeat(3, 1fr); }
+  .l-grid.l-grid__4 {
+    grid-template-columns: repeat(4, 1fr); }
+  .l-grid.l-grid__5 {
+    grid-template-columns: repeat(5, 1fr); }
+  .l-grid.l-grid__6 {
+    grid-template-columns: repeat(6, 1fr); } }
+
+@supports (display: grid) {
+  .l-grid, .l-grid-wrap {
+    margin-left: 0;
+    margin-right: 0; }
+  .l-grid > .l-grid--item, .l-grid-wrap > .l-grid--item {
+    max-width: 100%;
+    margin-bottom: 0; }
+  /* optional grid-gutter for proper spacing using css grid */
+  .l-grid-gutter {
+    grid-gap: var(--gutter, 1rem); }
+  .l-grid-gutter__slim {
+    --gutter: .125rem; }
+  .l-grid-gutter > .l-grid--item {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0; } }
+
+.panel.l-grid--item {
+  padding: 4rem 3rem; }
+  .panel.l-grid--item.panel__dark .entry-title a, .panel.l-grid--item.panel__dark .entry-excerpt {
+    color: #fff; }
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -922,6 +992,9 @@ nav {
 .entry-meta {
   margin-bottom: 1rem; }
 
+p.entry-excerpt {
+  margin-bottom: 0; }
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -956,14 +1029,6 @@ p.wp-block-subhead {
   white-space: pre-wrap; }
 
 /* hack to allow single-column column blocks like containers */
-.wp-block-columns.has-1-columns {
-  display: block;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-  .wp-block-columns.has-1-columns .wp-block-columns.has-1-columns {
-    display: block; }
-
 .wp-block-columns *[class*="layout-column-"] {
   grid-column: auto; }
 

@@ -1,0 +1,9 @@
+.panel.l-grid--item {
+	padding: 4rem 3rem;
+	&.panel__dark {
+		.entry-title a, .entry-excerpt {
+			color: #fff;
+		}
+		
+	}
+}
