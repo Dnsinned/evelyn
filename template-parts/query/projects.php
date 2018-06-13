@@ -20,10 +20,9 @@ $projects = new WP_Query($args);
 // Output html content
 echo '<section class="row l-grid l-grid__3 l-grid-gutter l-grid-gutter__slim l-container--wide l-container__flush">';
 while ( $projects->have_posts() ) : $projects->the_post();
-  $featured_image = get_the_post_thumbnail_url(get_the_ID());
 ?> 
 
-  <article class="panel panel__dark l-grid--item col-sm-6 col-lg-4 has-background-dim" style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php _e($featured_image); ?>); background-size: cover;">
+  <article class="panel panel__dark l-grid--item col-sm-6 col-lg-4 has-background-dim" style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php _e(the_post_thumbnail_url()); ?>); background-size: cover;">
   <h4 class="entry-title">
     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
   </h4>
