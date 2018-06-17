@@ -35,12 +35,20 @@ $theme-colors: (
 	light-red: $color__light-red,
 	dark-grey: $color__dark-grey,
 	evelyn-grey: $color__eou-grey,
-	light-grey: $color__light-grey
+	light-grey: $color__light-grey,
+	white: #fff
 );
 
 // 
-$bg-colors: (
+$light-colors: (
 	soft-red: $color__soft-red,
 	light-red: $color__light-red,
-	light-grey: $color__light-grey
+	light-grey: $color__light-grey,
+	white: #fff
+);
+
+$light-colors: (
+	evelyn-red: $color__eou-red,
+	dark-grey: $color__dark-grey,
+	evelyn-grey: $color__eou-grey,
 );

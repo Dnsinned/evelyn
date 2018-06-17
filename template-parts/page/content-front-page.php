@@ -10,9 +10,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('l-container'); ?>>
-	<header class="entry-header l-container">
-		<?php // the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	
+	<?php get_template_part( 'template-parts/partials/content', 'header' ); ?>
 
 	<?php //evelyn_post_thumbnail(); ?>
 

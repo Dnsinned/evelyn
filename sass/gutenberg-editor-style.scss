@@ -1,0 +1,11 @@
+@import "variables-site/variables-site";
+
+@each $name, $color in $theme-colors {
+	.has-#{$name}-background-color {
+	background-color: #{$color};
+	}
+	.has-#{$name}-color {
+		color: #{$color};
+	}
+}
+

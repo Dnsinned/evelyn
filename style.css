@@ -43,7 +43,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 :root {
   --page-margin: 1rem;
-  --gutter: 2rem; }
+  --gutter: 2rem;
+  --transition-time: 120ms; }
   @media (min-width: 768px) {
     :root {
       --page-margin: 1.25rem; } }
@@ -862,8 +863,9 @@ nav {
 /* supplementary multi-column grid thta uses css grid */
 .l-grid, .l-grid-wrap {
   display: grid;
-  margin-bottom: 2rem;
-  margin-top: 2rem; }
+  margin-bottom: 2rem; }
+  .l-grid.wp-block-columns, .l-grid-wrap.wp-block-columns {
+    display: grid; }
 
 .l-grid--item {
   width: 100%;
@@ -925,14 +927,14 @@ nav {
   .panel.l-grid--item.panel__dark .entry-title a, .panel.l-grid--item.panel__dark .entry-excerpt {
     color: #fff; }
 
-.panel.bg-soft-red {
-  background-color: #f2a496; }
+.panel.bg-evelyn-red {
+  background-color: #e54d38; }
 
-.panel.bg-light-red {
-  background-color: #fad1ca; }
+.panel.bg-dark-grey {
+  background-color: #282729; }
 
-.panel.bg-light-grey {
-  background-color: #ededed; }
+.panel.bg-evelyn-grey {
+  background-color: #7b7a7f; }
 
 /*--------------------------------------------------------------
 ## Header
@@ -971,14 +973,14 @@ nav {
   margin: 0 0 1.5em; }
 
 /* Styles to center entry content and define the width of elements */
-.entry-content > *:not(.alignfull):not(.alignwide), .entry-header > * {
+.entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > * {
   max-width: 45rem;
   grid-column: content;
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
   @supports (display: grid) {
-    .entry-content > *:not(.alignfull):not(.alignwide), .entry-header > * {
+    .entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > * {
       max-width: 100%; } }
 
 .entry-content > .alignfull {
@@ -998,6 +1000,9 @@ nav {
     .entry-content > .alignwide {
       max-width: 100%; } }
 
+.entry-header {
+  margin-bottom: 1.5rem; }
+
 .entry-meta {
   margin-bottom: 1rem; }
 
@@ -1016,6 +1021,51 @@ p.entry-excerpt {
 /*--------------------------------------------------------------
 ## Gutenberg Blocks
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Core Blocks
+--------------------------------------------------------------*/
+.has-evelyn-red-background-color[class*="wp-block"] {
+  background-color: #e54d38; }
+
+.has-evelyn-red-color[class*="wp-block"] {
+  color: #e54d38; }
+
+.has-soft-red-background-color[class*="wp-block"] {
+  background-color: #f2a496; }
+
+.has-soft-red-color[class*="wp-block"] {
+  color: #f2a496; }
+
+.has-light-red-background-color[class*="wp-block"] {
+  background-color: #fad1ca; }
+
+.has-light-red-color[class*="wp-block"] {
+  color: #fad1ca; }
+
+.has-dark-grey-background-color[class*="wp-block"] {
+  background-color: #282729; }
+
+.has-dark-grey-color[class*="wp-block"] {
+  color: #282729; }
+
+.has-evelyn-grey-background-color[class*="wp-block"] {
+  background-color: #7b7a7f; }
+
+.has-evelyn-grey-color[class*="wp-block"] {
+  color: #7b7a7f; }
+
+.has-light-grey-background-color[class*="wp-block"] {
+  background-color: #ededed; }
+
+.has-light-grey-color[class*="wp-block"] {
+  color: #ededed; }
+
+.has-white-background-color[class*="wp-block"] {
+  background-color: #fff; }
+
+.has-white-color[class*="wp-block"] {
+  color: #fff; }
+
 .wp-block-cover-image .wp-block-cover-image-text {
   padding: 15% 1rem;
   font-family: "Montserrat", sans-serif;
@@ -1041,6 +1091,41 @@ p.wp-block-subhead {
 .wp-block-columns *[class*="layout-column-"] {
   grid-column: auto; }
 
+.wp-block-columns {
+  display: block; }
+
+.wp-block-button .wp-block-button__link {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 12px;
+  border-radius: 0.75rem;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  -webkit-transition-duration: 100ms;
+  -o-transition-duration: 100ms;
+  transition-duration: 100ms;
+  -webkit-transition-duration: var(--transition-time, 100ms);
+  -o-transition-duration: var(--transition-time, 100ms);
+  transition-duration: var(--transition-time, 100ms); }
+  .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus {
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.24), 0px 2px 20px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.24), 0px 2px 20px 0px rgba(0, 0, 0, 0.12);
+    -webkit-transform: translateY(-0.1rem);
+    -ms-transform: translateY(-0.1rem);
+    transform: translateY(-0.1rem); }
+  .wp-block-button .wp-block-button__link:active {
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+    -webkit-transform: translateY(0.1rem);
+    -ms-transform: translateY(0.1rem);
+    transform: translateY(0.1rem); }
+
+/*--------------------------------------------------------------
+## Custom CSS Classes used in editor for blocks
+--------------------------------------------------------------*/
 .list-horizontal {
   display: inline-block;
   display: -webkit-box;
@@ -1054,42 +1139,6 @@ p.wp-block-subhead {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
   .list-horizontal > li {
     padding: 1rem 2rem; }
-
-.has-evelyn-red-background-color {
-  background-color: #e54d38; }
-
-.has-evelyn-red-color {
-  color: #e54d38; }
-
-.has-soft-red-background-color {
-  background-color: #f2a496; }
-
-.has-soft-red-color {
-  color: #f2a496; }
-
-.has-light-red-background-color {
-  background-color: #fad1ca; }
-
-.has-light-red-color {
-  color: #fad1ca; }
-
-.has-dark-grey-background-color {
-  background-color: #282729; }
-
-.has-dark-grey-color {
-  color: #282729; }
-
-.has-evelyn-grey-background-color {
-  background-color: #7b7a7f; }
-
-.has-evelyn-grey-color {
-  color: #7b7a7f; }
-
-.has-light-grey-background-color {
-  background-color: #ededed; }
-
-.has-light-grey-color {
-  color: #ededed; }
 
 .stat {
   text-align: center; }

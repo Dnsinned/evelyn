@@ -22,7 +22,7 @@
 }
 
 /* Styles to center entry content and define the width of elements */
-.entry-content > *:not(.alignfull):not(.alignwide), .entry-header > * {
+.entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > * {
 	@include contain-content;
 }
 
@@ -31,8 +31,12 @@
 }
 
 .entry-content > .alignwide {
-    @include contain-wide;
-  }
+	@include contain-wide;
+}
+	
+.entry-header {
+	margin-bottom: 1.5rem;
+}
 
 .entry-meta {
 	margin-bottom: 1rem;

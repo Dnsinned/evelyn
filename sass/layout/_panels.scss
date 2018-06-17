@@ -9,7 +9,7 @@
 }
 
 .panel {
-	@each $name, $color in $bg-colors {
+	@each $name, $color in $light-colors {
 		&.bg-#{$name} {
 			background-color: #{$color};
 		}

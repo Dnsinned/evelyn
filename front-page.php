@@ -14,8 +14,6 @@ get_header();
 
 	<div id="primary" class="content-area l-container">
 		<main id="main" class="site-main l-container">
-			<?php get_template_part( 'template-parts/query/projects'); ?>
-		
 		<?php 
 		while ( have_posts() ) :
 			the_post();

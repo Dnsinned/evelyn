@@ -70,7 +70,9 @@
 .l-grid, .l-grid-wrap {
   display: grid;
   margin-bottom: 2rem;
-  margin-top: 2rem;
+  &.wp-block-columns {
+    display: grid;
+  }
 }
 .l-grid--item {
   width: 100%;
