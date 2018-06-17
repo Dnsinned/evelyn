@@ -93,28 +93,32 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 		/* Add support for Gutenberg color palette */
 		add_theme_support( 'editor-color-palette',
 			array(
-				'name' => 'Evelyn Red',
+				'name' => esc_html__( 'Evelyn Red', 'evelyn' ),
 				'color' => '#e54d38',
 			),
 			array(
-				'name' => 'Soft Red',
+				'name' => esc_html__( 'Soft Red', 'evelyn' ),
 				'color' => '#f2a496',
 			),
 			array(
-				'name' => 'Light Red',
+				'name' => esc_html__( 'Light Red', 'evelyn' ),
 				'color' => '#fad1ca',
 			),
 			array(
-				'name' => 'Dark Grey',
+				'name' => esc_html__( 'Dark Grey', 'evelyn' ),
 				'color' => '#282729',
 			),
 			array(
-				'name' => 'Evelyn Grey',
+				'name' => esc_html__( 'Evelyn Grey', 'evelyn' ),
 				'color' => '#7b7a7f',
 			),
 			array(
-				'name' => 'Light Grey',
+				'name' => esc_html__( 'Light Red', 'evelyn' ),
 				'color' => '#ededed',
+			),
+			array(
+				'name' => esc_html__( 'White', 'evelyn' ),
+				'color' => '#ffffff',
 			)
 		);
 	}
@@ -181,7 +185,7 @@ function evelyn_scripts() {
 
 	if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
 		// file does not exist... return an error.
-		return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+		return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'evelyn' ) );
 	} else {
 		// file exists... require it.
 		require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
@@ -193,6 +197,16 @@ function evelyn_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'evelyn_scripts' );
+
+/**
+ * Enqueue WordPress theme styles within Gutenberg.
+ */
+function evelyn_gutenberg_styles() {
+	// Load the theme styles within Gutenberg.
+	 wp_enqueue_style( 'evelyn-gutenberg', get_theme_file_uri( '/gutenberg-editor-style.css' ), false );
+}
+add_action( 'enqueue_block_editor_assets', 'evelyn_gutenberg_styles' );
+
 
 /**
  * Add preconnect for Google Fonts.
@@ -214,6 +228,34 @@ function evelyn_resource_hints( $urls, $relation_type ) {
 	return $urls;
 }
 add_filter( 'wp_resource_hints', 'evelyn_resource_hints', 10, 2 );
+
+
+
+/**
+ * Add custom shortcodes to load in predefined templates.
+ */
+function display_projects_shortcode($atts = [], $content = null)
+{
+    ob_start(); 
+		get_template_part('template-parts/query/projects');
+		$new_content = ob_get_clean();  
+		if( !empty( $new_content ) )
+			$content = $new_content;
+		return $content;
+}
+add_shortcode('display-projects', 'display_projects_shortcode');
+
+function display_support_us_shortcode($atts = [], $content = null)
+{
+		ob_start(); 
+		get_template_part('template-parts/query');
+		$new_content = ob_get_clean();  
+		if( !empty( $new_content ) )
+			$content = $new_content;
+		return $content;
+}
+add_shortcode('display-ways-to-support', 'display_support_us_shortcode');
+
 
 
 /**

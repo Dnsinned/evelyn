@@ -1,0 +1,49 @@
+:root {
+  --page-margin: 1rem;
+  --gutter: 2rem;
+  --transition-time: 120ms; }
+  @media (min-width: 768px) {
+    :root {
+      --page-margin: 1.25rem; } }
+
+.has-evelyn-red-background-color {
+  background-color: #e54d38; }
+
+.has-evelyn-red-color {
+  color: #e54d38; }
+
+.has-soft-red-background-color {
+  background-color: #f2a496; }
+
+.has-soft-red-color {
+  color: #f2a496; }
+
+.has-light-red-background-color {
+  background-color: #fad1ca; }
+
+.has-light-red-color {
+  color: #fad1ca; }
+
+.has-dark-grey-background-color {
+  background-color: #282729; }
+
+.has-dark-grey-color {
+  color: #282729; }
+
+.has-evelyn-grey-background-color {
+  background-color: #7b7a7f; }
+
+.has-evelyn-grey-color {
+  color: #7b7a7f; }
+
+.has-light-grey-background-color {
+  background-color: #ededed; }
+
+.has-light-grey-color {
+  color: #ededed; }
+
+.has-white-background-color {
+  background-color: #fff; }
+
+.has-white-color {
+  color: #fff; }
