@@ -14,7 +14,6 @@
 	<?php get_template_part( 'template-parts/partials/content', 'header' ); ?>
 
 	<?php evelyn_post_thumbnail(); ?>
-	<p>It's the support us page!</p>
 
 	<div class="entry-content l-container">
 		<?php

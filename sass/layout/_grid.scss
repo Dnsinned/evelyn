@@ -105,7 +105,7 @@
 }
 
 @media screen and (min-width: $query__sm) {
-  .l-grid {
+  .l-grid.l-grid__compact {
     grid-template-columns: repeat(2, 1fr);
   }
   .l-grid-wrap {
@@ -113,6 +113,9 @@
   }
 }
 @media screen and (min-width: $query__md) {
+  .l-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (min-width: $query__lg) {

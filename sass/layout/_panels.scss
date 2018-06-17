@@ -21,6 +21,10 @@
 	*:last-child {
 		margin-bottom: 0;
 	}
+	.wp-block-button:last-child {
+		margin-top: auto;
+		margin-bottom: 1rem;
+	}
 	&.border-grey {
 		border: 2px solid $color__light-grey;
 	}

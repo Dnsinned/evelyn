@@ -893,10 +893,14 @@ nav {
   --col-count: 6; }
 
 @media screen and (min-width: 576px) {
-  .l-grid {
+  .l-grid.l-grid__compact {
     grid-template-columns: repeat(2, 1fr); }
   .l-grid-wrap {
     grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count, 1) + 1)), 1fr)); } }
+
+@media screen and (min-width: 768px) {
+  .l-grid {
+    grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (min-width: 992px) {
   .l-grid.l-grid__5, .l-grid.l-grid__6 {
@@ -957,6 +961,10 @@ nav {
 .panel *:last-child {
   margin-bottom: 0; }
 
+.panel .wp-block-button:last-child {
+  margin-top: auto;
+  margin-bottom: 1rem; }
+
 .panel.border-grey {
   border: 2px solid #ededed; }
 
@@ -974,6 +982,22 @@ nav {
   .navbar-brand .logo {
     max-height: 64px;
     width: auto; }
+
+.cover-header {
+  color: white;
+  padding: 4rem 0;
+  min-height: 360px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .cover-header .entry-title {
+    padding: 4rem 1rem; }
 
 /*--------------------------------------------------------------
 ## Posts and pages
@@ -1110,7 +1134,6 @@ p.entry-excerpt {
   color: #fff; }
 
 .wp-block-cover-image .wp-block-cover-image-text {
-  padding: 15% 1rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 600; }
 
