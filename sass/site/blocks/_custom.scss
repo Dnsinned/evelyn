@@ -1,0 +1,25 @@
+.list-horizontal {
+	display: inline-block;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr) ) ;
+	&>li {
+		padding: 1rem 2rem;
+	}
+}
+
+
+.stat {
+  text-align: center;
+}
+
+.stat--figure {
+  font-size: 5rem;
+  color: #107180;
+}
+
+.stat--info {
+  font-size: 1.125rem;
+}

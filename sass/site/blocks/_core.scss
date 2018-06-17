@@ -1,0 +1,68 @@
+@each $name, $color in $theme-colors {
+	.has-#{$name}-background-color[class*="wp-block"] {
+	background-color: #{$color};
+	}
+	.has-#{$name}-color[class*="wp-block"] {
+		color: #{$color};
+	}
+}
+
+.wp-block-cover-image .wp-block-cover-image-text {
+	padding: 15% 1rem;
+	font-family: $font__heading;
+	font-weight: 600;
+}
+
+p.wp-block-subhead {
+	font-size: 125%;
+}
+
+.wp-block-image {
+	img {
+		margin: 0 auto;
+		width: 100%;
+	} 
+	&.alignfull img {
+		width: 100vw;
+	}
+}
+
+.wp-block-gallery {
+	margin-bottom: 1.25rem;
+}
+
+.wp-block-preformatted, pre {
+	&.text-wrap {
+		white-space: pre-wrap;
+	}
+}
+
+/* hack to allow single-column column blocks like containers */
+.wp-block-columns *[class*="layout-column-"] {
+	grid-column: auto;
+}
+.wp-block-columns {
+	display: block;
+}
+
+.wp-block-button .wp-block-button__link {
+	font-family: $font__heading;
+	@include font-size(1);
+	padding: 0.75rem 1.75rem;
+	border-radius: 12px;
+	border-radius: 0.75rem;
+	text-transform: uppercase;
+	@include shadowNormal;
+	transition-duration: 100ms;
+	transition-duration: var(--transition-time, 100ms);
+	// loop for light bg, use a darker color
+	&:hover, &:focus {
+		@include shadowMedium;
+		transform: translateY(-0.1rem)
+	}
+	&:active {
+		@include shadowNormal;
+		transform: translateY(0.1rem)
+	}
+}
+
