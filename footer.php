@@ -40,13 +40,13 @@
 			</a>
 		</nav> <!-- .back-to-top -->
 
-		<section class="site-info site-info__legal row l-container--wide">
-      <p class="small col-md-6 site-info--company">
+		<section class="site-info site-info__legal row l-container--wide l-grid l-grid__2 l-grid-gutter">
+      <p class="small col-md-6 l-grid--item site-info--company">
         The Evelyn Oldfield Unit is a registered charity in England and Wales
         <a href="http://beta.charitycommission.gov.uk/charity-details/?regid=1044681&subid=0">1044681</a> and a company limited by guarantee in England and Wales
         <a href="https://beta.companieshouse.gov.uk/company/02921143">02921143</a>
       </p>
-      <div class="small col-md-6 site-info--privacy">
+      <div class="small col-md-6 l-grid--item site-info--privacy">
         <div>
           <a href="">Terms</a> &amp
           <a href="">Privacy</a>

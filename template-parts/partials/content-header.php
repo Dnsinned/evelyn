@@ -20,7 +20,7 @@
 	} 
 ?>
 
-<header class="entry-header l-container <?php if ($hidden) { echo 'd-none'; } ?> <?php if (has_post_thumbnail()) { echo ' cover-header'; } ?> " 
+<header class="entry-header l-container <?php if ($hidden) { echo 'd-none '; } ?><?php if (has_post_thumbnail()) { echo 'cover-header'; } ?>" 
 	<?php if (has_post_thumbnail()) : ?> 
 	style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php echo the_post_thumbnail_url(); ?>); background-size: cover;"
 	<?php endif; ?>

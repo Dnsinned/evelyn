@@ -990,6 +990,7 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  display: grid;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -1191,12 +1192,12 @@ p.wp-block-subhead {
     -webkit-transform: translateY(-0.1rem);
     -ms-transform: translateY(-0.1rem);
     transform: translateY(-0.1rem); }
-  .wp-block-button .wp-block-button__link:active {
+  .wp-block-button .wp-block-button__link:active, .wp-block-button .wp-block-button__link:active:focus {
     -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
-    -webkit-transform: translateY(0.1rem);
-    -ms-transform: translateY(0.1rem);
-    transform: translateY(0.1rem); }
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px); }
 
 /*--------------------------------------------------------------
 ## Custom CSS Classes used in editor for blocks
