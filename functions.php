@@ -113,7 +113,7 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 				'color' => '#7b7a7f',
 			),
 			array(
-				'name' => esc_html__( 'Light Red', 'evelyn' ),
+				'name' => esc_html__( 'Light Grey', 'evelyn' ),
 				'color' => '#ededed',
 			),
 			array(

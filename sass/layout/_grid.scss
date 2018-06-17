@@ -12,6 +12,10 @@
   display: grid;
   grid-column: viewport;
   grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(15rem, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
+  .l-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 /* contained items fit into a maximum of 1200px == 75rem */
@@ -113,7 +117,20 @@
 
 @media screen and (min-width: $query__lg) {
   .l-grid {
-    &.l-grid__3, &.l-grid__5, &.l-grid__6 {
+    &.l-grid__5, &.l-grid__6 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .l-grid.l-grid__compact {
+    &.l-grid__3, &.l-grid__4, &.l-grid__5, &.l-grid__6 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: $query__xl) {
+  .l-grid {
+    &.l-grid__3 {
       grid-template-columns: repeat(3, 1fr);
     }
     &.l-grid__4 {
@@ -126,9 +143,6 @@
       grid-template-columns: repeat(6, 1fr);
     }
   }
-}
-
-@media screen and (min-width: $query__xl) {
 }
 
 @supports (display: grid) {

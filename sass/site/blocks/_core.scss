@@ -43,7 +43,17 @@ p.wp-block-subhead {
 }
 .wp-block-columns {
 	display: block;
+	&.row {
+		display: flex;
+	}
+	&.l-grid {
+		display: grid;
+	}
 }
+
+.wp-block-button {
+	margin-bottom: 1.5rem;
+} 
 
 .wp-block-button .wp-block-button__link {
 	font-family: $font__heading;

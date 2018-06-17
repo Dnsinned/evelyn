@@ -27,7 +27,7 @@ echo '</h3>';
 */
 
 // Output html content
-echo '<section class="row l-grid l-grid__3 l-grid-gutter l-grid-gutter__slim l-container--wide l-container__flush">';
+echo '<section class="row l-grid l-grid__3 l-grid__compact l-grid-gutter l-grid-gutter__slim l-container--wide l-container__flush">';
 while ( $projects->have_posts() ) : $projects->the_post();
 ?> 
   <article class="panel panel__dark l-grid--item col-sm-6 col-lg-4" style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php echo the_post_thumbnail_url(); ?>); background-size: cover;">

@@ -808,6 +808,9 @@ nav {
   display: grid;
   grid-column: viewport;
   grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(15rem, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
+  .l-container .l-container {
+    padding-left: 0;
+    padding-right: 0; }
 
 /* contained items fit into a maximum of 1200px == 75rem */
 .l-container--wide {
@@ -896,7 +899,13 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count, 1) + 1)), 1fr)); } }
 
 @media screen and (min-width: 992px) {
-  .l-grid.l-grid__3, .l-grid.l-grid__5, .l-grid.l-grid__6 {
+  .l-grid.l-grid__5, .l-grid.l-grid__6 {
+    grid-template-columns: repeat(3, 1fr); }
+  .l-grid.l-grid__compact.l-grid__3, .l-grid.l-grid__compact.l-grid__4, .l-grid.l-grid__compact.l-grid__5, .l-grid.l-grid__compact.l-grid__6 {
+    grid-template-columns: repeat(3, 1fr); } }
+
+@media screen and (min-width: 1200px) {
+  .l-grid.l-grid__3 {
     grid-template-columns: repeat(3, 1fr); }
   .l-grid.l-grid__4 {
     grid-template-columns: repeat(4, 1fr); }
@@ -923,7 +932,7 @@ nav {
     margin-bottom: 0; } }
 
 .panel.l-grid--item {
-  padding: 4rem 3rem; }
+  padding: 3rem 3rem; }
   .panel.l-grid--item.panel__dark .entry-title a, .panel.l-grid--item.panel__dark .entry-excerpt {
     color: #fff; }
 
@@ -935,6 +944,21 @@ nav {
 
 .panel.bg-evelyn-grey {
   background-color: #7b7a7f; }
+
+.panel.wp-block-columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.panel *:last-child {
+  margin-bottom: 0; }
+
+.panel.border-grey {
+  border: 2px solid #ededed; }
 
 /*--------------------------------------------------------------
 ## Header
@@ -968,6 +992,25 @@ nav {
 .entry-content,
 .entry-summary {
 }*/
+.site {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.site-content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto; }
+
+.site-footer {
+  -ms-flex-negative: 0;
+  flex-shrink: 0; }
+
 .page-links {
   clear: both;
   margin: 0 0 1.5em; }
@@ -1093,6 +1136,15 @@ p.wp-block-subhead {
 
 .wp-block-columns {
   display: block; }
+  .wp-block-columns.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .wp-block-columns.l-grid {
+    display: grid; }
+
+.wp-block-button {
+  margin-bottom: 1.5rem; }
 
 .wp-block-button .wp-block-button__link {
   font-family: "Montserrat", sans-serif;

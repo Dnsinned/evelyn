@@ -1,5 +1,5 @@
 .panel.l-grid--item {
-	padding: 4rem 3rem;
+	padding: 3rem 3rem;
 	&.panel__dark {
 		.entry-title a, .entry-excerpt {
 			color: #fff;
@@ -13,5 +13,15 @@
 		&.bg-#{$name} {
 			background-color: #{$color};
 		}
+	}
+	&.wp-block-columns {
+		display: flex;
+		flex-direction: column;
+	}
+	*:last-child {
+		margin-bottom: 0;
+	}
+	&.border-grey {
+		border: 2px solid $color__light-grey;
 	}
 }
