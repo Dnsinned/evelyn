@@ -13,7 +13,7 @@
 	
 	<?php get_template_part( 'template-parts/partials/content', 'header' ); ?>
 
-	<?php evelyn_post_thumbnail(); ?>
+	<?php // evelyn_post_thumbnail(); ?>
 
 	<div class="entry-content l-container">
 		<?php
