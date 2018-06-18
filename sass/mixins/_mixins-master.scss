@@ -54,9 +54,9 @@
 	@include contain-center;
 }
 
-// Constrain to 720px/45rem
+// Constrain to ~700px
 @mixin contain-content {
-	max-width: 45rem;
+	max-width: 43rem;
 	grid-column: content;
 	@supports (display: grid) {
 		max-width: 100%;

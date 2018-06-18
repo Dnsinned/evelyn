@@ -807,7 +807,7 @@ nav {
   /* CSS Grid */
   display: grid;
   grid-column: viewport;
-  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(15rem, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
+  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(15rem, 43rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
   .l-container .l-container {
     padding-left: 0;
     padding-right: 0; }
@@ -825,7 +825,7 @@ nav {
 
 /* content items fit into a maximum of 720px == 45rem, content usually refers to text-width */
 .l-container--content {
-  max-width: 45rem;
+  max-width: 43rem;
   grid-column: content;
   width: 100%;
   margin-left: auto;
@@ -843,14 +843,14 @@ nav {
   width: 100%;
   margin: 0 auto; }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 688px) {
   .l-container--content.l-container__flush {
-    max-width: 45rem;
+    max-width: 43rem;
     grid-column: content; } }
 
 @media screen and (min-width: 1200px) {
   .l-container {
-    grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 14rem) [content-start] 45rem [content-end] minmax(0, 14rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
+    grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 15rem) [content-start] 43rem [content-end] minmax(0, 15rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end]; }
   .l-container--wide.l-container__flush {
     max-width: 75rem;
     grid-column: container; } }
@@ -961,12 +961,11 @@ nav {
   -ms-flex-direction: column;
   flex-direction: column; }
 
-.panel *:last-child {
-  margin-bottom: 0; }
+.panel > *:last-child {
+  margin-bottom: 1rem; }
 
 .panel .wp-block-button:last-child {
-  margin-top: auto;
-  margin-bottom: 1rem; }
+  margin-top: auto; }
 
 .panel.border-grey {
   border: 2px solid #ededed; }
@@ -1045,7 +1044,7 @@ nav {
 
 /* Styles to center entry content and define the width of elements */
 .entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > * {
-  max-width: 45rem;
+  max-width: 43rem;
   grid-column: content;
   width: 100%;
   margin-left: auto;

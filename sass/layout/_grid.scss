@@ -11,7 +11,7 @@
   /* CSS Grid */
   display: grid;
   grid-column: viewport;
-  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(15rem, 45rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
+  grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 20fr) [content-start] minmax(15rem, 43rem) [content-end] minmax(0, 20fr) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
   .l-container {
     padding-left: 0;
     padding-right: 0;
@@ -42,16 +42,16 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 688px) {
   .l-container--content.l-container__flush {
-    max-width: 45rem;
+    max-width: 43rem;
     grid-column: content;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .l-container {
-    grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 14rem) [content-start] 45rem [content-end] minmax(0, 14rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
+    grid-template-columns: [viewport-start] minmax(var(--page-margin, 1rem), 1fr) [container-start] minmax(0, 15rem) [content-start] 43rem [content-end] minmax(0, 15rem) [container-end] minmax(var(--page-margin, 1rem), 1fr) [viewport-end];
   }
   .l-container--wide.l-container__flush {
     max-width: 75rem;
