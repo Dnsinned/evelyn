@@ -33,7 +33,7 @@ if ($support_methods->found_posts) :
   }
 ?>
 
-<section class="row l-grid <?php echo $section_classes; ?> l-grid-gutter l-grid-gutter__slim l-grid__compact l-container--wide l-container__flush">
+<section class="row l-grid <?php echo $section_classes; ?> l-grid-gutter l-grid-gutter__slim <?php if (!$show_full_post) { echo 'l-grid__compact '; } ?>l-container--wide l-container__flush">
 
 
 <?php while ( $support_methods->have_posts() ) : $support_methods->the_post();
@@ -47,9 +47,7 @@ if ($support_methods->found_posts) :
   } 
 ?>
   <article class="panel l-grid--item <?php echo $article_classes . ' ' . $panel_style; ?>">
-    <h3 class="entry-title">
-      <?php the_title(); ?>
-    </h3>
+    <h3 class="entry-title"><?php the_title(); ?></h3>
     <?php 
       global $more;
       if ($show_full_post) {
@@ -60,26 +58,27 @@ if ($support_methods->found_posts) :
       }
     ?>
     <?php
-      the_content('<span class="wp-block-button alignnone">
+      the_content('<div class="wp-block-button alignnone">
         <span class="wp-block-button__link has-text-color has-dark-grey-color has-background has-light-grey-background-color">More Info</span>
-      </span>'); 
+      </div>'); 
     ?>
   </article>
 
 <?php endwhile; ?>
 
-  <?php if ($show_more_info) : ?>
-    
-  <article class="panel l-grid--item <?php echo $article_classes; ?> border-grey">
-      <h3 class="entry-title">
-        Looking for other ways to get involved?
-      </h3>
-      <p>Go to our support us page to find see the ways you can help!</p>
-      <div class="wp-block-button alignnone">
-        <a class="wp-block-button__link has-text-color has-white-color has-background has-dark-grey-background-color" href="/wordpress/support-us/">Support us</a>
-      </div>
-    </article>
+  <?php 
+  // retrieve a specific page containing the content we want for the more-info bit
+  if ($more_info_page) : 
+    $page_object = get_page_by_path($more_info_page);
+    if ($page_object) :
+  ?>
 
+      <article class="panel l-grid--item <?php echo $article_classes; ?> border-grey">
+        <h3 class="entry-title"><?php echo $page_object->post_title; ?></h3>
+        <?php echo apply_filters('the_content', $page_object->post_content); ?>
+      </article>
+
+    <?php endif; ?>
   <?php endif; ?>
 
 </section>

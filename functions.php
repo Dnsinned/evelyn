@@ -171,7 +171,7 @@ add_action( 'widgets_init', 'evelyn_widgets_init' );
  * Enqueue scripts and styles.
  */
 function evelyn_scripts() {
-	wp_enqueue_style( 'evelyn-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:600,700|Nunito:400,700', false );
+	wp_enqueue_style( 'evelyn-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:600,700|Nunito:400,400i,700', false );
 
 	wp_enqueue_style( 'evelyn-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 	
@@ -255,14 +255,14 @@ function display_support_us_shortcode($atts = [], $content = null)
 			'pagename' => 'support-us',
 			'num_to_show' => -1,
 			'columns' => 2,
-			'more_info' => 0,
+			'more_info_page' => 0,
 			'full_post' => 0,
 		], $atts);
 																 
 		$show_n = $display_support_us_atts['num_to_show'];
 		$page = get_page_by_path($display_support_us_atts['pagename']);
 		$columns = $display_support_us_atts['columns'];
-		$show_more_info = $display_support_us_atts['more_info'];
+		$more_info_page = $display_support_us_atts['more_info_page'];
 		$show_full_post = $display_support_us_atts['full_post'];
 		if ($page) {
 			$support_page_ID = $page->ID;
