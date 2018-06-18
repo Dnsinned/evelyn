@@ -247,14 +247,36 @@ add_shortcode('display-projects', 'display_projects_shortcode');
 
 function display_support_us_shortcode($atts = [], $content = null)
 {
-		ob_start(); 
-		get_template_part('template-parts/query');
-		$new_content = ob_get_clean();  
-		if( !empty( $new_content ) )
-			$content = $new_content;
+	// normalize attribute keys, lowercase
+	$atts = array_change_key_case((array)$atts, CASE_LOWER);	
+
+	// override default attributes with user attributes
+    $display_support_us_atts = shortcode_atts([
+			'pagename' => 'support-us',
+			'num_to_show' => -1,
+			'columns' => 2,
+			'more_info' => 0,
+			'full_post' => 0,
+		], $atts);
+																 
+		$show_n = $display_support_us_atts['num_to_show'];
+		$page = get_page_by_path($display_support_us_atts['pagename']);
+		$columns = $display_support_us_atts['columns'];
+		$show_more_info = $display_support_us_atts['more_info'];
+		$show_full_post = $display_support_us_atts['full_post'];
+		if ($page) {
+			$support_page_ID = $page->ID;
+			ob_start(); 
+			include(locate_template('template-parts/query/support-us.php'));
+			$new_content = ob_get_clean();  
+			if( !empty( $new_content ) )
+				$content = $new_content;
+		} else {
+			return $content;
+		}
 		return $content;
 }
-add_shortcode('display-ways-to-support', 'display_support_us_shortcode');
+add_shortcode('display-support-us', 'display_support_us_shortcode');
 
 
 

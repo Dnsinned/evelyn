@@ -940,16 +940,19 @@ nav {
   .panel.l-grid--item.panel__dark .entry-title a, .panel.l-grid--item.panel__dark .entry-excerpt {
     color: #fff; }
 
-.panel.bg-evelyn-red {
-  background-color: #e54d38; }
+.panel.bg-soft-red {
+  background-color: #f2a496; }
 
-.panel.bg-dark-grey {
-  background-color: #282729; }
+.panel.bg-light-red {
+  background-color: #fad1ca; }
 
-.panel.bg-evelyn-grey {
-  background-color: #7b7a7f; }
+.panel.bg-light-grey {
+  background-color: #ededed; }
 
-.panel.wp-block-columns {
+.panel.bg-white {
+  background-color: #fff; }
+
+.panel, .panel.wp-block-columns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -1,3 +1,5 @@
+// Any styles that directly affect a wp-block element
+
 @each $name, $color in $theme-colors {
 	.has-#{$name}-background-color[class*="wp-block"] {
 	background-color: #{$color};

@@ -14,7 +14,7 @@
 			background-color: #{$color};
 		}
 	}
-	&.wp-block-columns {
+	&, &.wp-block-columns {
 		display: flex;
 		flex-direction: column;
 	}

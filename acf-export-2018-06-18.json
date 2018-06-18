@@ -1,0 +1,201 @@
+[
+    {
+        "key": "group_5b2651cf60fe9",
+        "title": "Header Display Settings",
+        "fields": [
+            {
+                "key": "field_5b2651e6d1092",
+                "label": "Hide Default Header",
+                "name": "hide_default_header",
+                "type": "true_false",
+                "instructions": "Hide the default header (featured image and title). Add alternative header in the post\/page contents.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Hidden",
+                "ui_off_text": "Shown"
+            },
+            {
+                "key": "field_5b266da337a1a",
+                "label": "Text Alignment",
+                "name": "text_alignment",
+                "type": "button_group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5b2651e6d1092",
+                            "operator": "!=",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "left": "<i class=\"dashicons dashicons-editor-alignleft\"><\/i>",
+                    "center": "<i class=\"dashicons dashicons-editor-aligncenter\"><\/i>",
+                    "right": "<i class=\"dashicons dashicons-editor-alignright\"><\/i>"
+                },
+                "allow_null": 0,
+                "default_value": "left",
+                "layout": "horizontal",
+                "return_format": "value"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "projects"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5b2803f36ec9c",
+        "title": "Person's Main Job",
+        "fields": [
+            {
+                "key": "field_5b280803c2399",
+                "label": "Position",
+                "name": "position",
+                "type": "text",
+                "instructions": "State the person's main position in the organisation, e.g. Director",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "e.g. Treasurer",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "people"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5b1d78a288c2a",
+        "title": "Additional Project Info",
+        "fields": [
+            {
+                "key": "field_5b1d78ac31ccd",
+                "label": "Contact",
+                "name": "contact",
+                "type": "text",
+                "instructions": "Enter contact email address",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "@evelynoldfield.co.uk",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5b1d79edccb5a",
+                "label": "Case Study",
+                "name": "case_study",
+                "type": "relationship",
+                "instructions": "Pick a case study for this project to highlight its impact",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "projects"
+                ],
+                "taxonomy": [
+                    "category:case-study"
+                ],
+                "filters": [
+                    "search",
+                    "taxonomy"
+                ],
+                "elements": "",
+                "min": "",
+                "max": 1,
+                "return_format": "object"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "projects"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]
