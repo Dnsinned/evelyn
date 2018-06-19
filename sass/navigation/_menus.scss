@@ -20,11 +20,9 @@ nav {
 .navbar .navbar-nav {
 	padding: 1rem 0 .5rem;
 	.nav-link {
-		padding: 1rem .75rem;
+		padding: 1.25rem 1rem;
 		@include setLinkStyleInteractive {
-			color: currentColor;
 			text-decoration: underline;
-    	text-decoration-color: currentColor;
 		}
 	}
 	.dropdown-menu {
@@ -35,15 +33,22 @@ nav {
 		&:hover, &:focus {
 				background-color: $color__light-red;
 		}
-		&:active {
+		&:active, &:active:focus {
 			color: $color__text-main;
 			background-color: $color__soft-red;
 		}
 	}
+	.navbar-collapse.collapsing , .navbar-collapse.show {
+		margin-bottom: 4rem;
+	}
 	@media screen and (min-width: $query__lg) {
 		padding: 0 1rem 0 0;
+		@include font-size(0.875);
 		.nav-link {
-			padding: .5rem .75rem;
+			padding: .75rem 1rem;
+		}
+		.dropdown-menu {
+			@include font-size(0.875);
 		}
 	} 
 }

@@ -42,12 +42,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 :root {
-  --page-margin: 1rem;
+  --page-margin: 1.25rem;
   --gutter: 2rem;
   --transition-time: 120ms; }
   @media (min-width: 768px) {
     :root {
-      --page-margin: 1.25rem; } }
+      --page-margin: 1.5rem; } }
 
 /*--------------------------------------------------------------
 # Normalize
@@ -643,26 +643,30 @@ nav {
 .navbar .navbar-nav {
   padding: 1rem 0 .5rem; }
   .navbar .navbar-nav .nav-link {
-    padding: 1rem .75rem; }
+    padding: 1.25rem 1rem; }
     .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link:active, .navbar .navbar-nav .nav-link:focus {
-      color: currentColor;
-      text-decoration: underline;
-      -webkit-text-decoration-color: currentColor;
-      text-decoration-color: currentColor; }
+      text-decoration: underline; }
   .navbar .navbar-nav .dropdown-menu {
     padding: 1rem 0; }
   .navbar .navbar-nav .dropdown-item {
     padding: 1rem 2rem; }
     .navbar .navbar-nav .dropdown-item:hover, .navbar .navbar-nav .dropdown-item:focus {
       background-color: #fad1ca; }
-    .navbar .navbar-nav .dropdown-item:active {
+    .navbar .navbar-nav .dropdown-item:active, .navbar .navbar-nav .dropdown-item:active:focus {
       color: #282729;
       background-color: #f2a496; }
+  .navbar .navbar-nav .navbar-collapse.collapsing, .navbar .navbar-nav .navbar-collapse.show {
+    margin-bottom: 4rem; }
   @media screen and (min-width: 992px) {
     .navbar .navbar-nav {
-      padding: 0 1rem 0 0; }
+      padding: 0 1rem 0 0;
+      font-size: 14px;
+      font-size: 0.875rem; }
       .navbar .navbar-nav .nav-link {
-        padding: .5rem .75rem; } }
+        padding: .75rem 1rem; }
+      .navbar .navbar-nav .dropdown-menu {
+        font-size: 14px;
+        font-size: 0.875rem; } }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
@@ -976,7 +980,8 @@ nav {
 .site-header {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between; }
+  justify-content: space-between;
+  background: transparent; }
 
 .navbar-brand {
   padding: 0;
@@ -987,8 +992,6 @@ nav {
 
 .cover-header {
   color: white;
-  padding: 4rem 0;
-  min-height: 360px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1000,7 +1003,10 @@ nav {
   -ms-flex-align: center;
   align-items: center; }
   .cover-header .entry-title {
-    padding: 4rem 1rem; }
+    padding: 2rem 0; }
+
+.cover-header__img {
+  padding: 4rem 0; }
 
 /*--------------------------------------------------------------
 ## Posts and pages

@@ -4,10 +4,10 @@
 @import "columns";
 
 :root {
-  --page-margin: 1rem;
+  --page-margin: 1.25rem;
   --gutter: 2rem;
   --transition-time: 120ms;
   @media (min-width: $query__md) {
-    --page-margin: 1.25rem;
+    --page-margin: 1.5rem;
   }
 }

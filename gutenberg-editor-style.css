@@ -1,10 +1,10 @@
 :root {
-  --page-margin: 1rem;
+  --page-margin: 1.25rem;
   --gutter: 2rem;
   --transition-time: 120ms; }
   @media (min-width: 768px) {
     :root {
-      --page-margin: 1.25rem; } }
+      --page-margin: 1.5rem; } }
 
 .has-evelyn-red-background-color {
   background-color: #e54d38; }
