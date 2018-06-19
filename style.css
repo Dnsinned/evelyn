@@ -562,34 +562,60 @@ input[type="submit"] {
   input[type="submit"]:focus {
     border-color: #aaa #bbb #bbb; }
 
+/*
+ * General usage buttons
+ * wp-block buttons extend these styles with feedback to interaction
+ */
 .btn, .wp-block-button .wp-block-button__link {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   padding: 0.75rem 1.75rem;
+  border: none;
   border-radius: 12px;
   border-radius: 0.75rem;
-  text-transform: uppercase; }
-  .btn.btn__icon, .wp-block-button .btn__icon.wp-block-button__link {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0.55rem 1.25rem; }
-    .btn.btn__icon > *, .wp-block-button .btn__icon.wp-block-button__link > * {
-      vertical-align: middle; }
-    .btn.btn__icon > *:not(:first-child), .wp-block-button .btn__icon.wp-block-button__link > *:not(:first-child) {
-      margin-left: 0.875rem; }
-  .btn.btn__line, .wp-block-button .btn__line.wp-block-button__link {
-    border: 2px solid currentColor;
-    background-color: transparent; }
-    .btn.btn__line:hover, .wp-block-button .btn__line.wp-block-button__link:hover, .btn.btn__line:active, .wp-block-button .btn__line.wp-block-button__link:active, .btn.btn__line:focus, .wp-block-button .btn__line.wp-block-button__link:focus {
-      background-color: #fad1ca; }
-  .btn .btn--text, .wp-block-button .wp-block-button__link .btn--text {
-    margin-top: 2px;
-    line-height: 1.5rem; }
+  text-transform: uppercase;
+  -webkit-transition-duration: 100ms;
+  -o-transition-duration: 100ms;
+  transition-duration: 100ms;
+  -webkit-transition-duration: var(--transition-time, 100ms);
+  -o-transition-duration: var(--transition-time, 100ms);
+  transition-duration: var(--transition-time, 100ms); }
+
+/*
+ * Additional classes for specific use cases
+ * - Icon only buttons
+ * - Icons with both an icon and text
+ * - Line type buttons (transparent background in default state)
+ * Would advise against using with wp-block buttons
+ */
+.btn.btn__icon, .wp-block-button .btn__icon.wp-block-button__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: .5rem .675rem; }
+  .btn.btn__icon > *, .wp-block-button .btn__icon.wp-block-button__link > * {
+    vertical-align: middle; }
+  .btn.btn__icon > *:not(:first-child), .wp-block-button .btn__icon.wp-block-button__link > *:not(:first-child) {
+    margin-left: 0.675rem; }
+  .btn.btn__icon.btn__icon-text, .wp-block-button .btn__icon.btn__icon-text.wp-block-button__link {
+    padding: .5rem .75rem; }
+
+.btn.btn__line, .wp-block-button .btn__line.wp-block-button__link {
+  border: 2px solid currentColor;
+  background-color: transparent; }
+
+.btn.btn__raised:hover, .wp-block-button .btn__raised.wp-block-button__link:hover, .btn.btn__raised:active, .wp-block-button .btn__raised.wp-block-button__link:active, .btn.btn__raised:focus, .wp-block-button .btn__raised.wp-block-button__link:focus {
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  background-color: #fad1ca; }
+
+.btn .btn--text, .wp-block-button .wp-block-button__link .btn--text {
+  line-height: 1.5rem;
+  font-size: 14px; }
 
 input[type="text"],
 input[type="email"],
@@ -1219,13 +1245,7 @@ p.wp-block-subhead {
 
 .wp-block-button .wp-block-button__link {
   -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
-  -webkit-transition-duration: 100ms;
-  -o-transition-duration: 100ms;
-  transition-duration: 100ms;
-  -webkit-transition-duration: var(--transition-time, 100ms);
-  -o-transition-duration: var(--transition-time, 100ms);
-  transition-duration: var(--transition-time, 100ms); }
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08); }
   .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus {
     -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.24), 0px 2px 20px 0px rgba(0, 0, 0, 0.12);
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.24), 0px 2px 20px 0px rgba(0, 0, 0, 0.12);
@@ -1406,5 +1426,53 @@ object {
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Color Utility Classes
+--------------------------------------------------------------*/
+.bg-evelyn-red {
+  background-color: #e54d38; }
+
+.color-evelyn-red {
+  color: #e54d38; }
+
+.bg-soft-red {
+  background-color: #f2a496; }
+
+.color-soft-red {
+  color: #f2a496; }
+
+.bg-light-red {
+  background-color: #fad1ca; }
+
+.color-light-red {
+  color: #fad1ca; }
+
+.bg-dark-grey {
+  background-color: #282729; }
+
+.color-dark-grey {
+  color: #282729; }
+
+.bg-evelyn-grey {
+  background-color: #7b7a7f; }
+
+.color-evelyn-grey {
+  color: #7b7a7f; }
+
+.bg-light-grey {
+  background-color: #ededed; }
+
+.color-light-grey {
+  color: #ededed; }
+
+.bg-white {
+  background-color: #fff; }
+
+.color-white {
+  color: #fff; }
 
 /*# sourceMappingURL=style.css.map */

@@ -21,33 +21,56 @@ input[type="submit"] {
 	}
 }
 
+/*
+ * General usage buttons
+ * wp-block buttons extend these styles with feedback to interaction
+ */
 .btn {
 	font-family: $font__heading;
 	@include font-size(1);
 	padding: 0.75rem 1.75rem;
+	border: none;
 	border-radius: 12px;
 	border-radius: 0.75rem;
 	text-transform: uppercase;
+	transition-duration: 100ms;
+	transition-duration: var(--transition-time, 100ms);
+}
+
+/*
+ * Additional classes for specific use cases
+ * - Icon only buttons
+ * - Icons with both an icon and text
+ * - Line type buttons (transparent background in default state)
+ * Would advise against using with wp-block buttons
+ */
+.btn {
 	&.btn__icon {
 		display: flex;
 		align-items: center;
-		padding: 0.55rem 1.25rem;
+		padding: .5rem .675rem;
 		& > * {
 			vertical-align: middle;
 		}
 		& > *:not(:first-child) {
-			margin-left: 0.875rem;
+			margin-left: 0.675rem; // add gap between elements inside button
+		}
+		&.btn__icon-text {
+			padding: .5rem .75rem; // slightly increase padding if using text with icon
 		}
 	}
 	&.btn__line {
 		border: 2px solid currentColor;
 		background-color: transparent;
+	}
+	&.btn__raised {
 		@include setLinkStyleInteractive {
+			@include shadowNormal;
 			background-color: $color__light-red;
 		}
 	}
 	.btn--text {
-		margin-top: 2px; //hack to deal with text alignment issue on android
 		line-height: 1.5rem;
+		font-size: 14px;
 	}
 }

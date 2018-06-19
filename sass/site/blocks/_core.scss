@@ -62,8 +62,6 @@ p.wp-block-subhead {
 .wp-block-button .wp-block-button__link {
 	@extend .btn;
 	@include shadowNormal;
-	transition-duration: 100ms;
-	transition-duration: var(--transition-time, 100ms);
 	// loop for light bg, use a darker color
 	&:hover, &:focus {
 		@include shadowMedium;
