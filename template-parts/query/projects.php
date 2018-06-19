@@ -32,7 +32,7 @@ while ( $projects->have_posts() ) : $projects->the_post();
 ?> 
   <article class="panel panel__dark l-grid--item col-sm-6 col-lg-4" style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php echo the_post_thumbnail_url(); ?>); background-size: cover;">
   <h4 class="entry-title">
-    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php echo $projects->current_post . ' '; ?><?php the_title(); ?></a>
+    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php //echo $projects->current_post . ' '; ?><?php the_title(); ?></a>
   </h4>
 
   <?php

@@ -9,9 +9,12 @@
 	}
 }
 
-.wp-block-cover-image .wp-block-cover-image-text {
-	font-family: $font__heading;
-	font-weight: 600;
+.wp-block-cover-image {
+	
+	.wp-block-cover-image-text {
+		font-family: $font__heading;
+		font-weight: 600;
+	}
 }
 
 p.wp-block-subhead {
@@ -57,18 +60,14 @@ p.wp-block-subhead {
 } 
 
 .wp-block-button .wp-block-button__link {
-	font-family: $font__heading;
-	@include font-size(1);
-	padding: 0.75rem 1.75rem;
-	border-radius: 12px;
-	border-radius: 0.75rem;
-	text-transform: uppercase;
+	@extend .btn;
 	@include shadowNormal;
 	transition-duration: 100ms;
 	transition-duration: var(--transition-time, 100ms);
 	// loop for light bg, use a darker color
 	&:hover, &:focus {
 		@include shadowMedium;
+		text-decoration: underline;
 		transform: translateY(-0.1rem)
 	}
 	&:active, &:active:focus {

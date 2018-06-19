@@ -41,6 +41,9 @@ nav {
 	.navbar-collapse.collapsing , .navbar-collapse.show {
 		margin-bottom: 4rem;
 	}
+	.navbar-toggler {
+		border: none;
+	}
 	@media screen and (min-width: $query__lg) {
 		padding: 0 1rem 0 0;
 		@include font-size(0.875);
@@ -50,7 +53,17 @@ nav {
 		.dropdown-menu {
 			@include font-size(0.875);
 		}
-	} 
+	}
+}
+@media screen and (min-width: $query__md) {
+	.navbar-expand-md .navbar-toggler {
+		display: none;
+	}
+}
+@media screen and (min-width: $query__lg) {
+	.navbar-expand-lg .navbar-toggler {
+		display: none;
+	}
 }
 
 .comment-navigation,

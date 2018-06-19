@@ -562,6 +562,35 @@ input[type="submit"] {
   input[type="submit"]:focus {
     border-color: #aaa #bbb #bbb; }
 
+.btn, .wp-block-button .wp-block-button__link {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 12px;
+  border-radius: 0.75rem;
+  text-transform: uppercase; }
+  .btn.btn__icon, .wp-block-button .btn__icon.wp-block-button__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.55rem 1.25rem; }
+    .btn.btn__icon > *, .wp-block-button .btn__icon.wp-block-button__link > * {
+      vertical-align: middle; }
+    .btn.btn__icon > *:not(:first-child), .wp-block-button .btn__icon.wp-block-button__link > *:not(:first-child) {
+      margin-left: 0.875rem; }
+  .btn.btn__line, .wp-block-button .btn__line.wp-block-button__link {
+    border: 2px solid currentColor;
+    background-color: transparent; }
+    .btn.btn__line:hover, .wp-block-button .btn__line.wp-block-button__link:hover, .btn.btn__line:active, .wp-block-button .btn__line.wp-block-button__link:active, .btn.btn__line:focus, .wp-block-button .btn__line.wp-block-button__link:focus {
+      background-color: #fad1ca; }
+  .btn .btn--text, .wp-block-button .wp-block-button__link .btn--text {
+    margin-top: 2px;
+    line-height: 1.5rem; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -657,6 +686,8 @@ nav {
       background-color: #f2a496; }
   .navbar .navbar-nav .navbar-collapse.collapsing, .navbar .navbar-nav .navbar-collapse.show {
     margin-bottom: 4rem; }
+  .navbar .navbar-nav .navbar-toggler {
+    border: none; }
   @media screen and (min-width: 992px) {
     .navbar .navbar-nav {
       padding: 0 1rem 0 0;
@@ -667,6 +698,14 @@ nav {
       .navbar .navbar-nav .dropdown-menu {
         font-size: 14px;
         font-size: 0.875rem; } }
+
+@media screen and (min-width: 768px) {
+  .navbar-expand-md .navbar-toggler {
+    display: none; } }
+
+@media screen and (min-width: 992px) {
+  .navbar-expand-lg .navbar-toggler {
+    display: none; } }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
@@ -1179,13 +1218,6 @@ p.wp-block-subhead {
   margin-bottom: 1.5rem; }
 
 .wp-block-button .wp-block-button__link {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  font-size: 1rem;
-  padding: 0.75rem 1.75rem;
-  border-radius: 12px;
-  border-radius: 0.75rem;
-  text-transform: uppercase;
   -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
   -webkit-transition-duration: 100ms;
@@ -1197,6 +1229,7 @@ p.wp-block-subhead {
   .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus {
     -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.24), 0px 2px 20px 0px rgba(0, 0, 0, 0.12);
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.24), 0px 2px 20px 0px rgba(0, 0, 0, 0.12);
+    text-decoration: underline;
     -webkit-transform: translateY(-0.1rem);
     -ms-transform: translateY(-0.1rem);
     transform: translateY(-0.1rem); }
@@ -1323,6 +1356,9 @@ object {
 
 .icon:hover, .icon:active, .icon:focus {
   color: #e54d38; }
+
+.material-icons {
+  vertical-align: middle; }
 
 /*--------------------------------------------------------------
 ## Captions
