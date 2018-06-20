@@ -98,3 +98,8 @@
 	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.24), 0px 2px 40px 0px rgba(0, 0, 0, 0.12);
 }
 
+@mixin transition-times {
+	transition-duration: 100ms;
+	transition-duration: var(--transition-time, 100ms);
+}
+

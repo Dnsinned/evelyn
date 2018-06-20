@@ -33,8 +33,7 @@ input[type="submit"] {
 	border-radius: 12px;
 	border-radius: 0.75rem;
 	text-transform: uppercase;
-	transition-duration: 100ms;
-	transition-duration: var(--transition-time, 100ms);
+	@include transition-times;
 }
 
 /*
