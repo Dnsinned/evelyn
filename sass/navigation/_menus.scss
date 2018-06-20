@@ -1,5 +1,6 @@
 nav {
 	font-family: $font__heading;
+	font-weight: 600;
 	@include font-size(1);
 	a {
 		@include setLinkStyle {

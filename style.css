@@ -683,6 +683,7 @@ a {
 --------------------------------------------------------------*/
 nav {
   font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   font-size: 16px;
   font-size: 1rem; }
   nav a, nav a:hover, nav a:link, nav a:active, nav a:visited, nav a:focus {
