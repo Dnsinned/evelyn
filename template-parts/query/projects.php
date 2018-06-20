@@ -11,7 +11,9 @@
   */
 $args = array (
   'post_type' => 'projects',
-  'category__not_in' => 'archive'
+  'category__not_in' => 'archive',
+  'orderby' => 'menu_order',
+  'order'   => 'ASC'
 );
 
 // Place query results in variable 
@@ -30,7 +32,12 @@ echo '</h3>';
 echo '<section class="row l-grid l-grid__3 l-grid__compact l-grid-gutter l-grid-gutter__slim l-container--wide l-container__flush">';
 while ( $projects->have_posts() ) : $projects->the_post();
 ?> 
+  <?php if (has_post_thumbnail()) : ?>
   <article class="panel panel__dark panel__link l-grid--item col-sm-6 col-lg-4" style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php echo the_post_thumbnail_url(); ?>); background-size: cover;">
+  <?php else : ?>
+  <article class="panel panel__link border-grey l-grid--item col-sm-6 col-lg-4">
+  <?php endif; ?>
+
     <a href="<?php the_permalink(); ?>">
       
       <p class="entry-cats"><?php $categories = get_the_category();
