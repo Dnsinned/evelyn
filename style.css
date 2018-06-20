@@ -1005,9 +1005,13 @@ nav {
     margin-bottom: 0; } }
 
 .panel.l-grid--item {
-  padding: 3rem 3rem; }
-  .panel.l-grid--item.panel__dark .entry-title a, .panel.l-grid--item.panel__dark .entry-excerpt {
+  padding: 3rem; }
+  .panel.l-grid--item.panel__dark .entry-title a, .panel.l-grid--item.panel__dark .entry-excerpt, .panel.l-grid--item.panel__dark .entry-cats, .panel.l-grid--item.panel__dark .entry-cats a, .panel.l-grid--item.panel__dark .panel--forward {
     color: #fff; }
+  .panel.l-grid--item.panel__dark .panel--forward:hover, .panel.l-grid--item.panel__dark .panel--forward:active, .panel.l-grid--item.panel__dark .panel--forward:focus {
+    color: #282729;
+    border-color: #fff;
+    background-color: #fff; }
 
 .panel.bg-soft-red {
   background-color: #f2a496; }
@@ -1021,7 +1025,7 @@ nav {
 .panel.bg-white {
   background-color: #fff; }
 
-.panel, .panel.wp-block-columns {
+.panel, .panel.wp-block-columns, .panel.panel__link > a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1031,13 +1035,57 @@ nav {
   flex-direction: column; }
 
 .panel > *:last-child {
-  margin-bottom: 1rem; }
+  margin-bottom: 0; }
+
+.panel.border-grey {
+  border: 2px solid #ededed; }
+
+.panel.panel__link {
+  padding: 0; }
+  .panel.panel__link > a {
+    width: 100%;
+    height: 100%;
+    padding: 3rem 3rem 2rem;
+    color: #282729; }
+    .panel.panel__link > a:hover, .panel.panel__link > a:active, .panel.panel__link > a:focus {
+      text-decoration: none; }
+      .panel.panel__link > a:hover .entry-title, .panel.panel__link > a:active .entry-title, .panel.panel__link > a:focus .entry-title {
+        text-decoration: underline; }
+      .panel.panel__link > a:hover .panel--forward, .panel.panel__link > a:active .panel--forward, .panel.panel__link > a:focus .panel--forward {
+        color: #fff;
+        border-color: #282729;
+        background-color: #282729; }
+  .panel.panel__link.panel__dark > * {
+    color: #fff; }
+  .panel.panel__link.panel__dark:hover .panel--forward, .panel.panel__link.panel__dark:active .panel--forward, .panel.panel__link.panel__dark:focus .panel--forward {
+    color: #282729;
+    border-color: #fff;
+    background-color: #fff; }
 
 .panel .wp-block-button:last-child {
   margin-top: auto; }
 
-.panel.border-grey {
-  border: 2px solid #ededed; }
+.panel .entry-excerpt {
+  font-size: 16px;
+  font-size: 1rem; }
+
+.panel .entry-cats {
+  margin-bottom: 5rem;
+  letter-spacing: 0.25px; }
+
+.panel .panel--icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1rem; }
+
+.panel .panel--forward {
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: 2px solid currentColor; }
+  .panel .panel--forward:hover, .panel .panel--forward:active, .panel .panel--forward:focus {
+    color: #282729;
+    background-color: #fff; }
 
 /*--------------------------------------------------------------
 ## Header
@@ -1114,14 +1162,14 @@ nav {
   margin: 0 0 1.5em; }
 
 /* Styles to center entry content and define the width of elements */
-.entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > * {
+.entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > *:not(.l-container--wide):not(.alignwide) {
   max-width: 43rem;
   grid-column: content;
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
   @supports (display: grid) {
-    .entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > * {
+    .entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > *:not(.l-container--wide):not(.alignwide) {
       max-width: 100%; } }
 
 .entry-content > .alignfull {
@@ -1146,6 +1194,13 @@ nav {
 
 .entry-meta {
   margin-bottom: 1rem; }
+
+.entry-cats {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  font-size: 0.875rem; }
 
 p.entry-excerpt {
   margin-bottom: 0; }
@@ -1241,7 +1296,8 @@ p.wp-block-subhead {
     display: grid; }
 
 .wp-block-button {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem;
+  font-weight: 600; }
 
 .wp-block-button .wp-block-button__link {
   -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);

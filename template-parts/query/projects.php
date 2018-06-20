@@ -30,21 +30,32 @@ echo '</h3>';
 echo '<section class="row l-grid l-grid__3 l-grid__compact l-grid-gutter l-grid-gutter__slim l-container--wide l-container__flush">';
 while ( $projects->have_posts() ) : $projects->the_post();
 ?> 
-  <article class="panel panel__dark l-grid--item col-sm-6 col-lg-4" style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php echo the_post_thumbnail_url(); ?>); background-size: cover;">
-  <h4 class="entry-title">
-    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php //echo $projects->current_post . ' '; ?><?php the_title(); ?></a>
-  </h4>
+  <article class="panel panel__dark panel__link l-grid--item col-sm-6 col-lg-4" style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php echo the_post_thumbnail_url(); ?>); background-size: cover;">
+    <a href="<?php the_permalink(); ?>">
+      
+      <p class="entry-cats"><?php $categories = get_the_category();
+      if ( ! empty( $categories ) ) {
+        _e($categories[0]->name);
+      } ?></p>
+      
+      <h4 class="entry-title mt-auto" title="<?php the_title_attribute(); ?>"><?php //echo $projects->current_post . ' '; ?><?php the_title(); ?></h4>
 
-  <?php
-  $excerpt = '';
-  if (has_excerpt()) {
-      $excerpt = wp_strip_all_tags(get_the_excerpt(), true );
-      echo '<p class="entry-excerpt">' .$excerpt. '</p>';
-  }
-  ?>
-
+      <?php
+      $excerpt = '';
+      if (has_excerpt()) {
+          $excerpt = wp_strip_all_tags(get_the_excerpt(), true );
+          echo '<p class="entry-excerpt">' .$excerpt. '</p>';
+      }
+      ?>
+    
+      <div class="panel--icon justify-content-end">
+        <i class="material-icons panel--forward">
+          arrow_forward
+        </i>
+      </div>
+    </a>  
   </article>
-
+  
 <?php endwhile; ?>
 
 </section>

@@ -34,7 +34,7 @@
 }
 
 /* Styles to center entry content and define the width of elements */
-.entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > * {
+.entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > *:not(.l-container--wide):not(.alignwide) {
 	@include contain-content;
 }
 
@@ -52,6 +52,13 @@
 
 .entry-meta {
 	margin-bottom: 1rem;
+}
+
+.entry-cats {
+	text-transform: uppercase;
+	font-family: $font__heading;
+	font-weight: 500;
+	@include font-size(0.875);
 }
 
 p.entry-excerpt {
