@@ -171,7 +171,7 @@ add_action( 'widgets_init', 'evelyn_widgets_init' );
  * Enqueue scripts and styles.
  */
 function evelyn_scripts() {
-	wp_enqueue_style( 'evelyn-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:600,700|Nunito:400,400i,700', false );
+	wp_enqueue_style( 'evelyn-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Nunito:400,400i,700', false );
 
 	wp_enqueue_style( 'evelyn-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 	
@@ -278,6 +278,27 @@ function display_support_us_shortcode($atts = [], $content = null)
 }
 add_shortcode('display-support-us', 'display_support_us_shortcode');
 
+function display_people_shortcode($atts = [], $content = null)
+{
+	// normalize attribute keys, lowercase
+	$atts = array_change_key_case((array)$atts, CASE_LOWER);	
+
+	// override default attributes with user attributes
+    $display_people_atts = shortcode_atts([
+			'num_to_show' => -1,
+			'role' => 'staff',
+		], $atts);
+		
+		$show_n = $display_people_atts['num_to_show'];
+		$people_role = $display_people_atts['role'];
+		ob_start(); 
+		get_template_part('template-parts/query/people.php');
+		$new_content = ob_get_clean();  
+		if( !empty( $new_content ) )
+			$content = $new_content;
+		return $content;
+}
+add_shortcode('display-people', 'display_people_shortcode');
 
 
 /**
