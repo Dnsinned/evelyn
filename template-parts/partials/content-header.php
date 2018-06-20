@@ -19,18 +19,18 @@
 		$hidden = true;
 	} 
 ?>
-
-<header class="entry-header l-container cover-header <?php if ($hidden) { echo 'd-none '; } ?><?php if (has_post_thumbnail()) { echo 'cover-header__img'; } ?>" 
-	<?php if (has_post_thumbnail()) : ?> 
+<?php if (has_post_thumbnail()) : ?> 
+	<header class="entry-header l-container cover-header <?php if ($hidden) { echo 'd-none '; } ?><?php if (has_post_thumbnail()) { echo 'cover-header__img'; } ?>" 
 	style="background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url( <?php echo the_post_thumbnail_url(); ?>); background-size: cover;"
-	<?php else : ?>
-	style="background-color: #e54d38;" 
-	<?php endif; ?>
+<?php else : ?>
+	<header class="entry-header l-container <?php if ($hidden) { echo 'd-none '; } ?><?php if (has_post_thumbnail()) { echo 'cover-header__img'; } ?>" 
+	style="background-color: #ededed;" 
+<?php endif; ?>
 >
 	<?php
 	the_field('text-alignment');
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title ' . $alignment . '">', '</h1>' );
+			the_title( '<h1 class="entry-title ' . $alignment . '" >', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title ' . $alignment . '"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;

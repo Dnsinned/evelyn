@@ -48,7 +48,22 @@
 	
 .entry-header {
 	margin-bottom: 1.5rem;
+	.entry-title {
+    padding: 2rem 0;
+  }
 } 
+
+.cover-header {
+  color: white; 
+  display: flex;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-header__img {
+  padding: 4rem 0;
+}
 
 .entry-meta {
 	margin-bottom: 1rem;
