@@ -23,17 +23,24 @@ $support_methods = new WP_Query($args);
 
 // only return any html content if there are any matching queries
 if ($support_methods->found_posts) :
-  if ($columns == 2) {
+  if ($columns == 1) {
+    $section_classes = '';
+    $article_classes = 'col-12';
+    $content_width = 'l-container--content';
+  }
+  elseif ($columns == 2) {
     $section_classes = 'l-grid__2';
     $article_classes = 'col-md-6';
+    $content_width = 'l-container--wide';
   }
   else {
     $section_classes = 'l-grid__3';
     $article_classes = 'col-md-6 col-lg-4';
+    $content_width = 'l-container--wide';
   }
 ?>
 
-<section class="row l-grid <?php echo $section_classes; ?> l-grid-gutter l-grid-gutter__slim <?php if (!$show_full_post) { echo 'l-grid__compact '; } ?>l-container--wide l-container__flush">
+<section class="row l-grid <?php echo $section_classes . ' ' . $content_width; ?> l-grid-gutter l-grid-gutter__slim <?php //if (!$show_full_post) { echo 'l-grid__compact '; } ?>l-container__flush">
 
 
 <?php while ( $support_methods->have_posts() ) : $support_methods->the_post();

@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('l-container'); ?>>
 	
-	<?php get_template_part( 'template-parts/partials/content', 'header' ); ?>
+	<?php get_template_part( 'template-parts/partials/content', 'header-cover' ); ?>
 
 	<?php // evelyn_post_thumbnail(); ?>
 
