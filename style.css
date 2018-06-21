@@ -712,7 +712,8 @@ nav {
   .navbar .navbar-nav .dropdown-menu {
     padding: 1rem 0; }
   .navbar .navbar-nav .dropdown-item {
-    padding: 1rem 2rem; }
+    padding: 1rem 2rem;
+    font-weight: 600; }
     .navbar .navbar-nav .dropdown-item:hover, .navbar .navbar-nav .dropdown-item:focus {
       background-color: #fad1ca; }
     .navbar .navbar-nav .dropdown-item:active, .navbar .navbar-nav .dropdown-item:active:focus {
@@ -1363,18 +1364,19 @@ p.wp-block-subhead {
   .list-horizontal > li {
     padding: 1rem 2rem; }
 
+.subheading, .stat--figure {
+  font-family: "Montserrat", sans-serif; }
+
 .stat {
   text-align: center; }
 
 .stat--figure {
   font-size: 5rem;
+  font-weight: 600;
   color: #107180; }
 
 .stat--info {
   font-size: 1.125rem; }
-
-.subheading {
-  font-family: "Montserrat", sans-serif; }
 
 /*--------------------------------------------------------------
 ## Footer

@@ -12,6 +12,9 @@
 	}
 }
 
+.subheading, .stat--figure {
+  font-family: $font__heading;
+}
 
 .stat {
   text-align: center;
@@ -19,6 +22,7 @@
 
 .stat--figure {
   font-size: 5rem;
+  font-weight: 600;
   color: #107180;
 }
 
@@ -26,6 +30,3 @@
   font-size: 1.125rem;
 }
 
-.subheading {
-  font-family: $font__heading;
-}
