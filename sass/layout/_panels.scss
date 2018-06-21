@@ -74,8 +74,11 @@
       }
     }
   }
-  .wp-block-button:last-child {
+  .wp-block-button:last-child, .more-link {
     margin-top: auto;
+  }
+  .more-link .wp-block-button {
+    margin-bottom: 0;
   }
   .entry-excerpt {
     @include font-size(1);

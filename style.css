@@ -963,13 +963,13 @@ nav {
   --col-count: 6; }
 
 @media screen and (min-width: 576px) {
-  .l-grid.l-grid__compact {
+  .l-grid.l-grid__compact[class*="l-grid__"] {
     grid-template-columns: repeat(2, 1fr); }
   .l-grid-wrap {
     grid-template-columns: repeat(auto-fit, minmax(calc(1200px / calc(var(--col-count, 1) + 1)), 1fr)); } }
 
 @media screen and (min-width: 768px) {
-  .l-grid {
+  .l-grid[class*="l-grid__"] {
     grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (min-width: 992px) {
@@ -1081,8 +1081,10 @@ nav {
         color: #282729;
         border-color: #fff;
         background-color: #fff; }
-  .panel .wp-block-button:last-child {
+  .panel .wp-block-button:last-child, .panel .more-link {
     margin-top: auto; }
+  .panel .more-link .wp-block-button {
+    margin-bottom: 0; }
   .panel .entry-excerpt {
     font-size: 16px;
     font-size: 1rem; }
@@ -1363,6 +1365,9 @@ p.wp-block-subhead {
 
 .stat--info {
   font-size: 1.125rem; }
+
+.subheading {
+  font-family: "Montserrat", sans-serif; }
 
 /*--------------------------------------------------------------
 ## Footer
