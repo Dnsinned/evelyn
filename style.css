@@ -389,6 +389,13 @@ h6 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   margin: 1rem 0; }
+  h1.medium,
+  h2.medium,
+  h3.medium,
+  h4.medium,
+  h5.medium,
+  h6.medium {
+    font-weight: 600; }
 
 h1 {
   font-size: 36px;

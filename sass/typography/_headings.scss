@@ -8,6 +8,9 @@ h6 {
   font-family: $font__heading;
   font-weight: 700;
   margin: 1rem 0;
+  &.medium {
+    font-weight: 600;
+  }
 }
 
 h1 {
