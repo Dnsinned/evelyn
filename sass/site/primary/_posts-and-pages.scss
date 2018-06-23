@@ -54,11 +54,11 @@
 } 
 
 .cover-header {
-  color: white; 
-  display: flex;
+	color: white;
+  // display: flex; bugged on ie11
   display: grid;
   justify-content: center;
-  align-items: center;
+	align-items: center;
 }
 
 .cover-header__img {
