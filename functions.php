@@ -164,6 +164,15 @@ function evelyn_widgets_init() {
 		'before_title'  => '<h5 class="widget-title">',
 		'after_title'   => '</h5>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Social Widgets', 'evelyn' ),
+		'id'            => 'social-1',
+		'description'   => esc_html__( 'Add social media feeds here. E.g. Twitter and Facebook', 'evelyn' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s col-sm-6 col-lg-4 l-grid--item">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h5 class="widget-title">',
+		'after_title'   => '</h5>',
+	) );
 }
 add_action( 'widgets_init', 'evelyn_widgets_init' );
 

@@ -575,6 +575,7 @@ input[type="submit"] {
  */
 .btn, .wp-block-button .wp-block-button__link {
   font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   font-size: 16px;
   font-size: 1rem;
   padding: 0.75rem 1.75rem;
@@ -587,42 +588,56 @@ input[type="submit"] {
   transition-duration: 100ms;
   -webkit-transition-duration: var(--transition-time, 100ms);
   -o-transition-duration: var(--transition-time, 100ms);
-  transition-duration: var(--transition-time, 100ms); }
-
-/*
- * Additional classes for specific use cases
- * - Icon only buttons
- * - Icons with both an icon and text
- * - Line type buttons (transparent background in default state)
- * Would advise against using with wp-block buttons
- */
-.btn.btn__icon, .wp-block-button .btn__icon.wp-block-button__link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: .5rem .675rem; }
-  .btn.btn__icon > *, .wp-block-button .btn__icon.wp-block-button__link > * {
-    vertical-align: middle; }
-  .btn.btn__icon > *:not(:first-child), .wp-block-button .btn__icon.wp-block-button__link > *:not(:first-child) {
-    margin-left: 0.675rem; }
-  .btn.btn__icon.btn__icon-text, .wp-block-button .btn__icon.btn__icon-text.wp-block-button__link {
-    padding: .5rem .75rem; }
-
-.btn.btn__line, .wp-block-button .btn__line.wp-block-button__link {
-  border: 2px solid currentColor;
-  background-color: transparent; }
-
-.btn.btn__raised:hover, .wp-block-button .btn__raised.wp-block-button__link:hover, .btn.btn__raised:active, .wp-block-button .btn__raised.wp-block-button__link:active, .btn.btn__raised:focus, .wp-block-button .btn__raised.wp-block-button__link:focus {
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
-  background-color: #fad1ca; }
-
-.btn .btn--text, .wp-block-button .wp-block-button__link .btn--text {
-  line-height: 1.5rem;
-  font-size: 14px; }
+  transition-duration: var(--transition-time, 100ms);
+  /*
+	 * Additional classes for specific use cases
+	 * - Icon only buttons
+	 * - Icons with both an icon and text
+	 * - Line type buttons (transparent background in default state)
+	 * - Manually toggling the raised style of buttons
+	 * - Applying colour styles
+	 */ }
+  .btn.btn__icon, .wp-block-button .btn__icon.wp-block-button__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .5rem .675rem; }
+    .btn.btn__icon > *, .wp-block-button .btn__icon.wp-block-button__link > * {
+      vertical-align: middle; }
+    .btn.btn__icon > *:not(:first-child), .wp-block-button .btn__icon.wp-block-button__link > *:not(:first-child) {
+      margin-left: 0.675rem; }
+    .btn.btn__icon.btn__icon-text, .wp-block-button .btn__icon.btn__icon-text.wp-block-button__link {
+      padding: .5rem .75rem; }
+  .btn.btn__line, .wp-block-button .btn__line.wp-block-button__link {
+    border: 2px solid currentColor;
+    background-color: transparent; }
+  .btn.btn__raised, .wp-block-button .btn__raised.wp-block-button__link {
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08); }
+    .btn.btn__raised:hover, .wp-block-button .btn__raised.wp-block-button__link:hover, .btn.btn__raised:focus, .wp-block-button .btn__raised.wp-block-button__link:focus {
+      -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.24), 0px 2px 20px 0px rgba(0, 0, 0, 0.12);
+      box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.24), 0px 2px 20px 0px rgba(0, 0, 0, 0.12);
+      text-decoration: underline;
+      -webkit-transform: translateY(-0.1rem);
+      -ms-transform: translateY(-0.1rem);
+      transform: translateY(-0.1rem); }
+    .btn.btn__raised:active, .wp-block-button .btn__raised.wp-block-button__link:active, .btn.btn__raised:active:focus, .wp-block-button .btn__raised.wp-block-button__link:active:focus {
+      -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+      -webkit-transform: translateY(2px);
+      -ms-transform: translateY(2px);
+      transform: translateY(2px); }
+  .btn.btn__toggle-fill:hover, .wp-block-button .btn__toggle-fill.wp-block-button__link:hover, .btn.btn__toggle-fill:active, .wp-block-button .btn__toggle-fill.wp-block-button__link:active, .btn.btn__toggle-fill:focus, .wp-block-button .btn__toggle-fill.wp-block-button__link:focus {
+    background-color: #ededed; }
+  .btn.btn__resource, .wp-block-button .btn__resource.wp-block-button__link {
+    color: #e54d38;
+    background-color: #ededed; }
+  .btn .btn--text, .wp-block-button .wp-block-button__link .btn--text {
+    line-height: 1.5rem;
+    font-size: 14px; }
 
 input[type="text"],
 input[type="email"],

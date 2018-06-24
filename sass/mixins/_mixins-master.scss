@@ -98,6 +98,19 @@
 	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.24), 0px 2px 40px 0px rgba(0, 0, 0, 0.12);
 }
 
+@mixin button-hover-effect {
+	@include shadowNormal;
+	&:hover, &:focus {
+		@include shadowMedium;
+		text-decoration: underline;
+		transform: translateY(-0.1rem)
+	}
+	&:active, &:active:focus {
+		@include shadowNormal;
+		transform: translateY(2px)
+	}
+}
+
 @mixin transition-times {
 	transition-duration: 100ms;
 	transition-duration: var(--transition-time, 100ms);

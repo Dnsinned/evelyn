@@ -64,16 +64,6 @@ p.wp-block-subhead {
 
 .wp-block-button .wp-block-button__link {
 	@extend .btn;
-	@include shadowNormal;
-	// loop for light bg, use a darker color
-	&:hover, &:focus {
-		@include shadowMedium;
-		text-decoration: underline;
-		transform: translateY(-0.1rem)
-	}
-	&:active, &:active:focus {
-		@include shadowNormal;
-		transform: translateY(2px)
-	}
+	@include button-hover-effect;
 }
 
