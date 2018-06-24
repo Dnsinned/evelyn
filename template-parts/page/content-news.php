@@ -23,11 +23,9 @@
 			$file = get_field('document');
 
 			if( $file ): ?>
-				<div class="col-sm-6 col-lg-4 l-grid--item">
-					<h5>Latest E-Bulletin</h5>
-						<div class="wp-block-button">
-							<a class="wp-block-button__link btn__resource btn__raised" href="<?php echo $file['url']; ?>"><?php echo $file['title']; ?></a>
-					</div>
+				<div class="order-md-last col-sm-6 col-lg-4 l-grid--item">
+					<h4>Latest E-Bulletin</h4>
+					<a class="btn btn__resource btn__raised" href="<?php echo $file['url']; ?>"><?php echo $file['title']; ?></a>
 				</div>
 			<?php endif; ?>
 

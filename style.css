@@ -583,6 +583,9 @@ input[type="submit"] {
   border-radius: 12px;
   border-radius: 0.75rem;
   text-transform: uppercase;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
   -webkit-transition-duration: 100ms;
   -o-transition-duration: 100ms;
   transition-duration: 100ms;
