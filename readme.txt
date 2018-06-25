@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 4.5
 Tested up to: 4.8
 Stable tag: 1.0.0
-License: GNU General Public License v2 or later
+License: GNU General Public License v3 or later
 License URI: LICENSE
 
 A starter theme called Evelyn.
