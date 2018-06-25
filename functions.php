@@ -180,7 +180,7 @@ add_action( 'widgets_init', 'evelyn_widgets_init' );
  * Enqueue scripts and styles.
  */
 function evelyn_scripts() {
-	wp_enqueue_style( 'evelyn-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:600,700|Nunito:400,400i,700', false );
+	wp_enqueue_style( 'evelyn-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Nunito:400,400i,700', false );
 
 	wp_enqueue_style( 'evelyn-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 	

@@ -45,7 +45,7 @@ while ( $projects->have_posts() ) : $projects->the_post();
         _e($categories[0]->name);
       } ?></p>
       
-      <h4 class="entry-title mt-auto" title="<?php the_title_attribute(); ?>"><?php //echo $projects->current_post . ' '; ?><?php the_title(); ?></h4>
+      <h4 class="entry-title mt-auto mb-2" title="<?php the_title_attribute(); ?>"><?php //echo $projects->current_post . ' '; ?><?php the_title(); ?></h4>
 
       <?php
       $excerpt = '';
