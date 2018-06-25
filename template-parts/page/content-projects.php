@@ -32,7 +32,7 @@
 		style="background-color: #fff;" 
 	<?php endif; ?>
 	>
-		<div class="mt-auto">
+		<div class="entry-header--content">
 			<p class="entry-cats font-semibold mt-auto <?php echo $alignment; ?>">
 			<?php $categories = get_the_category();
 				if ( ! empty( $categories ) ) {

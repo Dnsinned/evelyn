@@ -1237,8 +1237,8 @@ nav {
     padding: 4rem 0; }
     .cover-header.cover-header__img > .entry-title {
       padding: 2rem 0; }
-  .cover-header.cover-header__full {
-    min-height: 67vh; }
+  .cover-header.cover-header__full > .entry-header--content {
+    margin-top: 20vh; }
 
 .entry-meta {
   margin-bottom: 0.75rem; }

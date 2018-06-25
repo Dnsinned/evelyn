@@ -67,7 +67,9 @@
 		}
 	}
 	&.cover-header__full {
-		min-height: 67vh;
+		> .entry-header--content {
+			margin-top: 20vh;
+		}
 	}
 }
 
