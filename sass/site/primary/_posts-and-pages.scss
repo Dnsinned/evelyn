@@ -47,8 +47,7 @@
 }
 	
 .entry-header {
-	margin-bottom: 1.5rem;
-	padding: 2rem 0;
+	padding: 3rem 0;
 	.entry-title {
     margin: 0;
   }
@@ -60,6 +59,7 @@
   display: grid;
   justify-content: center;
 	align-items: center;
+	margin-bottom: 1.5rem;
 	&.cover-header__img {
 		padding: 4rem 0;
 		> .entry-title {

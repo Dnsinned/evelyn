@@ -41,17 +41,17 @@
 			</p>
 			<?php
 				if ( is_singular() ) :
-					the_title( '<h1 class="entry-title' . $alignment . '" >', '</h1>' );
+					the_title( '<h1 class="entry-title ' . $alignment . '" >', '</h1>' );
 				else :
 					the_title( '<h2 class="entry-title ' . $alignment . '"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 				endif;
 			?>
-			<?php
+			<?php /*
 			$excerpt = '';
 			if (has_excerpt()) {
 				$excerpt = wp_strip_all_tags(get_the_excerpt(), true );
 				echo '<p class="entry-excerpt mt-3 ' . $alignment . '">' .$excerpt. '</p>';
-			}
+			} */
 			?>
 
 			<?php

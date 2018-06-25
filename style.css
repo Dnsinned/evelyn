@@ -1219,8 +1219,7 @@ nav {
       max-width: 100%; } }
 
 .entry-header {
-  margin-bottom: 1.5rem;
-  padding: 2rem 0; }
+  padding: 3rem 0; }
   .entry-header .entry-title {
     margin: 0; }
 
@@ -1232,7 +1231,8 @@ nav {
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 1.5rem; }
   .cover-header.cover-header__img {
     padding: 4rem 0; }
     .cover-header.cover-header__img > .entry-title {
