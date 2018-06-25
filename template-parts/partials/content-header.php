@@ -9,19 +9,13 @@
 
 ?>
 
-<?php 
-	$alignment = 'text-left';
-	if( get_field('text_alignment') ) {
-		$alignment = 'text-' . get_field('text_alignment');
-	} 
-?>
 <header class="page-header l-container--content">
   <?php
 	the_field('text-alignment');
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title ' . $alignment . '" >', '</h1>' );
+			the_title( '<h1 class="entry-title" >', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title ' . $alignment . '"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 	?>
 

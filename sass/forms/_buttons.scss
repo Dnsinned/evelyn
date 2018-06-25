@@ -67,7 +67,7 @@ input[type="submit"] {
 	}
 	&.btn__toggle-fill {
 		@include setLinkStyleInteractive {
-			background-color: $color__light-grey;
+			background-color: $color__light-red;
 		}
 	}
 	&.btn__resource {

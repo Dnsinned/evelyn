@@ -21,6 +21,7 @@
 
 .panel {
   --transition-time: 240ms;
+  border: 2px solid transparent;
   @each $name, $color in $light-colors {
     &.bg-#{$name} {
       background-color: #{$color};
@@ -36,7 +37,7 @@
     margin-bottom: 0;
   }
   &.border-grey {
-    border: 2px solid $color__light-grey;
+    border-color: $color__light-grey;
   }
   &.panel__link {
     padding: 0;

@@ -427,8 +427,8 @@ h6 {
     font-size: 48px;
     font-size: 3rem; }
   h2 {
-    font-size: 40px;
-    font-size: 2.5rem; }
+    font-size: 36px;
+    font-size: 2.25rem; }
   h3 {
     font-size: 32px;
     font-size: 2rem; }
@@ -634,7 +634,7 @@ input[type="submit"] {
       -ms-transform: translateY(2px);
       transform: translateY(2px); }
   .btn.btn__toggle-fill:hover, .wp-block-button .btn__toggle-fill.wp-block-button__link:hover, .btn.btn__toggle-fill:active, .wp-block-button .btn__toggle-fill.wp-block-button__link:active, .btn.btn__toggle-fill:focus, .wp-block-button .btn__toggle-fill.wp-block-button__link:focus {
-    background-color: #ededed; }
+    background-color: #fad1ca; }
   .btn.btn__resource, .wp-block-button .btn__resource.wp-block-button__link {
     color: #e54d38;
     background-color: #ededed; }
@@ -1051,7 +1051,8 @@ nav {
     background-color: #fff; }
 
 .panel {
-  --transition-time: 240ms; }
+  --transition-time: 240ms;
+  border: 2px solid transparent; }
   .panel.bg-soft-red {
     background-color: #f2a496; }
   .panel.bg-light-red {
@@ -1072,7 +1073,7 @@ nav {
   .panel > *:last-child {
     margin-bottom: 0; }
   .panel.border-grey {
-    border: 2px solid #ededed; }
+    border-color: #ededed; }
   .panel.panel__link {
     padding: 0; }
     .panel.panel__link > a {
@@ -1244,7 +1245,7 @@ nav {
 .entry-cats {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   font-size: 0.875rem; }
 
