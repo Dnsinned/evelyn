@@ -47,10 +47,12 @@
         <a href="https://beta.companieshouse.gov.uk/company/02921143">02921143</a>
       </p>
       <div class="small col-md-6 l-grid--item site-info--privacy">
-        <div>
+				<?php 
+				/* <div>
           <a href="">Terms</a> &amp
           <a href="">Privacy</a>
-				</div>
+				</div> */ 
+				?>
 				<p>&copy Evelyn Oldfield Unit </div>
       </div>
     </section> <!-- .site-info__legal -->
