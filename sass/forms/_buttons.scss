@@ -74,6 +74,10 @@ input[type="submit"] {
 		color: $color__eou-red;
 		background-color: $color__light-grey;
 	}
+	&.btn__cta {
+		color: #fff;
+		background-color: $color__eou-red;
+	}
 	.btn--text {
 		line-height: 1.5rem;
 		font-size: 14px;

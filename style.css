@@ -638,6 +638,9 @@ input[type="submit"] {
   .btn.btn__resource, .wp-block-button .btn__resource.wp-block-button__link {
     color: #e54d38;
     background-color: #ededed; }
+  .btn.btn__cta, .wp-block-button .btn__cta.wp-block-button__link {
+    color: #fff;
+    background-color: #e54d38; }
   .btn .btn--text, .wp-block-button .wp-block-button__link .btn--text {
     line-height: 1.5rem;
     font-size: 14px; }
@@ -1296,6 +1299,13 @@ nav {
 
 p.entry-excerpt {
   margin-bottom: 0; }
+
+.error-404.not-found {
+  margin: 3rem 0; }
+  .error-404.not-found .page-header {
+    padding: 2rem 0; }
+  .error-404.not-found .page-content {
+    padding-bottom: 2rem; }
 
 /*--------------------------------------------------------------
 ## Comments
