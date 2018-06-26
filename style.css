@@ -1167,6 +1167,8 @@ nav {
   .profile .media-body {
     padding-left: 1rem;
     border-left: 1px solid #f2a496; }
+  .profile .profile--bio > *:last-child {
+    margin-bottom: 0; }
 
 /*--------------------------------------------------------------
 ## Header

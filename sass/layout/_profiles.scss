@@ -27,6 +27,9 @@
     padding-left: 1rem;
     border-left: 1px solid $color__soft-red;
   }
+  .profile--bio > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 
