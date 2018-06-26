@@ -26,6 +26,10 @@
   .media-body {
     padding-left: 1rem;
     border-left: 1px solid $color__soft-red;
+    min-height: 80px;
+    @media screen and (min-width: $query__md) {
+      min-height: 112px;
+    }
   }
   .profile--bio > *:last-child {
     margin-bottom: 0;
