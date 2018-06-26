@@ -34,7 +34,7 @@
 }
 
 /* Styles to center entry content and define the width of elements */
-.entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > *:not(.l-container--wide):not(.alignwide) {
+.entry-content > *:not(.alignfull):not(.alignwide):not(.l-container):not(.l-container--wide), .entry-header > *:not(.l-container--wide):not(.alignwide) {
 	@include contain-content;
 }
 
@@ -78,15 +78,9 @@
 }
 
 .entry-cats {
-	text-transform: uppercase;
-	font-family: $font__heading;
-	font-weight: 500;
-	@include font-size(0.875);
-	letter-spacing: 0.08rem;
-	padding-bottom: 0.25rem;
+	@include subheading-meta;
 	//border-bottom: 1px solid currentColor;
 	margin-bottom: 1rem;
-	opacity: 0.85;
 }
 
 p.entry-excerpt {

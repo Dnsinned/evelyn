@@ -1,6 +1,6 @@
 <?php
 /**
- * The sidebar containing the footer widget area
+ * The sidebar containing the social widget area
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *

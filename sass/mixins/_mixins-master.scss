@@ -116,3 +116,13 @@
 	transition-duration: var(--transition-time, 100ms);
 }
 
+@mixin subheading-meta {
+	text-transform: uppercase;
+	font-family: $font__heading;
+	font-weight: 500;
+	@include font-size(0.875);
+	letter-spacing: 0.08rem;
+	padding-bottom: 0.25rem;
+	opacity: 0.85;
+}
+

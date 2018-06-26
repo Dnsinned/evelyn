@@ -1,0 +1,32 @@
+.profile {
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  &.border-grey {
+    padding: 1.5rem;
+  }
+  .profile--photo {
+    width: 80px;
+    @supports (object-fit: cover) {
+      object-fit: cover;
+      height: 80px;
+      @media screen and (min-width: $query__md) {
+        height: 112px;
+      }
+    }
+    @media screen and (min-width: $query__md) {
+      width: 112px;
+    }
+  }
+  .profile--position {
+    @include subheading-meta;
+  }
+  .profile--bio {
+    @include font-size(1);
+  }
+  .media-body {
+    padding-left: 1rem;
+    border-left: 1px solid $color__soft-red;
+  }
+}
+
+

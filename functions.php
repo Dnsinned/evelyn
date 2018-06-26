@@ -168,7 +168,7 @@ function evelyn_widgets_init() {
 		'name'          => esc_html__( 'Social Widgets', 'evelyn' ),
 		'id'            => 'social-1',
 		'description'   => esc_html__( 'Add social media feeds here. E.g. Twitter and Facebook', 'evelyn' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s col-sm-6 col-lg-4 l-grid--item">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s col-md-6 l-grid--item">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h5 class="widget-title">',
 		'after_title'   => '</h5>',
@@ -296,12 +296,16 @@ function display_people_shortcode($atts = [], $content = null)
     $display_people_atts = shortcode_atts([
 			'num_to_show' => -1,
 			'role' => 'staff',
+			'style' => 'list',
+			'align_profile' => 0,
 		], $atts);
 		
 		$show_n = $display_people_atts['num_to_show'];
 		$people_role = $display_people_atts['role'];
+		$style = $display_people_atts['style'];
+		$align_profile = $display_people_atts['align_profile'];
 		ob_start(); 
-		get_template_part('template-parts/query/people.php');
+		include(locate_template('template-parts/query/people.php'));
 		$new_content = ob_get_clean();  
 		if( !empty( $new_content ) )
 			$content = $new_content;

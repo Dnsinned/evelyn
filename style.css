@@ -1134,6 +1134,40 @@ nav {
       color: #282729;
       background-color: #fff; }
 
+.profile {
+  margin-bottom: 1rem;
+  padding: 1rem 0; }
+  .profile.border-grey {
+    padding: 1.5rem; }
+  .profile .profile--photo {
+    width: 80px; }
+    @supports ((-o-object-fit: cover) or (object-fit: cover)) {
+      .profile .profile--photo {
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: 80px; }
+        @media screen and (min-width: 768px) {
+          .profile .profile--photo {
+            height: 112px; } } }
+    @media screen and (min-width: 768px) {
+      .profile .profile--photo {
+        width: 112px; } }
+  .profile .profile--position {
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    font-size: 0.875rem;
+    letter-spacing: 0.08rem;
+    padding-bottom: 0.25rem;
+    opacity: 0.85; }
+  .profile .profile--bio {
+    font-size: 16px;
+    font-size: 1rem; }
+  .profile .media-body {
+    padding-left: 1rem;
+    border-left: 1px solid #f2a496; }
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -1191,14 +1225,14 @@ nav {
   margin: 0 0 1.5em; }
 
 /* Styles to center entry content and define the width of elements */
-.entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > *:not(.l-container--wide):not(.alignwide) {
+.entry-content > *:not(.alignfull):not(.alignwide):not(.l-container):not(.l-container--wide), .entry-header > *:not(.l-container--wide):not(.alignwide) {
   max-width: 43rem;
   grid-column: content;
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
   @supports (display: grid) {
-    .entry-content > *:not(.alignfull):not(.alignwide):not(section), .entry-header > *:not(.l-container--wide):not(.alignwide) {
+    .entry-content > *:not(.alignfull):not(.alignwide):not(.l-container):not(.l-container--wide), .entry-header > *:not(.l-container--wide):not(.alignwide) {
       max-width: 100%; } }
 
 .entry-content > .alignfull {
@@ -1251,8 +1285,8 @@ nav {
   font-size: 0.875rem;
   letter-spacing: 0.08rem;
   padding-bottom: 0.25rem;
-  margin-bottom: 1rem;
-  opacity: 0.85; }
+  opacity: 0.85;
+  margin-bottom: 1rem; }
 
 p.entry-excerpt {
   margin-bottom: 0; }
@@ -1596,5 +1630,11 @@ object {
 
 .font-semibold {
   font-weight: 600; }
+
+.f-heading {
+  font-family: "Montserrat", sans-serif; }
+
+.f-body {
+  font-family: "Nunito", sans-serif; }
 
 /*# sourceMappingURL=style.css.map */
