@@ -34,7 +34,7 @@
 }
 
 /* Styles to center entry content and define the width of elements */
-.entry-content > *:not(.alignfull):not(.alignwide):not(.l-container):not(.l-container--wide), .entry-header > *:not(.l-container--wide):not(.alignwide) {
+.entry-content > *:not(.alignfull):not(.alignwide):not([class*="l-container"]), .entry-header > *:not([class*="l-container"]):not(.alignwide) {
 	@include contain-content;
 }
 

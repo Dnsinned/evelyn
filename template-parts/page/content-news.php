@@ -18,17 +18,6 @@
 	<div class="entry-content l-container">
 		<?php the_content(); ?>
 		<section class="row l-container--wide l-grid l-grid__3 l-grid-gutter">
-			<?php 
-
-			$file = get_field('document');
-
-			if( $file ): ?>
-				<div class="order-md-last col-sm-6 col-lg-4 l-grid--item">
-					<h4>Latest E-Bulletin</h4>
-					<a class="btn btn__resource btn__raised" href="<?php echo $file['url']; ?>"><?php echo $file['title']; ?></a>
-				</div>
-			<?php endif; ?>
-
 			<?php get_sidebar('social'); ?><!-- Footer widgets -->
 		</section> <!-- .site-info__resources -->
 	</div><!-- .entry-content -->
