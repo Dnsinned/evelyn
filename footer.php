@@ -53,7 +53,7 @@
           <a href="">Privacy</a>
 				</div> */ 
 				?>
-				<p>&copy Evelyn Oldfield Unit </div>
+				<p>&copy Evelyn Oldfield Unit 2018 </div>
       </div>
     </section> <!-- .site-info__legal -->
 	</footer><!-- #colophon -->
