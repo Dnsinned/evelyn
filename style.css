@@ -1377,7 +1377,7 @@ p.entry-excerpt {
 p.wp-block-subhead {
   font-size: 125%; }
 
-.wp-block-image img {
+.wp-block-image img:not(.fixed-width) {
   margin: 0 auto;
   width: 100%; }
 
@@ -1450,7 +1450,7 @@ p.wp-block-subhead {
 .stat--figure {
   font-size: 5rem;
   font-weight: 600;
-  color: #107180; }
+  color: #e54d38; }
 
 .stat--info {
   font-size: 1.125rem; }

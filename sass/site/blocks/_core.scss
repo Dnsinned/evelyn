@@ -24,7 +24,7 @@ p.wp-block-subhead {
 }
 
 .wp-block-image {
-	img {
+	img:not(.fixed-width) {
 		margin: 0 auto;
 		width: 100%;
 	} 
