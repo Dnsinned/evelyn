@@ -1377,11 +1377,11 @@ p.entry-excerpt {
 p.wp-block-subhead {
   font-size: 125%; }
 
-.wp-block-image img:not(.fixed-width) {
+.wp-block-image:not(.fixed-width) img {
   margin: 0 auto;
   width: 100%; }
 
-.wp-block-image.alignfull img {
+.wp-block-image:not(.fixed-width).alignfull img {
   width: 100vw; }
 
 .wp-block-gallery {
