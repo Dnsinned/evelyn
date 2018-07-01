@@ -42,7 +42,13 @@ while ( $projects->have_posts() ) : $projects->the_post();
       
       <p class="entry-cats"><?php $categories = get_the_category();
       if ( ! empty( $categories ) ) {
-        _e($categories[0]->name);
+        foreach ($categories as $key => $curr_cat) {
+          if ($key > 0) {
+            _e(' | ' . $curr_cat->name);
+          } else {
+            _e($curr_cat->name);
+          }
+        }
       } ?></p>
       
       <h4 class="entry-title mt-auto mb-2" title="<?php the_title_attribute(); ?>"><?php //echo $projects->current_post . ' '; ?><?php the_title(); ?></h4>
