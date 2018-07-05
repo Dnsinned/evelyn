@@ -237,8 +237,13 @@ function evelyn_resource_hints( $urls, $relation_type ) {
 	return $urls;
 }
 add_filter( 'wp_resource_hints', 'evelyn_resource_hints', 10, 2 );
+ 
+function htdat_jetpack_sitemap_post_types( $post_types ) {
+    $post_types[] = 'projects';
+    return $post_types; 
+}
 
-
+add_filter( 'jetpack_sitemap_post_types', 'htdat_jetpack_sitemap_post_types' ); 
 
 /**
  * Add custom shortcodes to load in predefined templates.
