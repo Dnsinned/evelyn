@@ -697,9 +697,9 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue; }
+  color: #e54d38; }
   a:visited {
-    color: royalblue; }
+    color: #e54d38; }
   a:hover, a:focus, a:active {
     color: #e54d38; }
   a:focus {
@@ -1297,6 +1297,9 @@ nav {
   padding-bottom: 0.25rem;
   opacity: 0.85;
   margin-bottom: 1rem; }
+
+.entry-footer > *:not(:first-child) {
+  margin-left: 1rem; }
 
 p.entry-excerpt {
   margin-bottom: 0; }

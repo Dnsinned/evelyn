@@ -12,6 +12,7 @@
  * @package Evelyn
  */
 
+/*
 if(is_archive()) {
     // force 404
     $wp_query->set_404();
@@ -19,7 +20,7 @@ if(is_archive()) {
     nocache_headers();
     include("404.php");
     die;
-}
+} */
 
 get_header();
 ?>
@@ -64,5 +65,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

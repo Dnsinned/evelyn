@@ -83,6 +83,10 @@
 	margin-bottom: 1rem;
 }
 
+.entry-footer > *:not(:first-child) {
+  margin-left: 1rem;
+}
+
 p.entry-excerpt {
 	margin-bottom: 0;
 }
