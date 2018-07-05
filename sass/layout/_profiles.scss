@@ -18,7 +18,7 @@
     }
   }
   .profile--position {
-    @include subheading-meta;
+    padding-bottom: 0.25rem;
   }
   .profile--bio {
     @include font-size(1);

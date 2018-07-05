@@ -1157,14 +1157,7 @@ nav {
       .profile .profile--photo {
         width: 112px; } }
   .profile .profile--position {
-    text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    font-size: 0.875rem;
-    letter-spacing: 0.08rem;
-    padding-bottom: 0.25rem;
-    opacity: 0.85; }
+    padding-bottom: 0.25rem; }
   .profile .profile--bio {
     font-size: 16px;
     font-size: 1rem; }
@@ -1294,7 +1287,6 @@ nav {
   font-size: 14px;
   font-size: 0.875rem;
   letter-spacing: 0.08rem;
-  padding-bottom: 0.25rem;
   opacity: 0.85;
   margin-bottom: 1rem; }
 
@@ -1657,5 +1649,27 @@ object {
 
 .f-body {
   font-family: "Nunito", sans-serif; }
+
+.f-metasub {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  font-size: 0.875rem;
+  letter-spacing: 0.08rem;
+  opacity: 0.85; }
+
+/* class that ensures flexbox stack on small screens */
+.flex-row-sm {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  @media screen and (min-width: 576px) {
+    .flex-row-sm {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row; } }
 
 /*# sourceMappingURL=style.css.map */
