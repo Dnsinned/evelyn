@@ -91,36 +91,43 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 		add_theme_support( 'align-wide' );
 
 		/* Add support for Gutenberg color palette */
-		add_theme_support( 'editor-color-palette',
+		add_theme_support( 'editor-color-palette', array(
 			array(
 				'name' => esc_html__( 'Evelyn Red', 'evelyn' ),
+				'slug'  => 'evelyn-red',
 				'color' => '#e54d38',
 			),
 			array(
 				'name' => esc_html__( 'Soft Red', 'evelyn' ),
+				'slug'  => 'soft-red',
 				'color' => '#f2a496',
 			),
 			array(
 				'name' => esc_html__( 'Light Red', 'evelyn' ),
+				'slug'  => 'light-red',
 				'color' => '#fad1ca',
 			),
 			array(
 				'name' => esc_html__( 'Dark Grey', 'evelyn' ),
+				'slug'  => 'dark-grey',
 				'color' => '#282729',
 			),
 			array(
 				'name' => esc_html__( 'Evelyn Grey', 'evelyn' ),
+				'slug'  => 'evelyn-grey',
 				'color' => '#7b7a7f',
 			),
 			array(
 				'name' => esc_html__( 'Light Grey', 'evelyn' ),
+				'slug'  => 'light-grey',
 				'color' => '#ededed',
 			),
 			array(
 				'name' => esc_html__( 'White', 'evelyn' ),
+				'slug'  => 'white',
 				'color' => '#ffffff',
 			)
-		);
+		));
 	}
 endif;
 add_action( 'after_setup_theme', 'evelyn_setup' );
