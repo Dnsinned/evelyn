@@ -44,7 +44,7 @@ if ($people->found_posts) :
         <div class="media-body">
           <?php the_title('<h4 class="profile--name mt-0 mb-2">', '</h4>'); ?>
           <?php if (get_field('positions')) { ?>
-            <div class="profile--position"><?php the_field('positions'); ?></div>
+            <div class="profile--position f-metasub "><?php the_field('positions'); ?></div>
           <?php } ?>
           <div class="profile--bio">
             <?php the_content(); ?>
@@ -61,11 +61,12 @@ if ($people->found_posts) :
     echo '<ul class="list-group">';
     while ( $people->have_posts() ) : $people->the_post(); ?> 
 
-      <li class="list-group-item d-flex justify-content-between">
+      <li class="list-group-item d-flex flex-row-sm justify-content-between">
         <span class="profile--name"><?php echo esc_html( get_the_title() ); ?></span>
         <?php if (get_field('positions')) { ?>
-        <span class="profile--position"><?php the_field('positions'); ?></span>
+        <span class="profile--position f-metasub"><?php the_field('positions'); ?></span>
         <?php } ?>
+        
       </li>
 
     <?php endwhile; ?>

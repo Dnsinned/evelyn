@@ -15,7 +15,7 @@
 
 	<?php // evelyn_post_thumbnail(); ?>
 
-	<div class="entry-summary">
+	<div class="entry-summary l-container--content">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 

@@ -3,3 +3,11 @@
 --------------------------------------------------------------*/
 @import "colors";
 @import "typography";
+
+/* class that ensures flexbox stack on small screens */
+.flex-row-sm {
+  flex-direction: column;
+  @media screen and (min-width: $query__sm) {
+    flex-direction: row;
+  }
+}

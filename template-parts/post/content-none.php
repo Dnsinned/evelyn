@@ -35,15 +35,21 @@
 			?>
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'evelyn' ); ?></p>
-			<?php
-			get_search_form();
+      <div>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="mb-3 btn btn__cta btn__raised">Return Home</a>
+      </div>
+      <?php
+			// get_search_form();
 
 		else :
 			?>
 
 			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'evelyn' ); ?></p>
-			<?php
-			get_search_form();
+      <div>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="mb-3 btn btn__cta btn__raised">Return Home</a>
+      </div>
+      <?php
+			//get_search_form();
 
 		endif;
 		?>

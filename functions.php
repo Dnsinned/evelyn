@@ -245,6 +245,11 @@ function evelyn_resource_hints( $urls, $relation_type ) {
 }
 add_filter( 'wp_resource_hints', 'evelyn_resource_hints', 10, 2 );
 
+/* Change the read more default text to link */
+function wpdocs_excerpt_more( $more ) {
+  return ' <a href="'. get_the_permalink() .'" rel="nofollow">[Read More...]</a>';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 
 /**
@@ -319,7 +324,6 @@ function display_people_shortcode($atts = [], $content = null)
 		return $content;
 }
 add_shortcode('display-people', 'display_people_shortcode');
-
 
 /**
  * Implement the Custom Header feature.

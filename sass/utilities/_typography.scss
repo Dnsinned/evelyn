@@ -13,3 +13,7 @@
 .f-body {
   font-family: $font__main;
 }
+
+.f-metasub {
+  @include subheading-meta;
+}
