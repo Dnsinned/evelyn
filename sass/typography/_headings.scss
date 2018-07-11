@@ -54,3 +54,7 @@ h6 {
     @include font-size(1.25);
   }
 }
+
+.subheading-meta {
+  @include subheading-meta;
+}

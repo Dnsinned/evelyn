@@ -443,6 +443,15 @@ h6 {
     font-size: 20px;
     font-size: 1.25rem; } }
 
+.subheading-meta {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  font-size: 0.875rem;
+  letter-spacing: 0.08rem;
+  opacity: 0.85; }
+
 p {
   margin-bottom: 16px;
   margin-bottom: 1.25rem; }
@@ -1303,6 +1312,19 @@ p.entry-excerpt {
     padding: 5vh 0; }
   .error-404.not-found .page-content {
     padding-bottom: 5vh; }
+
+/* mailchimp archive embed styles */
+.display_archive {
+  text-align: center; }
+  .display_archive .campaign {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-size: 1rem; }
+    .display_archive .campaign a {
+      display: block;
+      font-weight: 500; }
 
 /*--------------------------------------------------------------
 ## Comments

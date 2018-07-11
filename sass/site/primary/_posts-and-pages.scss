@@ -101,3 +101,18 @@ p.entry-excerpt {
 		padding-bottom: 5vh;
 	}
 }
+
+/* mailchimp archive embed styles */
+.display_archive {
+  text-align: center;
+  .campaign {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: $font__heading;
+    @include font-size(1);
+    a {
+      display: block;
+      font-weight: 500;
+    }
+  }
+}
