@@ -9,12 +9,19 @@
   * Define our query arguments
   * Want project posts that haven't been archived
   */
+
 $args = array (
   'post_type' => 'projects',
-  'category__not_in' => 'archive',
   'orderby' => 'menu_order',
   'order'   => 'ASC'
 );
+if ($show_archives) {
+  $args['category__in'] = $archive_id;
+}
+else {
+  $args['category__not_in'] =  $archive_id;
+}
+
 
 // Place query results in variable 
 $projects = new WP_Query($args);

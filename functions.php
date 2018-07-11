@@ -256,13 +256,23 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
  * Add custom shortcodes to load in predefined templates.
  */
 function display_projects_shortcode($atts = [], $content = null)
-{
-    ob_start(); 
-		get_template_part('template-parts/query/projects');
-		$new_content = ob_get_clean();  
-		if( !empty( $new_content ) )
-			$content = $new_content;
-		return $content;
+{  
+  // normalize attribute keys, lowercase
+	$atts = array_change_key_case((array)$atts, CASE_LOWER);	
+
+	// override default attributes with user attributes
+  $display_support_us_atts = shortcode_atts([
+    'show_archives' => 0,
+  ], $atts);
+
+  $show_archives = $display_support_us_atts['show_archives'];
+  $archive_id = get_cat_ID('archive');
+  ob_start(); 
+  include(locate_template('template-parts/query/projects.php'));
+  $new_content = ob_get_clean();  
+  if( !empty( $new_content ) )
+    $content = $new_content;
+  return $content;
 }
 add_shortcode('display-projects', 'display_projects_shortcode');
 
@@ -272,30 +282,30 @@ function display_support_us_shortcode($atts = [], $content = null)
 	$atts = array_change_key_case((array)$atts, CASE_LOWER);	
 
 	// override default attributes with user attributes
-    $display_support_us_atts = shortcode_atts([
-			'pagename' => 'support-us',
-			'num_to_show' => -1,
-			'columns' => 2,
-			'more_info_page' => 0,
-			'full_post' => 0,
-		], $atts);
-																 
-		$show_n = $display_support_us_atts['num_to_show'];
-		$page = get_page_by_path($display_support_us_atts['pagename']);
-		$columns = $display_support_us_atts['columns'];
-		$more_info_page = $display_support_us_atts['more_info_page'];
-		$show_full_post = $display_support_us_atts['full_post'];
-		if ($page) {
-			$support_page_ID = $page->ID;
-			ob_start(); 
-			include(locate_template('template-parts/query/support-us.php'));
-			$new_content = ob_get_clean();  
-			if( !empty( $new_content ) )
-				$content = $new_content;
-		} else {
-			return $content;
-		}
-		return $content;
+  $display_support_us_atts = shortcode_atts([
+    'pagename' => 'support-us',
+    'num_to_show' => -1,
+    'columns' => 2,
+    'more_info_page' => 0,
+    'full_post' => 0,
+  ], $atts);
+                                
+  $show_n = $display_support_us_atts['num_to_show'];
+  $page = get_page_by_path($display_support_us_atts['pagename']);
+  $columns = $display_support_us_atts['columns'];
+  $more_info_page = $display_support_us_atts['more_info_page'];
+  $show_full_post = $display_support_us_atts['full_post'];
+  if ($page) {
+    $support_page_ID = $page->ID;
+    ob_start(); 
+    include(locate_template('template-parts/query/support-us.php'));
+    $new_content = ob_get_clean();  
+    if( !empty( $new_content ) )
+      $content = $new_content;
+  } else {
+    return $content;
+  }
+  return $content;
 }
 add_shortcode('display-support-us', 'display_support_us_shortcode');
 
@@ -305,23 +315,23 @@ function display_people_shortcode($atts = [], $content = null)
 	$atts = array_change_key_case((array)$atts, CASE_LOWER);	
 
 	// override default attributes with user attributes
-    $display_people_atts = shortcode_atts([
-			'num_to_show' => -1,
-			'role' => 'staff',
-			'style' => 'list',
-			'align_profile' => 0,
-		], $atts);
-		
-		$show_n = $display_people_atts['num_to_show'];
-		$people_role = $display_people_atts['role'];
-		$style = $display_people_atts['style'];
-		$align_profile = $display_people_atts['align_profile'];
-		ob_start(); 
-		include(locate_template('template-parts/query/people.php'));
-		$new_content = ob_get_clean();  
-		if( !empty( $new_content ) )
-			$content = $new_content;
-		return $content;
+  $display_people_atts = shortcode_atts([
+    'num_to_show' => -1,
+    'role' => 'staff',
+    'style' => 'list',
+    'align_profile' => 0,
+  ], $atts);
+  
+  $show_n = $display_people_atts['num_to_show'];
+  $people_role = $display_people_atts['role'];
+  $style = $display_people_atts['style'];
+  $align_profile = $display_people_atts['align_profile'];
+  ob_start(); 
+  include(locate_template('template-parts/query/people.php'));
+  $new_content = ob_get_clean();  
+  if( !empty( $new_content ) )
+    $content = $new_content;
+  return $content;
 }
 add_shortcode('display-people', 'display_people_shortcode');
 
