@@ -91,7 +91,7 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 		add_theme_support( 'align-wide' );
 
 		/* Add support for Gutenberg color palette */
-		add_theme_support( 'editor-color-palette', array(
+		add_theme_support( 'editor-color-palette',
 			array(
 				'name' => esc_html__( 'Evelyn Red', 'evelyn' ),
 				'slug'  => 'evelyn-red',
@@ -127,7 +127,7 @@ if ( ! function_exists( 'evelyn_setup' ) ) :
 				'slug'  => 'white',
 				'color' => '#ffffff',
 			)
-		));
+		);
 	}
 endif;
 add_action( 'after_setup_theme', 'evelyn_setup' );
